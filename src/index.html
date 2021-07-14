@@ -7,6 +7,26 @@
   <title>Document</title>
 </head>
 <body>
+  <div id="root"></div>
   <script type="module" src="main.js"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyD464hS5vHKqK5ksCOd13197vyAajkblsQ",
+      authDomain: "doit-social-network.firebaseapp.com",
+      projectId: "doit-social-network",
+      storageBucket: "doit-social-network.appspot.com",
+      messagingSenderId: "576121733274",
+      appId: "1:576121733274:web:8f0556643377d26137df23"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
 </body>
 </html>
