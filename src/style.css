@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Noticia+Text&display=swap');
+nav{
+    background-color: white;
+}
+.menu{
+    float: right;
+    font-size: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 35%;
+    margin: 4%
+}
+a{
+    color: black;
+    font-weight: bold;
+    text-decoration:none;
+    margin: 3%;
+}
+main{
+    background-image: url(./lib/view/IMG/backgroundDoIt.png);
+    background-size: 100%;
+    padding: 28.5%;
+    margin: 0% -1% -1% -1%;
+}
+.title{
+    font-family: 'Noticia Text', verdana;
+    text-shadow: black 0.02em 0.02em 0.08em;
+    position: absolute;
+    top: 35%;
+    font-size: 250%;
+    color: black;
+    font-weight: bold;
+}
+
+.welcomePosting{
+    display:flex;
+    justify-content: flex-start;
+    align-content: space-between;
+    flex-wrap:wrap;
+    flex-direction: row;
+    position: absolute;
+    width: auto;
+    margin: auto;
+    top: 50%;
+    left: 15%;
+}
+.post{
+    width: 30%;
+    height: 30%;
+    transition: 1s;
+    cursor: pointer;
+}
+.post:hover {
+    transform: scale(.97);
+  }
+.downPage{
+    position:fixed;
+    width: 6%;
+    height: 11%;
+    left: 50%;
+    animation-name: animationDown;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+@keyframes animationDown {
+    from {opacity: 1;}
+    to {opacity: 0;} 
+}
+.divRegistration{
+    background-color: white;
+    width: 50%;
+    height: 80%;
+    padding: 50%;
+}
