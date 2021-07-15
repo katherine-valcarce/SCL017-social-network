@@ -1,5 +1,6 @@
 import { welcome } from './lib/views/welcomeTemplate.js';
 import { changeTemplate } from './lib/router.js';
+import { imgExamples } from './lib/views/imgExamplesTemplate.js';
 
 const init = () => {
   const containerRoot = document.getElementById('root');

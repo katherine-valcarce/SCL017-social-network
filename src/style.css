@@ -1,16 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Noticia+Text&display=swap');
+
 body{
 margin: 0px;
 }
+
 header{
-  height: 70px;
+  background-color: white;
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
 .topNavBar{
-  overflow: hidden;
-  background-color: #333;
+  float: right;
+  font-size: 100%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  margin: 4%
 }
+
 .topNavBar a {
   float:right;
   color: #f2f2f2;
@@ -30,10 +38,60 @@ header{
   color: white;
 }
 
-.imgExamples{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  border:solid;
-  margin: 20%;
+.exampleImg{
+  border-radius: 15px;
+  box-shadow: 0px 1px 8px 0px #697473;
+  width: 30%;
+  height: 30%;
+  transition: 1s;
+  cursor: pointer;
+  margin: 15px;
+}
+
+
+main{
+  background-image: url(img/backgroundDoIt.png);
+  background-size: 100%;
+  padding: 28.5%;
+  margin: 0% -1% -1% -1%;
+}
+
+.titleMain{
+  font-family: 'Noticia Text', verdana;
+  text-shadow: black 0.02em 0.02em 0.08em;
+  position: absolute;
+  top: 35%;
+  font-size: 250%;
+  color: black;
+  font-weight: bold;
+}
+
+.exampleSection{
+  display:flex;
+  justify-content: flex-start;
+  align-content: space-between;
+  flex-wrap:wrap;
+  flex-direction: row;
+  position: absolute;
+  width: auto;
+  margin: auto;
+  top: 50%;
+  left: 15%;
+}
+
+.exampleImg:hover {
+  transform: scale(.97);
+}
+.downPageIcon{
+  position:fixed;
+  width: 6%;
+  height: 11%;
+  left: 50%;
+  animation-name: animationDown;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes animationDown {
+  from {opacity: 1;}
+  to {opacity: 0;} 
 }
