@@ -1,4 +1,5 @@
 /* eslint-disable spaced-comment */
+import { login } from './index.js';
 import { welcome } from './views/welcomeTemplate.js';
 import { aboutUs } from './views/aboutUsTemplate.js';
 import { signIn } from './views/singInTemplate.js';
@@ -6,6 +7,7 @@ import { logIn } from './views/logInTemplate.js';
 
 export const changeTemplate = (hash) => {
   const containerRoot = document.getElementById('root');
+  let googleLoginButton = '';
 
   switch (hash) {
     case '':
@@ -19,6 +21,10 @@ export const changeTemplate = (hash) => {
       break;
     case '#/logIn':
       containerRoot.innerHTML = logIn();
+      googleLoginButton = containerRoot.querySelector('#googleLogin');
+      googleLoginButton.addEventListener('click', () => {
+        login();
+      });
       break;
     default:
       containerRoot.innerHTML = `
