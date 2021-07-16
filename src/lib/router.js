@@ -2,7 +2,7 @@ import { registration } from './view/templateRegistro.js';
 //import { login } from './view/templateInicioSesion.js';
 import { welcome } from './view/templateWelcome.js';
 
-export const changeRoute = (hash) => {
+/*export const changeRoute = (hash) => {
         if (hash === '#/'){
              return showTemplate(hash)
         } else if ( hash === '#/Registro'){
@@ -10,14 +10,13 @@ export const changeRoute = (hash) => {
         } else {
               return showTemplate(hash)
         }
-}
+}*/
 
-const showTemplate = (ash) => {
-     const containerRoot = document.getElementById('root');
-     containerRoot.appendChild(welcome);
+export const showTemplate = (hash) => {
+     let containerRoot = document.getElementById('root');
 
-    switch (ash) {
-        case '#/':
+    switch (hash) {
+        case '':
             containerRoot.appendChild(welcome());
          break;
         case '#/Registro':

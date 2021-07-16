@@ -1,9 +1,9 @@
 export const registration = () => {
-    const divRegistration = document.createElement('div');
+    const divRegistration = document.createElement('main');
     divRegistration.className = 'divRegistration';
      const textoregistro = document.createElement ('text')
-     title.className = 'title';
-     title.textContent = 'REGISTRATE';
+     textoregistro.className = 'title';
+     textoregistro.textContent = 'REGISTRATE';
 divRegistration.appendChild(textoregistro);
 
 return divRegistration;
