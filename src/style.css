@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noticia+Text&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Niramit:wght@200&display=swap');
 body{
 margin: 0px;
 }
@@ -12,31 +12,21 @@ header{
 }
 
 .topNavBar{
+  background-color: white;
   float: right;
+  width: 40%;
   font-size: 100%;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 
-  margin: 4%
 }
 
 .topNavBar a {
-  float:right;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topNavBar a:hover {
-  background-color: #ddd;
   color: black;
+  font-weight: bold;
+  text-decoration:none;
+  margin: 3%;
 }
 
-.topNavBar a.activeByDefault {
-  background-color: #b58e23;
-  color: white;
-}
 
 .exampleImg{
   border-radius: 15px;
@@ -54,6 +44,7 @@ main{
   background-size: 100%;
   padding: 28.5%;
   margin: 0% -1% -1% -1%;
+  background-repeat: no-repeat;
 }
 
 .titleMain{
@@ -78,20 +69,221 @@ main{
   top: 50%;
   left: 15%;
 }
-
 .exampleImg:hover {
   transform: scale(.97);
 }
-.downPageIcon{
-  position:fixed;
-  width: 6%;
-  height: 11%;
-  left: 50%;
-  animation-name: animationDown;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
+.tittleSingIn{
+  font-family: 'Noticia Text', verdana;
+  text-shadow: black 0.02em 0.02em 0.08em;
+  font-size: 250%;
+  color: black;
+  font-weight: bold;
+  text-align: left;
+  float: left;
+  width: 40%;
+  margin-left: 8%;
+  margin-top: 2%;
+  position: absolute;
+  top:45%;
 }
-@keyframes animationDown {
-  from {opacity: 1;}
-  to {opacity: 0;} 
+.mainSingIn{
+  background-image: url(img/backgroundDoIt.png);
+  background-size: 100%;
+  padding: 28.5% 0%;
+  animation-name: smoothTransition;
+  animation-duration: 1s;
+}
+.singInForm {
+ margin-right: 7%;
+ border: 2px solid black;
+ border-radius: 15px;
+ padding: 1% 6%;
+ position: absolute;
+ top: 25%;
+ left: 50%;
+ width: 27%;
+}
+footer{
+  border: 2px solid black;
+  background-color: white;
+  padding: 1%;
+  text-align: center;
+}
+.textFooter{
+  font-family: 'Niramit', verdana;
+  font-weight: bold;
+}
+.textFooterHash{
+  font-family: 'Noticia Text', verdana;
+  color: blue;
+  font-weight: bold;
+}
+.googleLoginBtn{
+  font-family: 'Niramit', verdana; 
+  background-color: rgba(245, 194, 95, 1);
+  border: 2px solid black;
+  border-radius: 5px;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  margin-left: 11.5%;
+  margin-top: -20%;
+  padding: 2% 4%;
+  cursor: pointer;
+}
+.logInBtn {
+  font-family: 'Niramit', verdana; 
+  background-color: rgba(210, 134, 162, 1);
+  border: 2px solid black;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  float: inline-start;
+  margin-left: 35%;
+  margin-top: 5%;
+  margin-bottom: 4%;
+  padding: 2% 4%;
+  cursor: pointer;
+}
+h1{
+  font-family: 'Niramit', verdana; 
+  text-shadow: black 0.02em 0.02em 0.08em;
+  top: 10%;
+  text-align: center;
+  margin: 2%;
+}
+h2{
+  font-family: 'Niramit', verdana; 
+  font-size: 120%;
+  text-align: center;
+}
+.Form{
+  text-align: center;
+  float: inline-start;
+  width: 90%;
+  padding: 4%;
+  background-color: #F3F3F3;
+  border-style: none;
+  border-radius: 8%;
+  margin: 2%;
+}
+.LogInForm {
+  background-color: white;
+  margin-right: 7%;
+  border: 2px solid rgba(245, 194, 95, 1);;
+  border-radius: 15px;
+  padding: 6% 6%;
+  position: fixed;
+  top: 13%;
+  left: 38%;
+  animation-name: smoothTransition;
+  animation-duration: 1s;
+}
+@keyframes smoothTransition {
+  from {opacity: 0; top:50%;}
+}
+.createAccountBtn{
+  font-family: 'Niramit', verdana; 
+  background-color: rgba(210, 134, 162, 1);
+  border: 2px solid black;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  float: inline-start;
+  margin-left: 35%;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  padding: 2% 4%;
+  cursor: pointer;
+}
+.googleLoginBtn2{
+  font-family: 'Niramit', verdana; 
+  background-color: rgba(245, 194, 95, 1);
+  border: 2px solid black;
+  border-radius: 5px;
+  color: black;
+  font-weight:bolder;
+  text-align: center;
+  margin-left: 25%;
+  margin-top: 1%;
+  padding: 2% 6%;
+  cursor: pointer;
+}
+.modal{
+  background-color: rgba(0,0,0,.8);
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  transition: all 1s;
+}
+#logIn:target{
+  opacity:1;
+  pointer-events:auto;
+}
+a.close-modal{
+  font-size: 100%;
+  font-family: 'Niramit', verdana; 
+  font-weight: bold;
+  padding: 0;
+  position: fixed;
+  margin-top: 2%;
+  margin-left: 7%;
+  text-decoration: none;
+  color: rgba(211, 210, 210, 1);
+}
+.mainAboutUs{
+  background-image: url(img/backgroundDoIt.png);
+  background-size: 100%;
+  padding: 23% 0%;
+  animation-name: smoothTransition;
+  animation-duration: 1s;
+}
+.tittleAboutUs{
+  font-family: 'Noticia Text', verdana;
+  text-shadow: black 0.02em 0.02em 0.08em;
+  font-size: 500%;
+  color: black;
+  font-weight: bold;
+  position: absolute;
+  top: 27%;
+  left: 47%;
+}
+.TextAboutUsOne{
+  font-family: 'Noticia Text', verdana;
+  text-align: center;
+  font-size: 120%;
+  color: black;
+  position: absolute;
+  width: 60% ;
+  top: 50%;
+  left: 24%;
+}
+.TextAboutUsTwo{
+  font-family: 'Noticia Text', verdana;
+  text-align: center;
+  font-size: 120%;
+  color: #F5C04D;
+  font-weight: bold;
+  position: absolute;
+  top: 70%;
+  left: 40%;
+}
+.joinBtn{
+  font-family: 'Noticia Text', verdana;
+  font-size: 130%;
+  color: #B09F9F;
+  font-weight: bold;
+  position: absolute;
+  top: 95%;
+  left: 35%;
+  margin: 4%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+.joinBtn:hover{
+  transform: scale(1.20);
 }

@@ -10,7 +10,6 @@ export const welcomeImagesTemplate = () => {
             <img src="img/crochet.jpeg" class= "exampleImg">
             <img src="img/origami.jpeg" class= "exampleImg">
         </section>
-        <img src=""img/down.png" class= "downPageIcon">
     </main>
     `;
   return welcomeImagesHTML;

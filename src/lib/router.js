@@ -1,5 +1,5 @@
 /* eslint-disable spaced-comment */
-import { login, register } from './index.js';
+import { googleRegister, register } from './index.js';
 import { welcomeTemplate } from './views/welcomeTemplate.js';
 import { aboutUsTemplate } from './views/aboutUsTemplate.js';
 import { registerTemplate } from './views/registerTemplate.js';
@@ -19,10 +19,10 @@ export const changeTemplate = (hash) => {
     case '#/register':
       containerRoot.innerHTML = registerTemplate();
       register();
+      googleRegister();
       break;
     case '#/logIn':
       containerRoot.innerHTML = loginTemplate();
-      login();
       /*  googleLoginButton = containerRoot.querySelector('#googleLogin');
       googleLoginButton.addEventListener('click', () => {
         login();

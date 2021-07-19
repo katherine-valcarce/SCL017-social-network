@@ -3,19 +3,31 @@ import { headerTemplate } from './headerTemplate.js';
 export const registerTemplate = () => {
   let registerHTML = headerTemplate();
   registerHTML += `
-      <main>
-          <h1>Regístrate para ingresar a nuestra comunidad</h1>
-          <form id="registerForm">
-              <h2>Nos Alegra que quieras crear junto a nosotros</h2>
-              <h3>Tenemos muchos proyectos que te pueden gustar</h3>
-              <input type="text" id="registerEmail" placeholder="Correo electrónico" />
-              <input type="password" id="registerPassword" placeholder="Ingresa una contraseña" />
-              <button type="submit">Crear cuenta</button>
-              <h3>o</h3>
-              <button>registrarte con google</button>
-          </form>
-      </main>
+    <div class="mainSingIn">
+      <text class= "tittleSingIn">
+        Regístrate para ingresar <br> a nuestra comunidad
+      </text>
+      <div class= "singInForm">
+          <h1> Nos alegra que quieras <br> crear junto a nosotros</h1>
+          <h2> Tenemos muchos proyectos <br> que te pueden gustar</h2>
+            <form id="registerForm">
+                <input type="text" id="registerEmail" placeholder="Correo electrónico" class="Form" />
+                <input type="password" id="registerPassword" placeholder="Ingresa una contraseña" class="Form" />
+                <button type="submit" class="createAccountBtn" >Crear cuenta</button> 
+            </form>
+            <br><center> ó </center><br>  
+            <button id="googleLogin" class="googleLoginBtn2">Crear cuenta con Google</button>
+      </div>
+    </div>`;
+ registerHTML += `
+    <footer>
+      <text class="textFooterHash">
+        #IDidIt
+      </text>
+      <text class= "textFooter">
+        Sigue a nuestra comunidad en Instagram y sube tus proyectos y avances
+      </text>
+    </footer>
     `;
-
   return registerHTML;
 };

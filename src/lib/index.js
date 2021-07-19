@@ -7,7 +7,7 @@ export const myFunction = () => {
   console.log('Hola mundo!');
 };
 
-export const login = () => {
+export const googleRegister = () => {
   const googleLoginButton = document.querySelector('#googleLogin');
   googleLoginButton.addEventListener('click', () => {
     const provider = new firebase.auth.GoogleAuthProvider();
