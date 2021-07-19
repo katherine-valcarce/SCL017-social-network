@@ -1,30 +1,32 @@
 /* eslint-disable spaced-comment */
-import { login } from './index.js';
-import { welcome } from './views/welcomeTemplate.js';
-import { aboutUs } from './views/aboutUsTemplate.js';
-import { signIn } from './views/singInTemplate.js';
-import { logIn } from './views/logInTemplate.js';
+import { login, register } from './index.js';
+import { welcomeTemplate } from './views/welcomeTemplate.js';
+import { aboutUsTemplate } from './views/aboutUsTemplate.js';
+import { registerTemplate } from './views/registerTemplate.js';
+import { loginTemplate } from './views/loginTemplate.js';
 
 export const changeTemplate = (hash) => {
   const containerRoot = document.getElementById('root');
-  let googleLoginButton = '';
+  /* let googleLoginButton = ''; */
 
   switch (hash) {
     case '':
-      containerRoot.innerHTML = welcome();
+      containerRoot.innerHTML = welcomeTemplate();
       break;
     case '#/aboutUs':
-      containerRoot.innerHTML = aboutUs();
+      containerRoot.innerHTML = aboutUsTemplate();
       break;
-    case '#/signIn':
-      containerRoot.innerHTML = signIn();
+    case '#/register':
+      containerRoot.innerHTML = registerTemplate();
+      register();
       break;
     case '#/logIn':
-      containerRoot.innerHTML = logIn();
-      googleLoginButton = containerRoot.querySelector('#googleLogin');
+      containerRoot.innerHTML = loginTemplate();
+      login();
+      /*  googleLoginButton = containerRoot.querySelector('#googleLogin');
       googleLoginButton.addEventListener('click', () => {
         login();
-      });
+      }); */
       break;
     default:
       containerRoot.innerHTML = `

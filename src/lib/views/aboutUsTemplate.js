@@ -1,8 +1,8 @@
-import { header } from './headerTemplate.js';
+import { headerTemplate } from './headerTemplate.js';
 
-export const aboutUs = () => {
-  let aboutUsView = header();
-  aboutUsView += `
+export const aboutUsTemplate = () => {
+  let aboutUsHTML = headerTemplate();
+  aboutUsHTML += `
       <section class = "aboutUs">
           <p>
           "Red social enfocada a compartir tutoriales (en distintos formatos) 
@@ -12,5 +12,5 @@ export const aboutUs = () => {
       </section>
     `;
 
-  return aboutUsView;
+  return aboutUsHTML;
 };

@@ -1,9 +1,9 @@
-import { welcome } from './lib/views/welcomeTemplate.js';
+import { welcomeTemplate } from './lib/views/welcomeTemplate.js';
 import { changeTemplate } from './lib/router.js';
 
 const init = () => {
   const containerRoot = document.getElementById('root');
-  containerRoot.innerHTML = welcome();
+  containerRoot.innerHTML = welcomeTemplate();
   window.addEventListener('hashchange', () => {
     console.log(window.location.hash);
     changeTemplate(window.location.hash);

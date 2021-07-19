@@ -1,9 +1,9 @@
-import { imgExamples } from './imgExamplesTemplate.js';
-import { header } from './headerTemplate.js';
+import { welcomeImagesTemplate } from './welcomeImagesTemplate.js';
+import { headerTemplate } from './headerTemplate.js';
 
-export const welcome = () => {
-  let welcomeView = header();
-  welcomeView += imgExamples();
+export const welcomeTemplate = () => {
+  let welcomeHTML = headerTemplate();
+  welcomeHTML += welcomeImagesTemplate();
 
-  return welcomeView;
+  return welcomeHTML;
 };
