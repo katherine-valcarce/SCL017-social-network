@@ -8,8 +8,8 @@ export const myFunction = () => {
 };
 
 export const googleRegister = () => {
-  const googleLoginButton = document.querySelector('#googleLogin');
-  googleLoginButton.addEventListener('click', () => {
+  const googleRegisterButton = document.querySelector('#googleRegisterButton');
+  googleRegisterButton.addEventListener('click', () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth()
       .signInWithPopup(provider)

@@ -28,7 +28,7 @@ header{
 }
 
 
-.exampleImg{
+.welcomeImg{
   border-radius: 15px;
   box-shadow: 0px 1px 8px 0px #697473;
   width: 30%;
@@ -47,7 +47,7 @@ main{
   background-repeat: no-repeat;
 }
 
-.titleMain{
+.welcomeTitle{
   font-family: 'Noticia Text', verdana;
   text-shadow: black 0.02em 0.02em 0.08em;
   position: absolute;
@@ -57,7 +57,7 @@ main{
   font-weight: bold;
 }
 
-.exampleSection{
+.welcomeImagesSection{
   display:flex;
   justify-content: flex-start;
   align-content: space-between;
@@ -69,10 +69,10 @@ main{
   top: 50%;
   left: 15%;
 }
-.exampleImg:hover {
+.welcomeImg:hover {
   transform: scale(.97);
 }
-.tittleSingIn{
+.registerTitle{
   font-family: 'Noticia Text', verdana;
   text-shadow: black 0.02em 0.02em 0.08em;
   font-size: 250%;
@@ -86,14 +86,14 @@ main{
   position: absolute;
   top:45%;
 }
-.mainSingIn{
+.registerMain{
   background-image: url(img/backgroundDoIt.png);
   background-size: 100%;
   padding: 28.5% 0%;
   animation-name: smoothTransition;
   animation-duration: 1s;
 }
-.singInForm {
+.registerForm {
  margin-right: 7%;
  border: 2px solid black;
  border-radius: 15px;
@@ -109,16 +109,16 @@ footer{
   padding: 1%;
   text-align: center;
 }
-.textFooter{
+.footerText{
   font-family: 'Niramit', verdana;
   font-weight: bold;
 }
-.textFooterHash{
+.doitHash{
   font-family: 'Noticia Text', verdana;
   color: blue;
   font-weight: bold;
 }
-.googleLoginBtn{
+.googleLoginButton{
   font-family: 'Niramit', verdana; 
   background-color: rgba(245, 194, 95, 1);
   border: 2px solid black;
@@ -131,7 +131,7 @@ footer{
   padding: 2% 4%;
   cursor: pointer;
 }
-.logInBtn {
+.loginButton {
   font-family: 'Niramit', verdana; 
   background-color: rgba(210, 134, 162, 1);
   border: 2px solid black;
@@ -158,7 +158,7 @@ h2{
   font-size: 120%;
   text-align: center;
 }
-.Form{
+.inputForm{
   text-align: center;
   float: inline-start;
   width: 90%;
@@ -168,7 +168,7 @@ h2{
   border-radius: 8%;
   margin: 2%;
 }
-.LogInForm {
+.loginForm {
   background-color: white;
   margin-right: 7%;
   border: 2px solid rgba(245, 194, 95, 1);;
@@ -183,7 +183,7 @@ h2{
 @keyframes smoothTransition {
   from {opacity: 0; top:50%;}
 }
-.createAccountBtn{
+.createAccountButton{
   font-family: 'Niramit', verdana; 
   background-color: rgba(210, 134, 162, 1);
   border: 2px solid black;
@@ -198,7 +198,7 @@ h2{
   padding: 2% 4%;
   cursor: pointer;
 }
-.googleLoginBtn2{
+.googleRegisterButton{
   font-family: 'Niramit', verdana; 
   background-color: rgba(245, 194, 95, 1);
   border: 2px solid black;
@@ -211,7 +211,7 @@ h2{
   padding: 2% 6%;
   cursor: pointer;
 }
-.modal{
+.loginModal{
   background-color: rgba(0,0,0,.8);
   position:fixed;
   top:0;
@@ -220,11 +220,11 @@ h2{
   left:0;
   transition: all 1s;
 }
-#logIn:target{
+#login:target{
   opacity:1;
   pointer-events:auto;
 }
-a.close-modal{
+a.closeLoginModal{
   font-size: 100%;
   font-family: 'Niramit', verdana; 
   font-weight: bold;
@@ -235,14 +235,14 @@ a.close-modal{
   text-decoration: none;
   color: rgba(211, 210, 210, 1);
 }
-.mainAboutUs{
+.aboutUsMain{
   background-image: url(img/backgroundDoIt.png);
   background-size: 100%;
   padding: 23% 0%;
   animation-name: smoothTransition;
   animation-duration: 1s;
 }
-.tittleAboutUs{
+.aboutUsTitle{
   font-family: 'Noticia Text', verdana;
   text-shadow: black 0.02em 0.02em 0.08em;
   font-size: 500%;
@@ -252,7 +252,7 @@ a.close-modal{
   top: 27%;
   left: 47%;
 }
-.TextAboutUsOne{
+.aboutUsTextOne{
   font-family: 'Noticia Text', verdana;
   text-align: center;
   font-size: 120%;
@@ -262,7 +262,7 @@ a.close-modal{
   top: 50%;
   left: 24%;
 }
-.TextAboutUsTwo{
+.aboutUsTextTwo{
   font-family: 'Noticia Text', verdana;
   text-align: center;
   font-size: 120%;
@@ -272,7 +272,7 @@ a.close-modal{
   top: 70%;
   left: 40%;
 }
-.joinBtn{
+.joinButton{
   font-family: 'Noticia Text', verdana;
   font-size: 130%;
   color: #B09F9F;
@@ -284,6 +284,6 @@ a.close-modal{
   transition: transform 1s;
   transform-style: preserve-3d;
 }
-.joinBtn:hover{
+.joinButton:hover{
   transform: scale(1.20);
 }

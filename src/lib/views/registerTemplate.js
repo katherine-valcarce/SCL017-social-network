@@ -3,25 +3,25 @@ import { headerTemplate } from './headerTemplate.js';
 export const registerTemplate = () => {
   let registerHTML = headerTemplate();
   registerHTML += `
-    <div class="mainSingIn">
-      <text class= "tittleSingIn">
+    <main class="registerMain">
+      <text class= "registerTitle">
         Regístrate para ingresar <br> a nuestra comunidad
       </text>
-      <div class= "singInForm">
+      <div class= "registerForm">
           <h1> Nos alegra que quieras <br> crear junto a nosotros</h1>
           <h2> Tenemos muchos proyectos <br> que te pueden gustar</h2>
             <form id="registerForm">
-                <input type="text" id="registerEmail" placeholder="Correo electrónico" class="Form" />
-                <input type="password" id="registerPassword" placeholder="Ingresa una contraseña" class="Form" />
-                <button type="submit" class="createAccountBtn" >Crear cuenta</button> 
+                <input type="text" id="registerEmail" class="inputForm" placeholder="Correo electrónico"/>
+                <input type="password" id="registerPassword" class="inputForm" placeholder="Ingresa una contraseña"/>
+                <button type="submit" class="createAccountButton" >Crear cuenta</button> 
             </form>
             <br><center> ó </center><br>  
-            <button id="googleLogin" class="googleLoginBtn2">Crear cuenta con Google</button>
+            <button id="googleRegisterButton" class="googleRegisterButton">Crear cuenta con Google</button>
       </div>
-    </div>`;
- registerHTML += `
+    </main>`;
+  registerHTML += `
     <footer>
-      <text class="textFooterHash">
+      <text class="doitHash">
         #IDidIt
       </text>
       <text class= "textFooter">

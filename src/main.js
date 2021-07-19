@@ -1,13 +1,11 @@
-import { welcomeTemplate } from './lib/views/welcomeTemplate.js';
-import { changeTemplate } from './lib/router.js';
+/* import { welcomeTemplate } from './lib/views/welcomeTemplate.js'; */
+import { displayRespectiveTemplate } from './lib/router.js';
 
 const init = () => {
-  const containerRoot = document.getElementById('root');
-  containerRoot.innerHTML = welcomeTemplate();
+  displayRespectiveTemplate(window.location.hash);
   window.addEventListener('hashchange', () => {
-    console.log(window.location.hash);
-    changeTemplate(window.location.hash);
+    displayRespectiveTemplate(window.location.hash);
   });
 };
 
-window.addEventListener('load', init());
+window.addEventListener('load', init);
