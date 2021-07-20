@@ -140,7 +140,7 @@ footer{
   font-weight: bold;
   text-align: center;
   float: inline-start;
-  margin-left: 35%;
+  margin-left: 34%;
   margin-top: 5%;
   margin-bottom: 4%;
   padding: 2% 4%;
@@ -194,7 +194,7 @@ h2{
   float: inline-start;
   margin-left: 35%;
   margin-top: 5%;
-  margin-bottom: 2%;
+  margin-bottom: 4%;
   padding: 2% 4%;
   cursor: pointer;
 }
@@ -231,7 +231,7 @@ a.closeLoginModal{
   padding: 0;
   position: fixed;
   margin-top: 2%;
-  margin-left: 7%;
+  margin-left: 6.2%;
   text-decoration: none;
   color: rgba(211, 210, 210, 1);
 }
@@ -286,4 +286,8 @@ a.closeLoginModal{
 }
 .joinButton:hover{
   transform: scale(1.20);
+}
+p.option{
+  text-align: center;
+  margin: 0%;
 }

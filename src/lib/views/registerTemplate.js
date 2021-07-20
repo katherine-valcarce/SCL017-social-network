@@ -15,7 +15,7 @@ export const registerTemplate = () => {
                 <input type="password" id="registerPassword" class="inputForm" placeholder="Ingresa una contraseña"/>
                 <button type="submit" class="createAccountButton" >Crear cuenta</button> 
             </form>
-            <br><center> ó </center><br>  
+            <p class="option"> ó <p>  
             <button id="googleRegisterButton" class="googleRegisterButton">Crear cuenta con Google</button>
       </div>
     </main>`;

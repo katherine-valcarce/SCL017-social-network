@@ -12,7 +12,7 @@ export const loginTemplate = () => {
                 <input type= 'password' id= "pass" class="inputForm" placeholder="Contraseña"> <br>
                 <button type="submit" class="loginButton">Ingresar</button>              
             </form>
-            <br><center> ó </center><br>  
+            <p class="option"> ó <p>
             <button id="googleLoginButton" class="googleLoginButton" >Inicia sesión con Google</button>
             <div> 
               <a href='' class='closeLoginModal'>Cerrar</a>
