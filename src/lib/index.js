@@ -1,6 +1,6 @@
+/* eslint-disable vars-on-top */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-var */
-// aqui exportaras las funciones que necesites
 
 export const myFunction = () => {
   // aqui tu codigo
@@ -65,5 +65,23 @@ export const register = () => {
         // ...
         });
     }; */
+  });
+};
+
+export const authObserver = () => {
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      var displayName = user.displayName;
+      var email = user.email;
+      var emailVerified = user.emailVerified;
+      var photoURL = user.photoURL;
+      var isAnonymous = user.isAnonymous;
+      var uid = user.uid;
+      var providerData = user.providerData;
+      console.log('Logueado');
+      console.log(email);
+    } else {
+      console.log('No Logueado');
+    }
   });
 };

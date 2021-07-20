@@ -1,4 +1,3 @@
-/* import { welcomeTemplate } from './lib/views/welcomeTemplate.js'; */
 import { displayRespectiveTemplate } from './lib/router.js';
 
 const init = () => {

@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-else-return */
 
-import { googleRegister, register } from './index.js';
+import { googleRegister, register, authObserver } from './index.js';
 import { welcomeTemplate } from './views/welcomeTemplate.js';
 import { aboutUsTemplate } from './views/aboutUsTemplate.js';
 import { registerTemplate } from './views/registerTemplate.js';
@@ -21,6 +21,7 @@ export const displayRespectiveTemplate = (hash) => {
       containerRoot.innerHTML = registerTemplate();
       register();
       googleRegister();
+      authObserver();
       break;
     case '#/login':
       containerRoot.innerHTML = loginTemplate();
