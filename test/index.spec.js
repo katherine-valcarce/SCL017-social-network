@@ -1,8 +1,8 @@
 // importamos la funcion que vamos a testear
-import { myFunction } from '../src/lib/index';
+import { displayRespectiveTemplate } from '../src/lib/router.js';
 
-describe('myFunction', () => {
-  it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
+describe('displayRespectiveTemplate', () => {
+  it('should be a function', () => {
+    expect(typeof displayRespectiveTemplate).toBe('function');
   });
 });
