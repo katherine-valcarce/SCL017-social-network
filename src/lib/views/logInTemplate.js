@@ -19,6 +19,7 @@ export const loginTemplate = () => {
             </div>
         </div>
     </div>
+    
   `;
   return loginHTML;
 };
