@@ -1,6 +1,7 @@
 /* eslint-disable vars-on-top */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-var */
+import { headerTemplateMobile } from './views/menuMobileTemplate.js';
 
 export const myFunction = () => {
   // aqui tu codigo
@@ -83,5 +84,12 @@ export const authObserver = () => {
     } else {
       console.log('No Logueado');
     }
+  });
+};
+export const menuMobile = () => {
+  // eslint-disable-next-line no-shadow
+  const menuMobile = document.querySelector('#menuMobileBtn');
+  menuMobile.addEventListener('click', () => {
+    document.getElementById('root').innerHTML = headerTemplateMobile();
   });
 };
