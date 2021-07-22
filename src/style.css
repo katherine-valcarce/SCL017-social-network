@@ -137,17 +137,16 @@ a.mobileMenuOption{
 
 .h1Register{
   font-family: 'Niramit', sans-serif;
-  font-size: 120%;
-  width: 180%;
-  position: relative;
-  left: -42%;
-  font-weight:normal;
+    font-size: 180%;
+    width: 180%;
+    position: relative;
+    font-weight: bold;
 }
 .h2Register{
   font-size: 120%;
   width: 200%;
   position: relative;
-  left: -50%;
+  top: 17%;
 }
 footer{
 display: none;
@@ -213,9 +212,7 @@ h2{
   border-style: none;
   border-radius: 8%;
   margin: 2%;
-  position: relative;
   left: -18%;
-  font-size: 120%;
 }
 .registerForm{
   background-color: white;
@@ -242,13 +239,11 @@ h2{
   left: 22%;
 }
 #registerPassword{
-  font-size: 120%;
   width: 63%;
   left: 8%;
   padding: 4% 8%;
 }
 #registerEmail{
-  font-size: 120%;
   width: 63%;
   left: 8%;
   padding: 4% 8%;
@@ -344,7 +339,7 @@ a.closeRegisterModal{
   left: 44%;
   text-decoration: none;
   color: rgba(211, 210, 210, 1);
-  top:95%;
+  top:92%;
   
 }
 .aboutUsMain{
@@ -434,6 +429,7 @@ p.option{
   font-size: 140%;
 }
 @media screen and (min-width:1024px) {
+@media screen and (min-width:1024px) and (min-height:768px) {
 
   body{
     margin: 0px;
@@ -449,14 +445,22 @@ p.option{
     .topNavBar{
       background-color: white;
       float: right;
-      width: 40%;
-      font-size: 100%;
+      width: 38%;
+      font-size: 20px;
       font-family: sans-serif, Geneva, Tahoma;
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 2%;
+  }
     
-    }
     .welcomeMenuDesk{
-      display:block;
+      display: flex;
       width: 100%;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      margin: 1%;
     }
     .welcomeMenuMobile{
       display: none;
@@ -484,29 +488,31 @@ p.option{
       padding: 28.5%;
       margin: 0% -1% -1% -1%;
       background-repeat: no-repeat;
+      max-height:inherit;
     }
     
     .welcomeTitle{
-      font-family: 'Noticia Text', sans-serif;
-      text-shadow: black 0.02em 0.02em 0.08em;
-      position: absolute;
-      top: 35%;
-      font-size: 250%;
-      color: black;
-      font-weight: bold;
+    font-family: 'Noticia Text', sans-serif;
+    text-shadow: black 0.02em 0.02em 0.08em;
+    position: absolute;
+    left: 30%;
+    top: 35%;
+    font-size: 250%;
+    color: black;
+    font-weight: bold;
     }
     
     .welcomeImagesSection{
-      display:flex;
-      justify-content: flex-start;
+      display: flex;
+      justify-content: center;
       align-content: space-between;
-      flex-wrap:wrap;
+      flex-wrap: wrap;
       flex-direction: row;
       position: absolute;
       width: auto;
       margin: auto;
       top: 50%;
-      left: 15%;
+      margin-right: 10%;
     }
     .welcomeImg:hover {
       transform: scale(.97);
@@ -523,7 +529,7 @@ p.option{
       margin-left: 8%;
       margin-top: 2%;
       position: absolute;
-      top:45%;
+      top: 22%;
     }
     .registerMain{
       background-image: url(img/backgroundDoIt.png);
@@ -533,15 +539,26 @@ p.option{
       animation-duration: 1s;
     }
     .registerForm {
-     margin-right: 7%;
-     border: 2px solid black;
-     border-radius: 15px;
-     padding: 1% 6%;
-     position: absolute;
-     top: 25%;
-     left: 50%;
-     width: 27%;
-    }
+      margin-right: 7%;
+      border: 2px solid rgba(245, 194, 95, 1);
+      border-radius: 15px;
+      padding: 1% 6%;
+      position: absolute;
+      top: 17%;
+      left: 50%;
+      width: 15%;
+      height: 70%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: center;
+      align-items: center; 
+  }
+
+  .inputRegisterForm{
+    margin-top: 40%;
+    margin-left: 13%;
+  }
     footer{
       border: 2px solid black;
       background-color: white;
@@ -565,7 +582,6 @@ p.option{
       color: black;
       font-weight: bold;
       text-align: center;
-      margin-left: 11.5%;
       margin-top: -20%;
       padding: 2% 4%;
       cursor: pointer;
@@ -579,7 +595,6 @@ p.option{
       font-weight: bold;
       text-align: center;
       float: inline-start;
-      margin-left: 34%;
       margin-top: 5%;
       margin-bottom: 4%;
       padding: 2% 4%;
@@ -588,7 +603,7 @@ p.option{
     h1{
       font-family: 'Niramit', sans-serif; 
       text-shadow: black 0.02em 0.02em 0.08em;
-      top: 10%;
+      top: 8%;
       text-align: center;
       margin: 0%;
     }
@@ -606,6 +621,7 @@ p.option{
       border-style: none;
       border-radius: 8%;
       margin: 2%;
+      top: 56%;
     }
     .loginForm {
       background-color: white;
@@ -623,32 +639,32 @@ p.option{
       from {opacity: 0; top:50%;}
     }
     .createAccountButton{
-      font-family: 'Niramit', sans-serif; 
-      background-color: rgba(210, 134, 162, 1);
-      border: 2px solid black;
-      border-radius: 5px;
-      color: white;
-      font-weight: bold;
-      text-align: center;
-      float: inline-start;
-      margin-left: 35%;
-      margin-top: 5%;
-      margin-bottom: 4%;
-      padding: 2% 4%;
-      cursor: pointer;
+    font-family: 'Niramit', sans-serif;
+    background-color: rgba(210, 134, 162, 1);
+    border: 2px solid black;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    float: inline-start;
+    margin-top: 10%;
+    margin-left: 14%;
+    margin-bottom: 4%;
+    padding: 2% 4%;
+    cursor: pointer;
     }
     .googleRegisterButton{
-      font-family: 'Niramit', sans-serif; 
-      background-color: rgba(245, 194, 95, 1);
-      border: 2px solid black;
-      border-radius: 5px;
-      color: black;
-      font-weight:bolder;
-      text-align: center;
-      margin-left: 25%;
-      margin-top: 1%;
-      padding: 2% 6%;
-      cursor: pointer;
+      font-family: 'Niramit', sans-serif;
+    background-color: rgba(245, 194, 95, 1);
+    border: 2px solid black;
+    border-radius: 5px;
+    color: black;
+    font-weight: bolder;
+    text-align: center;
+    margin-left: -2%;
+    padding: 2% 6%;
+    cursor: pointer;
+    width: 300px;
     }
     .loginModal{
       background-color: rgba(0,0,0,.8);
@@ -664,16 +680,14 @@ p.option{
       pointer-events:auto;
     }
     a.closeLoginModal{
-      font-size: 100%;
-      font-family: 'Niramit', sans-serif; 
+      font-size: 120%;
+      font-family: 'Niramit', sans-serif;
       font-weight: bold;
-      padding: 0;
-      position: fixed;
-      margin-top: 2%;
-      margin-left: 6.2%;
+      position: absolute;
+      left: 44%;
       text-decoration: none;
       color: rgba(211, 210, 210, 1);
-    }
+  }
     .aboutUsMain{
       background-image: url(img/backgroundDoIt.png);
       background-size: 100%;
@@ -727,8 +741,9 @@ p.option{
       transform: scale(1.20);
     }
     p.option{
+      font-family: 'Niramit', sans-serif;
+      font-size: 120%;
       text-align: center;
-      margin: 0%;
     }
-
-}
+  } 
+};

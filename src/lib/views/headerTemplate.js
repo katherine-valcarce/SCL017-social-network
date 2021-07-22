@@ -2,7 +2,7 @@ export const headerTemplate = () => {
   const headerHTML = `
     <header>
      <div class="welcomeMenuDesk">
-        <a  href=""><img src="img/logoDoIt.png" alt="logo"></a>
+        <a  href=""><img src="img/logoDoIt.png" alt="logo" style= "height: 100px"></a>
         <nav class = "topNavBar">
             <a href="#/login" id="show-modal">Inicia Sesión</a>
             <a href="#/register">Regístrate</a>
