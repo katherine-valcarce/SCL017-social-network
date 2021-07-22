@@ -10,9 +10,9 @@ export const registerTemplate = () => {
             Regístrate
           </text>
         <h2 class="h2Register"> Tenemos muchos proyectos <br> que te pueden gustar</h2>
-                <form id="registerForm">
-                    <input type="text" id="registerEmail" class="inputForm" placeholder="Correo electrónico"/>
-                    <input type="password" id="registerPassword" class="inputForm" placeholder="Ingresa una contraseña"/>
+                <form id="registerForm" class= "inputRegisterForm">
+                    <input type="text" id="registerEmail" class="inputForm" placeholder="Correo electrónico" required/>
+                    <input type="password" id="registerPassword" class="inputForm" placeholder="Ingresa una contraseña" required/>
                     <button type="submit" class="createAccountButton" >Crear cuenta</button> 
                 </form>
                 <p class="option"> ó <p>  
