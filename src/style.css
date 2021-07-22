@@ -1,34 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Noticia+Text&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Niramit:wght@200&display=swap');
-body{
-margin: 0px;
+@import url("https://fonts.googleapis.com/css2?family=Noticia+Text&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Niramit:wght@200&display=swap");
+body {
+  margin: 0px;
 }
 
-header{
+header {
   background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.topNavBar{
+.topNavBar {
   background-color: white;
   float: right;
   width: 40%;
   font-size: 100%;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-
 }
 
 .topNavBar a {
   color: black;
   font-weight: bold;
-  text-decoration:none;
+  text-decoration: none;
   margin: 3%;
 }
 
-
-.welcomeImg{
+.welcomeImg {
   border-radius: 15px;
   box-shadow: 0px 1px 8px 0px #697473;
   width: 40%;
@@ -38,8 +36,7 @@ header{
   margin: 15px;
 }
 
-
-main{
+main {
   background-image: url(img/backgroundDoItMobile.png);
   background-size: 100%;
   padding: 80% 34%;
@@ -47,8 +44,8 @@ main{
   background-repeat: no-repeat;
 }
 
-.welcomeTitle{
-  font-family: 'Noticia Text', serif;
+.welcomeTitle {
+  font-family: "Noticia Text", serif;
   text-shadow: black 0.02em 0.02em 0.08em;
   position: absolute;
   left: 10%;
@@ -59,11 +56,11 @@ main{
   text-align: center;
 }
 
-.welcomeImagesSection{
-  display:flex;
+.welcomeImagesSection {
+  display: flex;
   justify-content: flex-start;
   align-content: space-between;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   flex-direction: row;
   position: absolute;
   width: auto;
@@ -71,13 +68,15 @@ main{
   top: 42%;
   left: 9%;
 }
+
 .welcomeImg:hover {
-  transform: scale(.97);
+  transform: scale(0.97);
 }
-.welcomeMenuDesk{
-  display:none;
+
+.welcomeMenuDesk {
+  display: none;
 }
-.menuMobile{
+.menuMobile {
   background-image: url(img/backgroundDoItMobile.png);
   padding: 90% 37%;
   background-size: 100%;
@@ -86,9 +85,9 @@ main{
   animation-duration: 1s;
 }
 
-.topNavBarMobile{
+.topNavBarMobile {
   border: 5px solid rgba(245, 194, 95, 1);
-  border-radius:  15px;
+  border-radius: 15px;
   background-color: white;
   width: 90%;
   height: 70%;
@@ -102,32 +101,32 @@ main{
   justify-content: center;
   align-items: stretch;
 }
-a.mobileMenuOption{
+a.mobileMenuOption {
   text-decoration: none;
-  font-family: 'Niramit', sans-serif;
+  font-family: "Niramit", sans-serif;
   color: black;
   font-weight: bold;
   border: 3px solid black;
-  border-radius: 15px ;
+  border-radius: 15px;
   font-size: 180%;
   padding: 3% 10%;
   margin: 5%;
   text-align: center;
 }
-.imgMenuMobile{
+.imgMenuMobile {
   width: 16%;
   position: relative;
   top: -1%;
   left: 40%;
 }
-#menuMobileBtn{
+#menuMobileBtn {
   width: 18%;
   height: 30%;
   margin: 3%;
   float: right;
 }
 
-.registerMain{
+.registerMain {
   background-image: url(img/backgroundDoItMobile.png);
   background-size: 100%;
   padding: 90% 37%;
@@ -135,33 +134,33 @@ a.mobileMenuOption{
   animation-duration: 1s;
 }
 
-.h1Register{
-  font-family: 'Niramit', sans-serif;
-    font-size: 180%;
-    width: 180%;
-    position: relative;
-    font-weight: bold;
+.h1Register {
+  font-family: "Niramit", sans-serif;
+  font-size: 180%;
+  width: 180%;
+  position: relative;
+  font-weight: bold;
 }
-.h2Register{
+.h2Register {
   font-size: 120%;
   width: 200%;
   position: relative;
   top: 17%;
 }
-footer{
-display: none;
+footer {
+  display: none;
 }
-.footerText{
-  font-family: 'Niramit', sans-serif;
+.footerText {
+  font-family: "Niramit", sans-serif;
   font-weight: bold;
 }
-.doitHash{
-  font-family: 'Noticia Text', serif;
+.doitHash {
+  font-family: "Noticia Text", serif;
   color: blue;
   font-weight: bold;
 }
-.googleLoginButton{
-  font-family: 'Niramit', sans-serif; 
+.googleLoginButton {
+  font-family: "Niramit", sans-serif;
   background-color: rgba(245, 194, 95, 1);
   border: 2px solid black;
   border-radius: 5px;
@@ -176,7 +175,7 @@ display: none;
   width: 120%;
 }
 .loginButton {
-  font-family: 'Niramit', sans-serif; 
+  font-family: "Niramit", sans-serif;
   background-color: rgba(210, 134, 162, 1);
   border: 2px solid black;
   border-radius: 5px;
@@ -191,30 +190,30 @@ display: none;
   cursor: pointer;
   font-size: 120%;
 }
-h1{
-  font-family: 'Niramit', sans-serif; 
+h1 {
+  font-family: "Niramit", sans-serif;
   text-shadow: black 0.02em 0.02em 0.08em;
   top: 0%;
   text-align: center;
   margin: 2%;
   font-size: 250%;
 }
-h2{
-  font-family: 'Niramit', sans-serif; 
+h2 {
+  font-family: "Niramit", sans-serif;
   font-size: 180%;
   text-align: center;
 }
-.inputForm{
+.inputForm {
   text-align: center;
   width: 120%;
   padding: 9%;
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
   border-style: none;
   border-radius: 8%;
   margin: 2%;
   left: -18%;
 }
-.registerForm{
+.registerForm {
   background-color: white;
   border: 2px solid rgba(245, 194, 95, 1);
   border-radius: 15px;
@@ -225,8 +224,8 @@ h2{
   animation-name: smoothTransition;
   animation-duration: 1s;
 }
-.registerTitle{
-  font-family: 'Noticia Text', sans-serif;
+.registerTitle {
+  font-family: "Noticia Text", sans-serif;
   text-shadow: black 0.02em 0.02em 0.08em;
   font-size: 250%;
   color: black;
@@ -238,12 +237,12 @@ h2{
   top: 65%;
   left: 22%;
 }
-#registerPassword{
+#registerPassword {
   width: 63%;
   left: 8%;
   padding: 4% 8%;
 }
-#registerEmail{
+#registerEmail {
   width: 63%;
   left: 8%;
   padding: 4% 8%;
@@ -261,10 +260,13 @@ h2{
   animation-duration: 1s;
 }
 @keyframes smoothTransition {
-  from {opacity: 0; top:50%;}
+  from {
+    opacity: 0;
+    top: 50%;
+  }
 }
-.createAccountButton{
-  font-family: 'Niramit', sans-serif; 
+.createAccountButton {
+  font-family: "Niramit", sans-serif;
   background-color: rgba(210, 134, 162, 1);
   border: 2px solid black;
   border-radius: 5px;
@@ -279,14 +281,14 @@ h2{
   padding: 2% 4%;
   cursor: pointer;
 }
-.googleRegisterButton{
-  font-family: 'Niramit', sans-serif; 
+.googleRegisterButton {
+  font-family: "Niramit", sans-serif;
   background-color: rgba(245, 194, 95, 1);
   border: 2px solid black;
   border-radius: 5px;
   color: black;
   font-size: 120%;
-  font-weight:bolder;
+  font-weight: bolder;
   text-align: center;
   float: inline-start;
   margin-left: 15%;
@@ -294,35 +296,35 @@ h2{
   padding: 2% 4%;
   cursor: pointer;
 }
-.loginModal{
-  background-color: rgba(0,0,0,.8);
-  position:fixed;
-  top:0;
-  right:0;
-  bottom:0;
-  left:0;
+.loginModal {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   transition: all 1s;
 }
-#login:target{
-  opacity:1;
-  pointer-events:auto;
+#login:target {
+  opacity: 1;
+  pointer-events: auto;
 }
-.loginModalRegister{
-  background-color: rgba(0,0,0,.8);
-  position:fixed;
-  top:0;
-  right:0;
-  bottom:0;
-  left:0;
+.loginModalRegister {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   transition: all 1s;
 }
-#register:target{
-  opacity:1;
-  pointer-events:auto;
+#register:target {
+  opacity: 1;
+  pointer-events: auto;
 }
-a.closeLoginModal{
+a.closeLoginModal {
   font-size: 120%;
-  font-family: 'Niramit', sans-serif; 
+  font-family: "Niramit", sans-serif;
   font-weight: bold;
   padding: 0;
   position: absolute;
@@ -330,27 +332,26 @@ a.closeLoginModal{
   text-decoration: none;
   color: rgba(211, 210, 210, 1);
 }
-a.closeRegisterModal{
+a.closeRegisterModal {
   font-size: 120%;
-  font-family: 'Niramit', sans-serif; 
+  font-family: "Niramit", sans-serif;
   font-weight: bold;
   padding: 0;
   position: absolute;
   left: 44%;
   text-decoration: none;
   color: rgba(211, 210, 210, 1);
-  top:92%;
-  
+  top: 92%;
 }
-.aboutUsMain{
+.aboutUsMain {
   background-image: url(img/backgroundDoItMobile.png);
   background-size: 100%;
   padding: 23% 0%;
   animation-name: smoothTransition;
   animation-duration: 1s;
 }
-.aboutUsTitle{
-  font-family: 'Noticia Text', sans-serif;
+.aboutUsTitle {
+  font-family: "Noticia Text", sans-serif;
   text-shadow: black 0.02em 0.02em 0.08em;
   font-size: 500%;
   color: black;
@@ -359,30 +360,30 @@ a.closeRegisterModal{
   top: 20%;
   left: 35%;
 }
-.aboutUsTextOne{
-  font-family: 'Noticia Text', sans-serif;
+.aboutUsTextOne {
+  font-family: "Noticia Text", sans-serif;
   text-align: center;
   font-size: 120%;
   color: black;
   position: absolute;
-  width: 80% ;
+  width: 80%;
   top: 35%;
   left: 13%;
 }
-.aboutUsTextTwo{
-  font-family: 'Noticia Text', sans-serif;
+.aboutUsTextTwo {
+  font-family: "Noticia Text", sans-serif;
   text-align: center;
   font-size: 120%;
-  color: #F5C04D;
+  color: #f5c04d;
   font-weight: bold;
   position: absolute;
   top: 70%;
   left: 13%;
 }
-.joinButton{
-  font-family: 'Noticia Text', sans-serif;
+.joinButton {
+  font-family: "Noticia Text", sans-serif;
   font-size: 130%;
-  color: #B09F9F;
+  color: #b09f9f;
   font-weight: bold;
   position: absolute;
   top: 95%;
@@ -391,21 +392,21 @@ a.closeRegisterModal{
   transition: transform 1s;
   transform-style: preserve-3d;
 }
-.joinButton:hover{
-  transform: scale(1.20);
+.joinButton:hover {
+  transform: scale(1.2);
 }
-p.option{
+p.option {
   text-align: center;
   margin: 0%;
   font-size: 150%;
 }
-.verificationContainer{
+.verificationContainer {
   padding: 60%;
 }
-.verificationText{
-  font-family: 'Niramit', sans-serif; 
+.verificationText {
+  font-family: "Niramit", sans-serif;
   font-weight: bold;
-  position:fixed;
+  position: fixed;
   top: 10%;
   left: 12%;
   text-align: center;
@@ -413,86 +414,79 @@ p.option{
   font-size: 150%;
   padding: 20% 8%;
 }
-.btnLoginFromRegister{
-  position:absolute;
+.btnLoginFromRegister {
+  position: absolute;
   top: 80%;
   left: 23%;
   border-radius: 15px;
   background-color: rgba(245, 194, 95, 1);
   padding: 8px 34px;
 }
-.abtnLoginFromRegister{
+.abtnLoginFromRegister {
   text-decoration: none;
   color: black;
-  font-family: 'Niramit', sans-serif; 
+  font-family: "Niramit", sans-serif;
   font-weight: bold;
   font-size: 140%;
 }
-@media screen and (min-width:1024px) {
-@media screen and (min-width:1024px) and (min-height:768px) {
 
-  body{
+@media screen and (min-width: 1024px) {
+  body {
     margin: 0px;
-    }
-    
-    header{
-      background-color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .topNavBar{
-      background-color: white;
-      float: right;
-      width: 38%;
-      font-size: 20px;
-      font-family: sans-serif, Geneva, Tahoma;
-      display: flex;
-      justify-content: flex-end;
-      margin-right: 2%;
   }
-    
-    .welcomeMenuDesk{
-      display: flex;
-      width: 100%;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: space-between;
-      align-items: center;
-      margin: 1%;
-    }
-    .welcomeMenuMobile{
-      display: none;
-    }
-    .topNavBar a {
-      color: black;
-      font-weight: bold;
-      text-decoration:none;
-      margin: 3%;
-    } 
-    .welcomeImg{
-      border-radius: 15px;
-      box-shadow: 0px 1px 8px 0px #697473;
-      width: 30%;
-      height: 30%;
-      transition: 1s;
-      cursor: pointer;
-      margin: 15px;
-    }
-    
-    
-    main{
-      background-image: url(img/backgroundDoIt.png);
-      background-size: 100%;
-      padding: 28.5%;
-      margin: 0% -1% -1% -1%;
-      background-repeat: no-repeat;
-      max-height:inherit;
-    }
-    
-    .welcomeTitle{
-    font-family: 'Noticia Text', sans-serif;
+  header {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topNavBar {
+    background-color: white;
+    float: right;
+    width: 38%;
+    font-size: 20px;
+    font-family: sans-serif, Geneva, Tahoma;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 2%;
+  }
+  .welcomeMenuDesk {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1%;
+  }
+  .welcomeMenuMobile {
+    display: none;
+  }
+  .topNavBar a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 3%;
+  }
+  .welcomeImg {
+    border-radius: 15px;
+    box-shadow: 0px 1px 8px 0px #697473;
+    width: 30%;
+    height: 30%;
+    transition: 1s;
+    cursor: pointer;
+    margin: 15px;
+  }
+  main {
+    background-image: url(img/backgroundDoIt.png);
+    background-size: 100%;
+    padding: 28.5%;
+    margin: 0% -1% -1% -1%;
+    background-repeat: no-repeat;
+    max-height: inherit;
+  }
+  .welcomeTitle {
+    font-family: "Noticia Text", sans-serif;
     text-shadow: black 0.02em 0.02em 0.08em;
     position: absolute;
     left: 30%;
@@ -500,146 +494,148 @@ p.option{
     font-size: 250%;
     color: black;
     font-weight: bold;
-    }
-    
-    .welcomeImagesSection{
-      display: flex;
-      justify-content: center;
-      align-content: space-between;
-      flex-wrap: wrap;
-      flex-direction: row;
-      position: absolute;
-      width: auto;
-      margin: auto;
-      top: 50%;
-      margin-right: 10%;
-    }
-    .welcomeImg:hover {
-      transform: scale(.97);
-    }
-    .registerTitle{
-      font-family: 'Noticia Text', sans-serif;
-      text-shadow: black 0.02em 0.02em 0.08em;
-      font-size: 250%;
-      color: black;
-      font-weight: bold;
-      text-align: left;
-      float: left;
-      width: 40%;
-      margin-left: 8%;
-      margin-top: 2%;
-      position: absolute;
-      top: 22%;
-    }
-    .registerMain{
-      background-image: url(img/backgroundDoIt.png);
-      background-size: 100%;
-      padding: 28.5% 0%;
-      animation-name: smoothTransition;
-      animation-duration: 1s;
-    }
-    .registerForm {
-      margin-right: 7%;
-      border: 2px solid rgba(245, 194, 95, 1);
-      border-radius: 15px;
-      padding: 1% 6%;
-      position: absolute;
-      top: 17%;
-      left: 50%;
-      width: 15%;
-      height: 70%;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: nowrap;
-      align-content: center;
-      align-items: center; 
+  }
+  .welcomeImagesSection {
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    position: absolute;
+    width: auto;
+    margin: auto;
+    top: 50%;
+    margin-right: 10%;
+  }
+  .welcomeImg:hover {
+    transform: scale(0.97);
+  }
+  .registerTitle {
+    font-family: "Noticia Text", sans-serif;
+    text-shadow: black 0.02em 0.02em 0.08em;
+    font-size: 250%;
+    color: black;
+    font-weight: bold;
+    text-align: left;
+    float: left;
+    width: 40%;
+    margin-left: 8%;
+    margin-top: 2%;
+    position: absolute;
+    top: 22%;
+  }
+  .registerMain {
+    background-image: url(img/backgroundDoIt.png);
+    background-size: 100%;
+    padding: 28.5% 0%;
+    animation-name: smoothTransition;
+    animation-duration: 1s;
+  }
+  .registerForm {
+    margin-right: 7%;
+    border: 2px solid rgba(245, 194, 95, 1);
+    border-radius: 15px;
+    padding: 1% 6%;
+    position: absolute;
+    top: 17%;
+    left: 50%;
+    width: 15%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
   }
 
-  .inputRegisterForm{
+  .inputRegisterForm {
     margin-top: 40%;
     margin-left: 13%;
   }
-    footer{
-      border: 2px solid black;
-      background-color: white;
-      padding: 1%;
-      text-align: center;
+  footer {
+    border: 2px solid black;
+    background-color: white;
+    padding: 1%;
+    text-align: center;
+  }
+  .footerText {
+    font-family: "Niramit", sans-serif;
+    font-weight: bold;
+  }
+  .doitHash {
+    font-family: "Noticia Text", sans-serif;
+    color: blue;
+    font-weight: bold;
+  }
+  .googleLoginButton {
+    font-family: "Niramit", sans-serif;
+    background-color: rgba(245, 194, 95, 1);
+    border: 2px solid black;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    margin-top: -20%;
+    padding: 2% 4%;
+    cursor: pointer;
+  }
+  .loginButton {
+    font-family: "Niramit", sans-serif;
+    background-color: rgba(210, 134, 162, 1);
+    border: 2px solid black;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    float: inline-start;
+    margin-top: 5%;
+    margin-bottom: 4%;
+    padding: 2% 4%;
+    cursor: pointer;
+  }
+  h1 {
+    font-family: "Niramit", sans-serif;
+    text-shadow: black 0.02em 0.02em 0.08em;
+    top: 8%;
+    text-align: center;
+    margin: 2%;
+  }
+  h2 {
+    font-family: "Niramit", sans-serif;
+    font-size: 120%;
+    text-align: center;
+  }
+  .inputForm {
+    text-align: center;
+    float: inline-start;
+    width: 90%;
+    padding: 4%;
+    background-color: #f3f3f3;
+    border-style: none;
+    border-radius: 8%;
+    margin: 2%;
+    top: 56%;
+  }
+  .loginForm {
+    background-color: white;
+    margin-right: 7%;
+    border: 2px solid rgba(245, 194, 95, 1);
+    border-radius: 15px;
+    padding: 6% 6%;
+    position: fixed;
+    top: 13%;
+    left: 38%;
+    animation-name: smoothTransition;
+    animation-duration: 1s;
+  }
+  @keyframes smoothTransition {
+    from {
+      opacity: 0;
+      top: 50%;
     }
-    .footerText{
-      font-family: 'Niramit', sans-serif;
-      font-weight: bold;
-    }
-    .doitHash{
-      font-family: 'Noticia Text', sans-serif;
-      color: blue;
-      font-weight: bold;
-    }
-    .googleLoginButton{
-      font-family: 'Niramit', sans-serif; 
-      background-color: rgba(245, 194, 95, 1);
-      border: 2px solid black;
-      border-radius: 5px;
-      color: black;
-      font-weight: bold;
-      text-align: center;
-      margin-top: -20%;
-      padding: 2% 4%;
-      cursor: pointer;
-    }
-    .loginButton {
-      font-family: 'Niramit', sans-serif; 
-      background-color: rgba(210, 134, 162, 1);
-      border: 2px solid black;
-      border-radius: 5px;
-      color: white;
-      font-weight: bold;
-      text-align: center;
-      float: inline-start;
-      margin-top: 5%;
-      margin-bottom: 4%;
-      padding: 2% 4%;
-      cursor: pointer;
-    }
-    h1{
-      font-family: 'Niramit', sans-serif; 
-      text-shadow: black 0.02em 0.02em 0.08em;
-      top: 8%;
-      text-align: center;
-      margin: 0%;
-    }
-    h2{
-      font-family: 'Niramit', sans-serif; 
-      font-size: 120%;
-      text-align: center;
-    }
-    .inputForm{
-      text-align: center;
-      float: inline-start;
-      width: 90%;
-      padding: 4%;
-      background-color: #F3F3F3;
-      border-style: none;
-      border-radius: 8%;
-      margin: 2%;
-      top: 56%;
-    }
-    .loginForm {
-      background-color: white;
-      margin-right: 7%;
-      border: 2px solid rgba(245, 194, 95, 1);
-      border-radius: 15px;
-      padding: 5% 6%;
-      position: fixed;
-      top: 13%;
-      left: 38%;
-      animation-name: smoothTransition;
-      animation-duration: 1s;
-    }
-    @keyframes smoothTransition {
-      from {opacity: 0; top:50%;}
-    }
-    .createAccountButton{
-    font-family: 'Niramit', sans-serif;
+  }
+  .createAccountButton {
+    font-family: "Niramit", sans-serif;
     background-color: rgba(210, 134, 162, 1);
     border: 2px solid black;
     border-radius: 5px;
@@ -652,9 +648,9 @@ p.option{
     margin-bottom: 4%;
     padding: 2% 4%;
     cursor: pointer;
-    }
-    .googleRegisterButton{
-      font-family: 'Niramit', sans-serif;
+  }
+  .googleRegisterButton {
+    font-family: "Niramit", sans-serif;
     background-color: rgba(245, 194, 95, 1);
     border: 2px solid black;
     border-radius: 5px;
@@ -665,85 +661,84 @@ p.option{
     padding: 2% 6%;
     cursor: pointer;
     width: 300px;
-    }
-    .loginModal{
-      background-color: rgba(0,0,0,.8);
-      position:fixed;
-      top:0;
-      right:0;
-      bottom:0;
-      left:0;
-      transition: all 1s;
-    }
-    #login:target{
-      opacity:1;
-      pointer-events:auto;
-    }
-    a.closeLoginModal{
-      font-size: 120%;
-      font-family: 'Niramit', sans-serif;
-      font-weight: bold;
-      position: absolute;
-      left: 44%;
-      text-decoration: none;
-      color: rgba(211, 210, 210, 1);
   }
-    .aboutUsMain{
-      background-image: url(img/backgroundDoIt.png);
-      background-size: 100%;
-      padding: 23% 0%;
-      animation-name: smoothTransition;
-      animation-duration: 1s;
-    }
-    .aboutUsTitle{
-      font-family: 'Noticia Text', sans-serif;
-      text-shadow: black 0.02em 0.02em 0.08em;
-      font-size: 500%;
-      color: black;
-      font-weight: bold;
-      position: absolute;
-      top: 27%;
-      left: 47%;
-    }
-    .aboutUsTextOne{
-      font-family: 'Noticia Text', serif;
-      text-align: center;
-      font-size: 120%;
-      color: black;
-      position: absolute;
-      width: 60% ;
-      top: 50%;
-      left: 24%;
-    }
-    .aboutUsTextTwo{
-      font-family: 'Noticia Text', serif;
-      text-align: center;
-      font-size: 120%;
-      color: #F5C04D;
-      font-weight: bold;
-      position: absolute;
-      top: 70%;
-      left: 40%;
-    }
-    .joinButton{
-      font-family: 'Noticia Text', serif;
-      font-size: 130%;
-      color: #B09F9F;
-      font-weight: bold;
-      position: absolute;
-      top: 95%;
-      left: 35%;
-      margin: 4%;
-      transition: transform 1s;
-      transform-style: preserve-3d;
-    }
-    .joinButton:hover{
-      transform: scale(1.20);
-    }
-    p.option{
-      font-family: 'Niramit', sans-serif;
-      font-size: 120%;
-      text-align: center;
-    }
-  } 
-};
+  .loginModal {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: all 1s;
+  }
+  #login:target {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  a.closeLoginModal {
+    font-size: 120%;
+    font-family: "Niramit", sans-serif;
+    font-weight: bold;
+    position: absolute;
+    left: 44%;
+    text-decoration: none;
+    color: rgba(211, 210, 210, 1);
+  }
+  .aboutUsMain {
+    background-image: url(img/backgroundDoIt.png);
+    background-size: 100%;
+    padding: 23% 0%;
+    animation-name: smoothTransition;
+    animation-duration: 1s;
+  }
+  .aboutUsTitle {
+    font-family: "Noticia Text", sans-serif;
+    text-shadow: black 0.02em 0.02em 0.08em;
+    font-size: 500%;
+    color: black;
+    font-weight: bold;
+    position: absolute;
+    top: 27%;
+    left: 47%;
+  }
+  .aboutUsTextOne {
+    font-family: "Noticia Text", serif;
+    text-align: center;
+    font-size: 120%;
+    color: black;
+    position: absolute;
+    width: 60%;
+    top: 50%;
+    left: 24%;
+  }
+  .aboutUsTextTwo {
+    font-family: "Noticia Text", serif;
+    text-align: center;
+    font-size: 120%;
+    color: #f5c04d;
+    font-weight: bold;
+    position: absolute;
+    top: 70%;
+    left: 40%;
+  }
+  .joinButton {
+    font-family: "Noticia Text", serif;
+    font-size: 130%;
+    color: #b09f9f;
+    font-weight: bold;
+    position: absolute;
+    top: 95%;
+    left: 35%;
+    margin: 4%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+  }
+  .joinButton:hover {
+    transform: scale(1.2);
+  }
+  p.option {
+    font-family: "Niramit", sans-serif;
+    font-size: 120%;
+    text-align: center;
+  }
+}
