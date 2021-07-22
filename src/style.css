@@ -198,11 +198,11 @@ h1{
   top: 0%;
   text-align: center;
   margin: 2%;
-  font-size: 280%;
+  font-size: 250%;
 }
 h2{
   font-family: 'Niramit', sans-serif; 
-  font-size: 200%;
+  font-size: 180%;
   text-align: center;
 }
 .inputForm{
@@ -260,8 +260,8 @@ h2{
   border-radius: 15px;
   padding: 8% 18%;
   position: fixed;
-  top: 14%;
-  left: 10%;
+  top: 10%;
+  left: 8%;
   animation-name: smoothTransition;
   animation-duration: 1s;
 }
@@ -403,6 +403,35 @@ p.option{
   text-align: center;
   margin: 0%;
   font-size: 150%;
+}
+.verificationContainer{
+  padding: 60%;
+}
+.verificationText{
+  font-family: 'Niramit', sans-serif; 
+  font-weight: bold;
+  position:fixed;
+  top: 10%;
+  left: 12%;
+  text-align: center;
+  width: 60%;
+  font-size: 150%;
+  padding: 20% 8%;
+}
+.btnLoginFromRegister{
+  position:absolute;
+  top: 80%;
+  left: 23%;
+  border-radius: 15px;
+  background-color: rgba(245, 194, 95, 1);
+  padding: 8px 34px;
+}
+.abtnLoginFromRegister{
+  text-decoration: none;
+  color: black;
+  font-family: 'Niramit', sans-serif; 
+  font-weight: bold;
+  font-size: 140%;
 }
 @media screen and (min-width:1024px) {
 
@@ -561,7 +590,7 @@ p.option{
       text-shadow: black 0.02em 0.02em 0.08em;
       top: 10%;
       text-align: center;
-      margin: 2%;
+      margin: 0%;
     }
     h2{
       font-family: 'Niramit', sans-serif; 
@@ -583,7 +612,7 @@ p.option{
       margin-right: 7%;
       border: 2px solid rgba(245, 194, 95, 1);
       border-radius: 15px;
-      padding: 6% 6%;
+      padding: 5% 6%;
       position: fixed;
       top: 13%;
       left: 38%;

@@ -35,3 +35,19 @@ export const registerTemplate = () => {
     `;
   return registerHTML;
 };
+export const verificationTemplate = () => {
+  let verifiedHTML = headerTemplate();
+  verifiedHTML += `
+  <div id="register" class="loginModalRegister">
+      <div class= "registerForm">
+        <div class="verificationContainer">
+          <text class="verificationText"> Se envió un correo de verificación a tu Email. <br>
+          Confirma tu cuenta y podrás iniciar sesión en DoIt</text> <br>
+          <button class="btnLoginFromRegister"><a class="abtnLoginFromRegister" href="#/login"> Iniciar sesión </a></button>
+        </div>
+      </div>  
+  </div>
+  `;
+
+  return verifiedHTML;
+};

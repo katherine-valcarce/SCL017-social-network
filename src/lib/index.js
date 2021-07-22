@@ -2,6 +2,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-var */
 import { headerTemplateMobile } from './views/menuMobileTemplate.js';
+// eslint-disable-next-line import/no-cycle
+import { verificationTemplate } from './views/registerTemplate.js';
 
 export const myFunction = () => {
   // aqui tu codigo
@@ -53,22 +55,26 @@ export const register = () => {
         // ...
         console.log('user', user);
       })
+      .then(() => {
+        // eslint-disable-next-line no-use-before-define
+        emailVerification();
+        document.getElementById('root').innerHTML = verificationTemplate();
+      })
       .catch((error) => {
         var errorCode = error.code;
         var errorMessage = error.message;
         // ..
       });
-
-  /*     const emailVerification = () => {
-      firebase.auth().currentUser.sendEmailVerification()
-        .then(() => {
-        // Email verification sent!
-        // ...
-        });
-    }; */
   });
 };
-
+export const emailVerification = () => {
+  const user = firebase.auth().currentUser;
+  user.sendEmailVerification().then(() => {
+    // Email verification sent!
+  }).catch(() => {
+    // An error happened
+  });
+};
 export const authObserver = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -79,13 +85,29 @@ export const authObserver = () => {
       var isAnonymous = user.isAnonymous;
       var uid = user.uid;
       var providerData = user.providerData;
+      let messageVerifiedAccount = '';
+      if (emailVerified === false) {
+        messageVerifiedAccount = 'Email no verificado';
+      } else {
+        messageVerifiedAccount = 'Email verificado';
+      }
       console.log('Logueado');
-      console.log(email);
+      console.log(email, messageVerifiedAccount);
     } else {
       console.log('No Logueado');
     }
   });
 };
+
+export const sendEmailVerification = () => {
+  firebase.auth().email.sendEmailVerification()
+    .then(() => {
+    // Email verification sent!
+    // ...
+    });
+};
+
+// Botón para desplegar menu desde mobile //
 export const menuMobile = () => {
   // eslint-disable-next-line no-shadow
   const menuMobile = document.querySelector('#menuMobileBtn');
