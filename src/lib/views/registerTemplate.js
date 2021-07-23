@@ -1,15 +1,15 @@
-import { headerTemplate } from './headerTemplate.js';
+import { welcomeTemplate } from './welcomeTemplate.js';
 
 export const registerTemplate = () => {
-  let registerHTML = headerTemplate();
+  let registerHTML = welcomeTemplate();
   registerHTML += `
     <div id="register" class="loginModalRegister">
       <div class= "registerForm">
-        <h1 class="h1Register"> Nos alegra que quieras <br> crear junto a nosotros</h1>
-          <text class= "registerTitle">
-            Regístrate
-          </text>
-        <h2 class="h2Register"> Tenemos muchos proyectos <br> que te pueden gustar</h2>
+          <h1 class="h1Register"> Nos alegra que quieras <br> crear junto a nosotros</h1>
+            <text class= "registerTitle">
+              Regístrate
+            </text>
+          <h2 class="h2Register"> Tenemos muchos proyectos <br> que te pueden gustar</h2>
                 <form id="registerForm" class= "inputRegisterForm">
                     <input type="text" id="registerEmail" class="inputForm" placeholder="Correo electrónico" required/>
                     <input type="password" id="registerPassword" class="inputForm" placeholder="Ingresa una contraseña" required/>
@@ -36,7 +36,7 @@ export const registerTemplate = () => {
   return registerHTML;
 };
 export const verificationTemplate = () => {
-  let verifiedHTML = headerTemplate();
+  let verifiedHTML = welcomeTemplate();
   verifiedHTML += `
   <div id="register" class="loginModalRegister">
       <div class= "registerForm">
