@@ -15,7 +15,7 @@ export const registerTemplate = () => {
                     <input type="password" id="registerPassword" class="inputForm" placeholder="Ingresa una contraseña" required/>
                     <button type="submit" class="createAccountButton" >Crear cuenta</button> 
                 </form>
-                <p class="option"> ó <p>  
+                <p class="option"> o <p>  
                 <button id="googleRegisterButton" class="googleRegisterButton">Crear cuenta con Google</button>
                 <a href='' class='closeRegisterModal'>Cerrar</a>
            </div>

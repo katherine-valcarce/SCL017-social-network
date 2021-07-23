@@ -136,13 +136,14 @@ a.mobileMenuOption {
 
 .h1Register {
   font-family: "Niramit", sans-serif;
-  font-size: 140%;
+  font-size: 120%;
   width: 180%;
   position: relative;
-  font-weight: bold;
+  font-weight: normal;
   left: -40%;
 }
 .h2Register {
+  font-family: "Niramit", sans-serif;
   font-size: 120%;
   width: 200%;
   position: relative;
@@ -377,21 +378,21 @@ a.closeRegisterModal {
 .aboutUsTextTwo {
   font-family: "Noticia Text", sans-serif;
   text-align: center;
-  font-size: 120%;
-  color: #f5c04d;
+  font-size: 140%;
+  color: rgba(210, 134, 162, 1);
   font-weight: bold;
   position: absolute;
   top: 70%;
-  left: 13%;
+  left: 5%;
 }
 .joinButton {
   font-family: "Noticia Text", sans-serif;
-  font-size: 130%;
+  font-size: 200%;
   color: #b09f9f;
   font-weight: bold;
   position: absolute;
   top: 95%;
-  left: 35%;
+  left: 25%;
   margin: 4%;
   transition: transform 1s;
   transform-style: preserve-3d;
@@ -718,7 +719,6 @@ p.option {
     text-decoration: none;
     color: rgba(211, 210, 210, 1);
     top: 0%;
-    left: 80%;
   }
   .aboutUsMain {
     background-image: url(img/backgroundDoIt.png);

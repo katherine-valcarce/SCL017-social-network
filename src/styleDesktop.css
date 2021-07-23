@@ -1,0 +1,379 @@
+@import url("https://fonts.googleapis.com/css2?family=Noticia+Text&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Niramit:wght@200&display=swap");
+
+@media screen and (min-width: 1024px) {
+    body {
+      margin: 0px;
+    }
+    header {
+      background-color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .topNavBar {
+      background-color: white;
+      float: right;
+      width: 38%;
+      font-size: 20px;
+      font-family: sans-serif, Geneva, Tahoma;
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 2%;
+    }
+    .welcomeMenuDesk {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      margin: 1%;
+    }
+    .welcomeMenuMobile {
+      display: none;
+    }
+    .topNavBar a {
+      color: black;
+      font-weight: bold;
+      text-decoration: none;
+      margin: 3%;
+    }
+    .welcomeImg {
+      border-radius: 15px;
+      box-shadow: 0px 1px 8px 0px #697473;
+      width: 30%;
+      height: 30%;
+      transition: 1s;
+      cursor: pointer;
+      margin: 15px;
+    }
+    main {
+      background-image: url(img/backgroundDoIt.png);
+      background-size: 100%;
+      padding: 28.5%;
+      margin: 0% -1% -1% -1%;
+      background-repeat: no-repeat;
+      max-height: inherit;
+    }
+    .welcomeTitle {
+      font-family: "Noticia Text", sans-serif;
+      text-shadow: black 0.02em 0.02em 0.08em;
+      position: absolute;
+      left: 30%;
+      top: 35%;
+      font-size: 250%;
+      color: black;
+      font-weight: bold;
+    }
+    .welcomeImagesSection {
+      display: flex;
+      justify-content: center;
+      align-content: space-between;
+      flex-wrap: wrap;
+      flex-direction: row;
+      position: absolute;
+      width: auto;
+      margin: auto;
+      top: 50%;
+      margin-right: 10%;
+    }
+    .welcomeImg:hover {
+      transform: scale(0.97);
+    }
+    .registerTitle {
+      font-family: "Noticia Text", sans-serif;
+      text-shadow: black 0.02em 0.02em 0.07em;
+      font-size: 250%;
+      color: black;
+      text-align: left;
+      float: left;
+      width: 40%;
+      position: absolute;
+      top: 18%;
+      left: 25%;
+    }
+    .registerMain {
+      background-image: url(img/backgroundDoIt.png);
+      background-size: 100%;
+      padding: 28.5% 0%;
+      animation-name: smoothTransition;
+      animation-duration: 1s;
+    }
+    .registerForm {
+      margin-right: 7%;
+      border: 2px solid rgba(245, 194, 95, 1);
+      border-radius: 15px;
+      padding: 1% 6%;
+      position: absolute;
+      top: 8%;
+      left: 35%;
+      width: 18%;
+      height: 85%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: center;
+      align-items: center;
+    }
+    .h1Register{
+      left: 0%;
+      top: 2%;
+      font-weight: normal;
+      font-size: 120%;
+    }
+    .h2Register{
+      left: 0%;
+      top: 12%;
+      font-size: 110%;
+    }
+    #registerEmail{
+      top:35%;
+      left: -20%;
+      width: 120%;
+    }
+    #registerPassword{
+      top:35%;
+      left: -20%;
+      width: 120%;
+    }
+  
+    footer {
+      border: 2px solid black;
+      background-color: white;
+      padding: 1%;
+      text-align: center;
+    }
+    .footerText {
+      font-family: "Niramit", sans-serif;
+      font-weight: bold;
+    }
+    .doitHash {
+      font-family: "Noticia Text", sans-serif;
+      color: blue;
+      font-weight: bold;
+    }
+    .googleLoginButton {
+      font-family: "Niramit", sans-serif;
+      background-color: rgba(245, 194, 95, 1);
+      border: 1px solid black;
+      border-radius: 5px;
+      color: black;
+      font-weight: bold;
+      text-align: center;
+      margin-top: -20%;
+      padding: 2% 4%;
+      cursor: pointer;
+    }
+    .loginButton {
+      font-family: "Niramit", sans-serif;
+      background-color: rgba(210, 134, 162, 1);
+      border: 1px solid black;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      float: inline-start;
+      margin-top: 5%;
+      margin-bottom: 4%;
+      padding: 2% 8%;
+      cursor: pointer;
+    }
+    h1 {
+      font-family: "Niramit", sans-serif;
+      text-shadow: black 0.02em 0.02em 0.08em;
+      top: 8%;
+      text-align: center;
+      margin: 2%;
+    }
+    h2 {
+      font-family: "Niramit", sans-serif;
+      font-size: 120%;
+      text-align: center;
+    }
+    .inputForm {
+      text-align: center;
+      float: inline-start;
+      width: 120%;
+      padding: 4%;
+      background-color: #f3f3f3;
+      border-style: none;
+      border-radius: 8%;
+      margin: 2%;
+      top: 56%;
+    }
+    .loginForm {
+      background-color: white;
+      margin-right: 7%;
+      border: 2px solid rgba(245, 194, 95, 1);
+      border-radius: 15px;
+      padding: 4% 8%;
+      position: fixed;
+      top: 10%;
+      left: 35%;
+      animation-name: smoothTransition;
+      animation-duration: 1s;
+    }
+    @keyframes smoothTransition {
+      from {
+        opacity: 0;
+        top: 50%;
+      }
+    }
+    .createAccountButton {
+      font-family: "Niramit", sans-serif;
+      background-color: rgba(210, 134, 162, 1);
+      border: 2px solid black;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      float: inline-start;
+      margin-top: 10%;
+      margin-left: 15%;
+      margin-bottom: 4%;
+      padding: 2% 4%;
+      cursor: pointer;
+      position: relative;
+      top: 30%;
+      left: 8%;
+    }
+    .googleRegisterButton {
+      font-family: "Niramit", sans-serif;
+      background-color: rgba(245, 194, 95, 1);
+      border: 2px solid black;
+      border-radius: 5px;
+      color: black;
+      font-weight: bolder;
+      text-align: center;
+      margin-left: -2%;
+      padding: 2% 6%;
+      cursor: pointer;
+      width: 300px;
+      position: relative;
+      top: 42%;
+      left: 3%;
+    }
+    .loginModal {
+      background-color: rgba(0, 0, 0, 0.8);
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transition: all 1s;
+    }
+    #login:target {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    a.closeLoginModal {
+      font-size: 120%;
+      font-family: "Niramit", sans-serif;
+      font-weight: bold;
+      position: absolute;
+      left: 44%;
+      text-decoration: none;
+      color: rgba(211, 210, 210, 1);
+    }
+    a.closeRegisterModal {
+      font-size: 120%;
+      font-family: "Niramit", sans-serif;
+      font-weight: bold;
+      padding: 0;
+      position: absolute;
+      left: 42%;
+      text-decoration: none;
+      color: rgba(211, 210, 210, 1);
+      top: 0%;
+    }
+    .aboutUsMain {
+      background-image: url(img/backgroundDoIt.png);
+      background-size: 100%;
+      padding: 23% 0%;
+      animation-name: smoothTransition;
+      animation-duration: 1s;
+    }
+    .aboutUsTitle {
+      font-family: "Noticia Text", sans-serif;
+      text-shadow: black 0.02em 0.02em 0.08em;
+      font-size: 500%;
+      color: black;
+      font-weight: bold;
+      position: absolute;
+      top: 27%;
+      left: 47%;
+    }
+    .aboutUsTextOne {
+      font-family: "Noticia Text", serif;
+      text-align: center;
+      font-size: 120%;
+      color: black;
+      position: absolute;
+      width: 60%;
+      top: 50%;
+      left: 24%;
+    }
+    .aboutUsTextTwo {
+      font-family: "Noticia Text", serif;
+      text-align: center;
+      font-size: 120%;
+      color: #f5c04d;
+      font-weight: bold;
+      position: absolute;
+      top: 70%;
+      left: 40%;
+    }
+    .joinButton {
+      font-family: "Noticia Text", serif;
+      font-size: 130%;
+      color: #b09f9f;
+      font-weight: bold;
+      position: absolute;
+      top: 95%;
+      left: 35%;
+      margin: 4%;
+      transition: transform 1s;
+      transform-style: preserve-3d;
+    }
+    .joinButton:hover {
+      transform: scale(1.2);
+    }
+    p.option {
+      font-family: "Niramit", sans-serif;
+      font-size: 120%;
+      text-align: center;
+      position: relative;
+      left: -1%;
+      top: 9%;
+    }
+    .verificationContainer {
+      padding: 60%;
+      display: flex;
+    }
+    .verificationText {
+      font-family: "Niramit", sans-serif;
+      font-weight: bold;
+      position: absolute;
+      top: 0%;
+      left: 6%;
+      text-align: center;
+      width: 70%;
+      font-size: 150%;
+    }
+    .btnLoginFromRegister {
+      position: absolute;
+      top: 70%;
+      left: 26%;
+      border-radius: 15px;
+      background-color: rgba(245, 194, 95, 1);
+      padding: 8px 34px;
+    }
+    .abtnLoginFromRegister {
+      text-decoration: none;
+      color: black;
+      font-family: "Niramit", sans-serif;
+      font-weight: bold;
+      font-size: 140%;
+    }
+  }
