@@ -136,16 +136,19 @@ a.mobileMenuOption {
 
 .h1Register {
   font-family: "Niramit", sans-serif;
-  font-size: 180%;
+  font-size: 120%;
   width: 180%;
   position: relative;
-  font-weight: bold;
+  font-weight: normal;
+  left: -40%;
 }
 .h2Register {
+  font-family: "Niramit", sans-serif;
   font-size: 120%;
   width: 200%;
   position: relative;
   top: 17%;
+  left: -50%;
 }
 footer {
   display: none;
@@ -211,7 +214,9 @@ h2 {
   border-style: none;
   border-radius: 8%;
   margin: 2%;
+  position: relative;
   left: -18%;
+  font-size: 120%;
 }
 .registerForm {
   background-color: white;
@@ -219,7 +224,7 @@ h2 {
   border-radius: 15px;
   width: 80%;
   position: relative;
-  top: 14%;
+  top: 12%;
   left: 10%;
   animation-name: smoothTransition;
   animation-duration: 1s;
@@ -328,7 +333,7 @@ a.closeLoginModal {
   font-weight: bold;
   padding: 0;
   position: absolute;
-  left: 47%;
+  left: 44%;
   text-decoration: none;
   color: rgba(211, 210, 210, 1);
 }
@@ -338,10 +343,10 @@ a.closeRegisterModal {
   font-weight: bold;
   padding: 0;
   position: absolute;
-  left: 44%;
+  left: 42%;
   text-decoration: none;
   color: rgba(211, 210, 210, 1);
-  top: 92%;
+  top: 95%;
 }
 .aboutUsMain {
   background-image: url(img/backgroundDoItMobile.png);
@@ -373,21 +378,21 @@ a.closeRegisterModal {
 .aboutUsTextTwo {
   font-family: "Noticia Text", sans-serif;
   text-align: center;
-  font-size: 120%;
-  color: #f5c04d;
+  font-size: 140%;
+  color: rgba(210, 134, 162, 1);
   font-weight: bold;
   position: absolute;
   top: 70%;
-  left: 13%;
+  left: 5%;
 }
 .joinButton {
   font-family: "Noticia Text", sans-serif;
-  font-size: 130%;
+  font-size: 200%;
   color: #b09f9f;
   font-weight: bold;
   position: absolute;
   top: 95%;
-  left: 35%;
+  left: 25%;
   margin: 4%;
   transition: transform 1s;
   transform-style: preserve-3d;
@@ -515,14 +520,12 @@ p.option {
     text-shadow: black 0.02em 0.02em 0.08em;
     font-size: 250%;
     color: black;
-    font-weight: bold;
     text-align: left;
     float: left;
     width: 40%;
-    margin-left: 8%;
-    margin-top: 2%;
     position: absolute;
-    top: 22%;
+    top: 20%;
+    left: 25%;
   }
   .registerMain {
     background-image: url(img/backgroundDoIt.png);
@@ -537,21 +540,37 @@ p.option {
     border-radius: 15px;
     padding: 1% 6%;
     position: absolute;
-    top: 17%;
-    left: 50%;
-    width: 15%;
-    height: 70%;
+    top: 8%;
+    left: 35%;
+    width: 18%;
+    height: 85%;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-content: center;
     align-items: center;
   }
-
-  .inputRegisterForm {
-    margin-top: 40%;
-    margin-left: 13%;
+  .h1Register{
+    left: 0%;
+    top: 2%;
+    font-weight: normal;
+    font-size: 130%;
   }
+  .h2Register{
+    left: 0%;
+    top: 12%;
+  }
+  #registerEmail{
+    top:35%;
+    left: -20%;
+    width: 120%;
+  }
+  #registerPassword{
+    top:35%;
+    left: -20%;
+    width: 120%;
+  }
+
   footer {
     border: 2px solid black;
     background-color: white;
@@ -608,7 +627,7 @@ p.option {
   .inputForm {
     text-align: center;
     float: inline-start;
-    width: 90%;
+    width: 120%;
     padding: 4%;
     background-color: #f3f3f3;
     border-style: none;
@@ -621,10 +640,10 @@ p.option {
     margin-right: 7%;
     border: 2px solid rgba(245, 194, 95, 1);
     border-radius: 15px;
-    padding: 6% 6%;
+    padding: 4% 8%;
     position: fixed;
-    top: 13%;
-    left: 38%;
+    top: 10%;
+    left: 35%;
     animation-name: smoothTransition;
     animation-duration: 1s;
   }
@@ -644,10 +663,13 @@ p.option {
     text-align: center;
     float: inline-start;
     margin-top: 10%;
-    margin-left: 14%;
+    margin-left: 15%;
     margin-bottom: 4%;
     padding: 2% 4%;
     cursor: pointer;
+    position: relative;
+    top: 30%;
+    left: 8%;
   }
   .googleRegisterButton {
     font-family: "Niramit", sans-serif;
@@ -661,6 +683,9 @@ p.option {
     padding: 2% 6%;
     cursor: pointer;
     width: 300px;
+    position: relative;
+    top: 42%;
+    left: 3%;
   }
   .loginModal {
     background-color: rgba(0, 0, 0, 0.8);
@@ -683,6 +708,17 @@ p.option {
     left: 44%;
     text-decoration: none;
     color: rgba(211, 210, 210, 1);
+  }
+  a.closeRegisterModal {
+    font-size: 120%;
+    font-family: "Niramit", sans-serif;
+    font-weight: bold;
+    padding: 0;
+    position: absolute;
+    left: 42%;
+    text-decoration: none;
+    color: rgba(211, 210, 210, 1);
+    top: 0%;
   }
   .aboutUsMain {
     background-image: url(img/backgroundDoIt.png);
@@ -740,5 +776,36 @@ p.option {
     font-family: "Niramit", sans-serif;
     font-size: 120%;
     text-align: center;
+    position: relative;
+    top: 9%;
+  }
+  .verificationContainer {
+    padding: 60%;
+    display: flex;
+  }
+  .verificationText {
+    font-family: "Niramit", sans-serif;
+    font-weight: bold;
+    position: absolute;
+    top: 0%;
+    left: 6%;
+    text-align: center;
+    width: 70%;
+    font-size: 150%;
+  }
+  .btnLoginFromRegister {
+    position: absolute;
+    top: 70%;
+    left: 26%;
+    border-radius: 15px;
+    background-color: rgba(245, 194, 95, 1);
+    padding: 8px 34px;
+  }
+  .abtnLoginFromRegister {
+    text-decoration: none;
+    color: black;
+    font-family: "Niramit", sans-serif;
+    font-weight: bold;
+    font-size: 140%;
   }
 }
