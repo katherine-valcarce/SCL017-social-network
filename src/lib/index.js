@@ -92,19 +92,40 @@ export const authObserver = () => {
         messageVerifiedAccount = 'Email verificado';
       }
       console.log('Logueado');
-      console.log(email, messageVerifiedAccount);
+      console.log(email, messageVerifiedAccount, uid);
     } else {
       console.log('No Logueado');
     }
   });
 };
 
-export const sendEmailVerification = () => {
-  firebase.auth().email.sendEmailVerification()
-    .then(() => {
-    // Email verification sent!
-    // ...
-    });
+export const logIn = () => {
+  const loginButton = document.querySelector('#logInForm');
+
+  loginButton.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const email = document.querySelector('#user').value;
+    const password = document.querySelector('#pass').value;
+
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        if (user.emailVerified) {
+          // eslint-disable-next-line no-alert
+          alert('bienvenido');
+        } else {
+          // eslint-disable-next-line no-alert
+          alert('debes verificar tu cuenta antes de continuar');
+          firebase.auth().signOut();
+        }
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+  });
 };
 
 // Botón para desplegar menu desde mobile //

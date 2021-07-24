@@ -2,7 +2,7 @@
 /* eslint-disable no-else-return */
 
 import {
-  googleRegister, register, authObserver, menuMobile,
+  googleRegister, register, authObserver, menuMobile, logIn,
 } from './index.js';
 import { welcomeTemplate } from './views/welcomeTemplate.js';
 import { aboutUsTemplate } from './views/aboutUsTemplate.js';
@@ -29,6 +29,8 @@ export const displayRespectiveTemplate = (hash) => {
       break;
     case '#/login':
       containerRoot.innerHTML = loginTemplate();
+      logIn();
+      authObserver();
       break;
     default:
       containerRoot.innerHTML = `

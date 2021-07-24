@@ -277,12 +277,12 @@
       color: rgba(211, 210, 210, 1);
     }
     a.closeRegisterModal {
-      font-size: 120%;
+      font-size: 100%;
       font-family: "Niramit", sans-serif;
       font-weight: bold;
       padding: 0;
       position: absolute;
-      left: 42%;
+      left: 46%;
       text-decoration: none;
       color: rgba(211, 210, 210, 1);
       top: 0%;
