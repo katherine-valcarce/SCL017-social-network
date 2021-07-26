@@ -24,6 +24,7 @@ export const googleRegister = () => {
         var token = credential.accessToken;
         // The signed-in user info.
         var user = result.user;
+        window.location.assign('#/feed');
         console.log('user', user); // BORRAR CONSOLELOG DESPUÉS DE PROBAR!
         // ...
       }).catch((error) => {
@@ -126,7 +127,6 @@ export const logIn = () => {
         console.log(user);
         if (user.emailVerified) {
           // eslint-disable-next-line no-alert
-          alert('bienvenido');
           window.location.assign('#/feed');
         } else {
           // eslint-disable-next-line no-alert
@@ -149,6 +149,36 @@ export const logIn = () => {
           // eslint-disable-next-line no-alert
           alert(errorMessage);
         }
+      });
+  });
+};
+export const googleLogIn = () => {
+  const googleLogInButton = document.querySelector('#googleLoginButton');
+  googleLogInButton.addEventListener('click', () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth()
+      .signInWithPopup(provider)
+      .then((result) => {
+        /** @type {firebase.auth.OAuthCredential} */
+        var credential = result.credential;
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        // eslint-disable-next-line no-alert
+        window.location.assign('#/feed');
+        console.log('user', user); // BORRAR CONSOLELOG DESPUÉS DE PROBAR!
+        // ...
+      }).catch((error) => {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        console.log('error', errorMessage); // BORRAR CONSOLELOG DESPUÉS DE PROBAR
+        // ...
       });
   });
 };
