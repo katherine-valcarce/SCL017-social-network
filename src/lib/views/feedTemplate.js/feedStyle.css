@@ -1,0 +1,96 @@
+.html{
+    margin: 0px;
+    }
+    .body{
+        margin: 0px;
+    }
+    .containerFeedTemplate{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .headerFeedTemplate{
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+        width: 100%;
+        /* Esto no es necesario despues*/
+        border-color: black;
+        border: solid;
+        padding: 2%;
+    }
+    .wallMenu{
+          /* Esto no es necesario despues*/
+          border-color: black;
+          border: solid;
+          padding: 2%;
+          margin: 1%;
+    }
+    .categoriesMenu{
+        width: 20%;
+        height: 100%;
+    }
+    .searchProjectsInput{
+        width: 80%;
+    }
+    .containerWallFeedTemplate{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+    .sidebar{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 20%;
+    }
+    .textPostInput{
+        width: 100%;
+        margin: 2%;
+    
+    }
+    .postContainer{
+        display: flex;
+        height: 100%;
+        width: 60%;
+         /* Esto no es necesario despues*/
+        border-color: black;
+        border: solid;
+        padding: 2%;
+        margin: 1%;
+    
+    }
+    .profilePic{
+        /* Esto no es necesario despues*/
+        border-color: black;
+        border: solid;
+        padding: 1%;
+        margin: 1%;
+    }
+    .profilePicture{
+        border-color: black;
+        border: solid;
+        padding: 1%;
+        margin: 1%;
+        border-radius: 250px;
+    }
+    .uploadYourPicOrVid{
+        margin: 0px;
+    }
+    .formPost{ 
+        margin-left: 2%;
+    }
+    .uploadPicAndPostButtonContainer{
+        display: flex;
+        margin: 2%;
+    }
+    .suggestionsAndFriendsContainer{
+        height: 100%;
+        width: 20%;
+        /* Esto no es necesario despues*/
+        border-color: black;
+        border: solid;
+        padding: 2%;
+        margin: 1%;
+    }
+    
