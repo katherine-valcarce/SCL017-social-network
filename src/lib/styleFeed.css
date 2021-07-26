@@ -1,0 +1,47 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas: 
+   "x z z z"
+   "y c c f"
+   "y p p f" 
+   "y p p f";
+  padding: 10px;
+}
+.categoriesMenu{
+    grid-area: x;
+    background-color:gold;
+    text-align: center;
+    font-size: 150%;
+}
+.searcher{
+  grid-area: z;
+  background-color: blue;
+  text-align: center;
+  font-size: 150%;
+}
+.menuBar{
+    grid-area: y;
+    background-color: aquamarine;
+    text-align: center;
+    font-size: 150%;
+}
+.createPost{
+    grid-area: c;
+    background-color:blueviolet;
+    text-align: center;
+    font-size: 150%;
+}
+.friendship-suggestions{
+    grid-area: f;
+    background-color:crimson;
+    text-align: center;
+    font-size: 150%;
+}
+.Post{
+    grid-area: p;
+    background-color:darkgreen;
+    text-align: center;
+    font-size: 150%;
+}

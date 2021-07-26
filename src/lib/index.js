@@ -63,6 +63,18 @@ export const register = () => {
       .catch((error) => {
         var errorCode = error.code;
         var errorMessage = error.message;
+        // eslint-disable-next-line eqeqeq
+        if (errorCode == 'auth/email-already-in-use') {
+          // eslint-disable-next-line no-alert
+          alert('El correo electronico tiene asociada una cuenta, por favor inicie sesión');
+        // eslint-disable-next-line eqeqeq
+        } else if (errorCode == 'auth/invalid-email') {
+          // eslint-disable-next-line no-alert
+          alert('El correo no es valido');
+        } else {
+          // eslint-disable-next-line no-alert
+          alert(errorMessage);
+        }
         // ..
       });
   });
@@ -115,6 +127,7 @@ export const logIn = () => {
         if (user.emailVerified) {
           // eslint-disable-next-line no-alert
           alert('bienvenido');
+          window.location.assign('#/feed');
         } else {
           // eslint-disable-next-line no-alert
           alert('debes verificar tu cuenta antes de continuar');
@@ -124,6 +137,18 @@ export const logIn = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        // eslint-disable-next-line eqeqeq
+        if (errorCode == 'auth/user-not-found') {
+          // eslint-disable-next-line no-alert
+          alert('No tienes una cuenta creada, Registrate');
+        // eslint-disable-next-line eqeqeq
+        } else if (errorCode == 'auth/wrong-password') {
+          // eslint-disable-next-line no-alert
+          alert('Contraseña incorrecta');
+        } else {
+          // eslint-disable-next-line no-alert
+          alert(errorMessage);
+        }
       });
   });
 };

@@ -8,6 +8,7 @@ import { welcomeTemplate } from './views/welcomeTemplate.js';
 import { aboutUsTemplate } from './views/aboutUsTemplate.js';
 import { registerTemplate } from './views/registerTemplate.js';
 import { loginTemplate } from './views/logInTemplate.js';
+import { feedTemplate } from './views/feedTemplate.js';
 
 export const displayRespectiveTemplate = (hash) => {
   const containerRoot = document.getElementById('root');
@@ -31,6 +32,9 @@ export const displayRespectiveTemplate = (hash) => {
       containerRoot.innerHTML = loginTemplate();
       logIn();
       authObserver();
+      break;
+    case '#/feed':
+      containerRoot.innerHTML = feedTemplate();
       break;
     default:
       containerRoot.innerHTML = `
