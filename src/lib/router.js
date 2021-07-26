@@ -8,7 +8,7 @@ import { welcomeTemplate } from './views/welcomeTemplate.js';
 import { aboutUsTemplate } from './views/aboutUsTemplate.js';
 import { registerTemplate } from './views/registerTemplate.js';
 import { loginTemplate } from './views/logInTemplate.js';
-import { feedTemplate } from './views/feedTemplate.js';
+import { feedTemplate } from './views/principalFeedTemplate.js';
 
 export const displayRespectiveTemplate = (hash) => {
   const containerRoot = document.getElementById('root');
