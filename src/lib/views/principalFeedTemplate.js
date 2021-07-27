@@ -24,12 +24,11 @@ export const feedTemplate = () => {
                   <div id = "profileName" class = "profileName"> Susana Horia</div>
               </div>
               <div id = "postInputContainer" class= "postInputContainer" >
-                  <input type= "text" id= "textPostInput" class="textPostInput"  placeholder="¿Cómo va tu proyecto? ¡Cuéntanos!">
                   <div id ="uploadPicAndPostButtonContainer" class= "uploadPicAndPostButtonContainer">
                       <i class= "fa fa-camera"></i>
-                      <form action="/action_page.php" class= "formPost">
-                      <input type="file" id="myFile" name="filename">
-                      <input type="submit" >
+                      <form id="formPost" class= "formPost">
+                            <input type="text" id= "textPostInput" class="textPostInput"  placeholder="¿Cómo va tu proyecto? ¡Cuéntanos!" />
+                            <button id="btnPost" type="submit" > ENVIAR POST </button>
                       </form>
                   </div>
               </div>
