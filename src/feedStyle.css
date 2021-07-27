@@ -1,37 +1,58 @@
 .html{
     margin: 0px;
     }
-    .body{
-        margin: 0px;
-    }
-    .containerFeedTemplate{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .headerFeedTemplate{
-        display: flex;
-        justify-content: space-evenly;
-        flex-direction: row;
-        width: 100%;
+.body{
+    margin: 0px;
+}
+.containerFeedTemplate{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.headerFeedTemplate{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    width: 100%;
+    /* Esto no es necesario despues*/
+    border-color: black;
+    border: solid;
+    padding: 2%;
+    font-size: 25px;
+}
+.wallMenu{
         /* Esto no es necesario despues*/
+        display: flex;
         border-color: black;
         border: solid;
-        padding: 2%;
-    }
-    .wallMenu{
-          /* Esto no es necesario despues*/
-          border-color: black;
-          border: solid;
-          padding: 2%;
-          margin: 1%;
-    }
+        padding: 1%;
+        margin: 1%;
+        width: 20%;
+        height: 680px;
+        font-size: small;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+}
+.wallMenuCategories{
+    display: flex;
+    font-size: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    padding: 10%;
+    text-decoration: none;
+}
     .categoriesMenu{
         width: 20%;
         height: 100%;
+        margin-left: 2%;
     }
     .searchProjectsInput{
         width: 80%;
+        font-size: 18px;
+        padding: 8px;
+        margin-right: 2%;
     }
     .containerWallFeedTemplate{
         display: flex;
@@ -46,19 +67,29 @@
     }
     .textPostInput{
         width: 100%;
+        padding: 2%;
         margin: 2%;
     
+    }
+    .inputSubmitPost{
+        margin-left: 30%;
     }
     .postContainer{
         display: flex;
         height: 20%;
-        width: 60%;
-         /* Esto no es necesario despues*/
+        width: auto;
+        /* Esto no es necesario despues*/
         border-color: black;
         border: solid;
         padding: 2%;
-        margin: 1%;
+        margin: 2%;
     
+    }
+    .postInputContainer{
+        width: 75%;
+    }
+    .postAreaContainer{
+        width: 60%;
     }
     .profilePic{
         /* Esto no es necesario despues*/
@@ -79,13 +110,23 @@
     }
     .formPost{ 
         margin-left: 2%;
+        width: 100%;
     }
     .uploadPicAndPostButtonContainer{
         display: flex;
         margin: 2%;
     }
+    .postGrid{
+        display: flex;
+        height: 65%;
+        width: auto;
+        border-color: black;
+        border: solid;
+        padding: 2%;
+        margin: 2%;
+    }
     .suggestionsAndFriendsContainer{
-        height: 100%;
+        height: auto;
         width: 20%;
         /* Esto no es necesario despues*/
         border-color: black;
