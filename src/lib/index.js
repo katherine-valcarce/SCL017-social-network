@@ -6,11 +6,6 @@ import { headerTemplateMobile } from './views/menuMobileTemplate.js';
 import { verificationTemplate } from './views/registerTemplate.js';
 import { feedTemplate } from './views/principalFeedTemplate.js';
 
-export const myFunction = () => {
-  // aqui tu codigo
-  console.log('Hola mundo!');
-};
-
 export const googleRegister = () => {
   const googleRegisterButton = document.querySelector('#googleRegisterButton');
   googleRegisterButton.addEventListener('click', () => {
@@ -84,6 +79,7 @@ export const register = () => {
       });
   });
 };
+
 export const emailVerification = () => {
   // eslint-disable-next-line no-use-before-define
   const user = firebase.auth().currentUser;
@@ -93,6 +89,7 @@ export const emailVerification = () => {
     // An error happened
   });
 };
+
 export const authObserver = () => {
   // eslint-disable-next-line no-use-before-define
   firebase.auth().onAuthStateChanged((user) => {
@@ -160,6 +157,7 @@ export const logIn = () => {
       });
   });
 };
+
 export const googleLogIn = () => {
   const googleLogInButton = document.querySelector('#googleLoginButton');
   googleLogInButton.addEventListener('click', () => {

@@ -36,7 +36,13 @@ export const displayRespectiveTemplate = (hash) => {
       googleLogIn();
       break;
     case '#/feed':
-      containerRoot.innerHTML = feedTemplate();
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          containerRoot.innerHTML = feedTemplate();
+        } else {
+          containerRoot.innerHTML = welcomeTemplate();
+        }
+      });
       createPost();
       authObserver();
       showPost();
