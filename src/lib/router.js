@@ -1,8 +1,10 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-else-return */
 
+// eslint-disable-next-line import/no-cycle
 import {
-  googleRegister, register, authObserver, menuMobile, logIn, googleLogIn,
+  // eslint-disable-next-line import/named
+  googleRegister, register, authObserver, menuMobile, logIn, googleLogIn, createPost, showPost,
 } from './index.js';
 import { welcomeTemplate } from './views/welcomeTemplate.js';
 import { aboutUsTemplate } from './views/aboutUsTemplate.js';
@@ -26,7 +28,6 @@ export const displayRespectiveTemplate = (hash) => {
       containerRoot.innerHTML = registerTemplate();
       register();
       googleRegister();
-      authObserver();
       break;
     case '#/login':
       containerRoot.innerHTML = loginTemplate();
@@ -42,6 +43,9 @@ export const displayRespectiveTemplate = (hash) => {
           containerRoot.innerHTML = welcomeTemplate();
         }
       });
+      createPost();
+      authObserver();
+      showPost();
       break;
     default:
       containerRoot.innerHTML = `

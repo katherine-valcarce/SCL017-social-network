@@ -4,11 +4,14 @@
 import { headerTemplateMobile } from './views/menuMobileTemplate.js';
 // eslint-disable-next-line import/no-cycle
 import { verificationTemplate } from './views/registerTemplate.js';
+import { feedTemplate } from './views/principalFeedTemplate.js';
 
 export const googleRegister = () => {
   const googleRegisterButton = document.querySelector('#googleRegisterButton');
   googleRegisterButton.addEventListener('click', () => {
+    // eslint-disable-next-line no-use-before-define
     const provider = new firebase.auth.GoogleAuthProvider();
+    // eslint-disable-next-line no-use-before-define
     firebase.auth()
       .signInWithPopup(provider)
       .then((result) => {
@@ -44,6 +47,7 @@ export const register = () => {
     const email = document.querySelector('#registerEmail').value;
     const password = document.querySelector('#registerPassword').value;
 
+    // eslint-disable-next-line no-use-before-define
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
         // Signed in
@@ -77,6 +81,7 @@ export const register = () => {
 };
 
 export const emailVerification = () => {
+  // eslint-disable-next-line no-use-before-define
   const user = firebase.auth().currentUser;
   user.sendEmailVerification().then(() => {
     // Email verification sent!
@@ -86,10 +91,11 @@ export const emailVerification = () => {
 };
 
 export const authObserver = () => {
+  // eslint-disable-next-line no-use-before-define
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       var displayName = user.displayName;
-      var email = user.email;
+      const email = user.email;
       var emailVerified = user.emailVerified;
       var photoURL = user.photoURL;
       var isAnonymous = user.isAnonymous;
@@ -118,6 +124,7 @@ export const logIn = () => {
     const email = document.querySelector('#user').value;
     const password = document.querySelector('#pass').value;
 
+    // eslint-disable-next-line no-use-before-define
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
@@ -128,6 +135,7 @@ export const logIn = () => {
         } else {
           // eslint-disable-next-line no-alert
           alert('debes verificar tu cuenta antes de continuar');
+          // eslint-disable-next-line no-use-before-define
           firebase.auth().signOut();
         }
       })
@@ -153,7 +161,9 @@ export const logIn = () => {
 export const googleLogIn = () => {
   const googleLogInButton = document.querySelector('#googleLoginButton');
   googleLogInButton.addEventListener('click', () => {
+    // eslint-disable-next-line no-use-before-define
     const provider = new firebase.auth.GoogleAuthProvider();
+    // eslint-disable-next-line no-use-before-define
     firebase.auth()
       .signInWithPopup(provider)
       .then((result) => {
@@ -187,5 +197,66 @@ export const menuMobile = () => {
   const menuMobile = document.querySelector('#menuMobileBtn');
   menuMobile.addEventListener('click', () => {
     document.getElementById('root').innerHTML = headerTemplateMobile();
+  });
+};
+
+export const showPost = () => {
+  const db = firebase.firestore();
+  db.collection('Post').get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      const idText = doc.id;
+      const text = doc.data().textPost;
+      const postGrid = document.querySelector('#postGrid');
+      const newPost1 = document.createElement('div');
+      newPost1.textContent = text;
+      newPost1.className = 'newPost1';
+      postGrid.appendChild(newPost1);
+      document.querySelector('#postGrid').appendChild(newPost1);
+    });
+  });
+};
+
+export const createPost = () => {
+  var db = firebase.firestore();
+  const postButton = document.querySelector('#btnPost');
+
+  postButton.addEventListener('click', async (e) => {
+    window.location.assign('#/feed');
+    const textPost = document.querySelector('#textPostInput');
+
+    // eslint-disable-next-line eqeqeq
+    if (textPost.value.length == '') {
+      // eslint-disable-next-line no-alert
+      alert('Debes ingresar un texto');
+    } else {
+      db.collection('Post').add({
+        // eslint-disable-next-line no-undef
+        textPost: textPost.value,
+      })
+        .then((docRef) => {
+          console.log('Document written with ID: ', docRef.id);
+        })
+        .then((docRef) => {
+          db.collection('Post').get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              const text = doc.data().textPost;
+              const idText = doc.id;
+              if (doc) {
+                const newPost = document.createElement('div');
+                newPost.className = 'divNuevo';
+                const textNewPost = document.createTextNode(text);
+                newPost.appendChild(textNewPost);
+                document.getElementById('postGrid').appendChild(newPost);
+
+                // console.log(`${doc.id} => ${doc.data()}`);
+                console.log(text, idText);
+              }
+            });
+          });
+        })
+        .catch((error) => {
+          console.error('Error adding document: ', error);
+        });
+    }
   });
 };
