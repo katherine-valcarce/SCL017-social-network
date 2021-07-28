@@ -20,7 +20,7 @@ export const feedTemplate = () => {
       <div id= "postAreaContainer" class= "postAreaContainer">
           <div id= "postContainer" class = "postContainer">
               <div id = "profilePic" class= "profilePic">
-                  <img src="profilepic.jpg" alt="" class= "profilePicture">
+                  <img src="" alt="" class= "profilePicture">
                   <div id = "profileName" class = "profileName"> Susana Horia</div>
               </div>
               <div id = "postInputContainer" class= "postInputContainer" >
@@ -34,7 +34,6 @@ export const feedTemplate = () => {
               </div>
           </div>
           <div id = "postGrid" class ="postGrid">
-              hola hola
           </div>
       </div>
       <div id = "suggestionsAndFriendsContainer" class= "suggestionsAndFriendsContainer">

@@ -4,6 +4,7 @@
 import { headerTemplateMobile } from './views/menuMobileTemplate.js';
 // eslint-disable-next-line import/no-cycle
 import { verificationTemplate } from './views/registerTemplate.js';
+import { feedTemplate } from './views/principalFeedTemplate.js';
 
 export const myFunction = () => {
   // aqui tu codigo
@@ -97,7 +98,7 @@ export const authObserver = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       var displayName = user.displayName;
-      var email = user.email;
+      const email = user.email;
       var emailVerified = user.emailVerified;
       var photoURL = user.photoURL;
       var isAnonymous = user.isAnonymous;
@@ -201,6 +202,22 @@ export const menuMobile = () => {
   });
 };
 
+export const showPost = () => {
+  const db = firebase.firestore();
+  db.collection('Post').get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      const idText = doc.id;
+      const text = doc.data().textPost;
+      const postGrid = document.querySelector('#postGrid');
+      const newPost1 = document.createElement('div');
+      newPost1.textContent = text;
+      newPost1.className = 'newPost1';
+      postGrid.appendChild(newPost1);
+      document.querySelector('#postGrid').appendChild(newPost1);
+    });
+  });
+};
+
 export const createPost = () => {
   var db = firebase.firestore();
   const postButton = document.querySelector('#btnPost');
@@ -208,16 +225,36 @@ export const createPost = () => {
   postButton.addEventListener('click', async (e) => {
     window.location.assign('#/feed');
     const textPost = document.querySelector('#textPostInput');
+
     // eslint-disable-next-line eqeqeq
     if (textPost.value.length == '') {
       // eslint-disable-next-line no-alert
       alert('Debes ingresar un texto');
     } else {
       db.collection('Post').add({
+        // eslint-disable-next-line no-undef
         textPost: textPost.value,
       })
         .then((docRef) => {
           console.log('Document written with ID: ', docRef.id);
+        })
+        .then((docRef) => {
+          db.collection('Post').get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              const text = doc.data().textPost;
+              const idText = doc.id;
+              if (doc) {
+                const newPost = document.createElement('div');
+                newPost.className = 'divNuevo';
+                const textNewPost = document.createTextNode(text);
+                newPost.appendChild(textNewPost);
+                document.getElementById('postGrid').appendChild(newPost);
+
+                // console.log(`${doc.id} => ${doc.data()}`);
+                console.log(text, idText);
+              }
+            });
+          });
         })
         .catch((error) => {
           console.error('Error adding document: ', error);

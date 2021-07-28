@@ -4,7 +4,7 @@
 // eslint-disable-next-line import/no-cycle
 import {
   // eslint-disable-next-line import/named
-  googleRegister, register, authObserver, menuMobile, logIn, googleLogIn, createPost,
+  googleRegister, register, authObserver, menuMobile, logIn, googleLogIn, createPost, showPost,
 } from './index.js';
 import { welcomeTemplate } from './views/welcomeTemplate.js';
 import { aboutUsTemplate } from './views/aboutUsTemplate.js';
@@ -38,6 +38,8 @@ export const displayRespectiveTemplate = (hash) => {
     case '#/feed':
       containerRoot.innerHTML = feedTemplate();
       createPost();
+      authObserver();
+      showPost();
       break;
     default:
       containerRoot.innerHTML = `
