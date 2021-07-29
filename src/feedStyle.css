@@ -140,6 +140,10 @@
     .newPost{
         padding: 1%;
         margin: 2%;
+        border: 2px solid black;
+        width: 230px;
+        height: 230px;
+        text-align: center;
     }
 
 @media screen and (min-width: 1024px){

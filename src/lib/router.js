@@ -1,10 +1,5 @@
-/* eslint-disable no-use-before-define */
-/* eslint-disable no-else-return */
-
-// eslint-disable-next-line import/no-cycle
 import {
-  // eslint-disable-next-line import/named
-  googleRegister, register, authObserver, menuMobile, logIn, googleLogIn, createPost, showPost,
+  googleRegister, register, authObserver, menuMobile, logIn, googleLogIn, post, getPostFirebase,
 } from './index.js';
 import { welcomeTemplate } from './views/welcomeTemplate.js';
 import { aboutUsTemplate } from './views/aboutUsTemplate.js';
@@ -39,13 +34,13 @@ export const displayRespectiveTemplate = (hash) => {
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
           containerRoot.innerHTML = feedTemplate();
+          getPostFirebase();
+          authObserver();
+          post();
         } else {
           containerRoot.innerHTML = welcomeTemplate();
         }
       });
-      createPost();
-      authObserver();
-      showPost();
       break;
     default:
       containerRoot.innerHTML = `

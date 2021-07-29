@@ -199,8 +199,55 @@ export const menuMobile = () => {
     document.getElementById('root').innerHTML = headerTemplateMobile();
   });
 };
+const db = firebase.firestore();
+// Funcion para guardar Post en BBDD de Firebase
+export function savePostFirebase() {
+  const descriptionPost = document.querySelector('#textPostInput');
+  db.collection('Post').add({
+    description: descriptionPost.value,
+  });
+}
+// Funcion para actualizar el Feed
+export const feedupdate = (callback) => {
+  db.collection('Post').onSnapshot(callback);
+};
+// Funcion para recuperar los Post guardados en BBDD Firebase e insertarlos en el feed
+export function getPostFirebase() {
+  const postGridContainer = document.getElementById('postGrid');
+  feedupdate((querySnapshot) => {
+    postGridContainer.innerHTML = '';
+    querySnapshot.forEach((doc) => {
+      const textPost = doc.data();
+      textPost.id = doc.id;
+      postGridContainer.innerHTML += `<div class="newPost"> 
+                <p> ${textPost.description} </p>
+                <button class='btn-primary  btn-deletePost' data-id=${textPost.id}>Eliminar</button>
+                <button class='btn-secondary'>Editar</button>
+              </div>`;
+      // Eliminar post
+      const deletePost = (id) => db.collection('Post').doc(id).delete();
+      const btnDelete = document.querySelectorAll('.btn-deletePost');
+      btnDelete.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          deletePost(e.target.dataset.id);
+        });
+      });
+    });
+  });
+}
 
-export const showPost = () => {
+// Funcion que contiene los eventos que suceden al hacer click en Enviar post
+export function post() {
+  const formPost = document.querySelector('#formPost');
+
+  formPost.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    savePostFirebase();
+    formPost.reset();
+  });
+}
+
+/* export const showPost = () => {
   const db = firebase.firestore();
   db.collection('Post').get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
@@ -235,12 +282,9 @@ export const createPost = () => {
       })
         .then((docRef) => {
           console.log('Document written with ID: ', docRef.id);
-        })
-        .then((docRef) => {
           db.collection('Post').get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-              const text = doc.data().textPost;
-              const idText = doc.id;
+              const text = docRef.data().textPost;
               if (doc) {
                 const newPost = document.createElement('div');
                 newPost.className = 'divNuevo';
@@ -249,7 +293,7 @@ export const createPost = () => {
                 document.getElementById('postGrid').appendChild(newPost);
 
                 // console.log(`${doc.id} => ${doc.data()}`);
-                console.log(text, idText);
+                console.log(text);
               }
             });
           });
@@ -259,4 +303,4 @@ export const createPost = () => {
         });
     }
   });
-};
+}; */
