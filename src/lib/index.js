@@ -204,7 +204,9 @@ let editStatus = false;
 // Funcion para guardar Post en BBDD de Firebase
 export function savePostFirebase() {
   const descriptionPost = document.querySelector('#textPostInput');
+  const user = firebase.auth().currentUser;
   db.collection('Post').add({
+    user: user.email,
     description: descriptionPost.value,
   });
 }
@@ -230,9 +232,11 @@ export function getPostFirebase() {
       const textPost = doc.data();
       textPost.id = doc.id;
       postGridContainer.innerHTML += `<div class="newPost"> 
+                <p> ${textPost.user} dice : </p> 
                 <p> ${textPost.description} </p>
                 <button class='btn-primary  btn-deletePost' data-id=${textPost.id}>Eliminar</button>
                 <button class='btn-secondary btn-editPost'  data-id=${textPost.id} >Editar</button>
+                <button class='btn-tertiary btn-likePost'  data-id=${textPost.id} >Like</button>
               </div>`;
       // Eliminar post
       const deletePost = (id) => db.collection('Post').doc(id).delete();
@@ -260,23 +264,31 @@ export function getPostFirebase() {
         console.log(idPostedit);
         // --------------
         const EditPostBtn = document.querySelector('#formPostEdit');
-        // eslint-disable-next-line no-shadow
-        EditPostBtn.addEventListener('submit', async (e) => {
+
+        EditPostBtn.addEventListener('submit', async () => {
           e.preventDefault();
           const edit = db.collection('Post').doc(idPostedit);
-          return edit.update({
+          edit.update({
             description: document.getElementById('textPostInputEdit').value,
-
           });
-        });
-        const closeEdit = document.getElementById('close').addEventListener('click', () => {
           const containerEdit = document.getElementById('containerEdit');
           containerEdit.remove();
           getPostFirebase();
-          authObserver();
-          post();
+        });
+        document.getElementById('close').addEventListener('click', () => {
+          const containerEdit = document.getElementById('containerEdit');
+          containerEdit.remove();
+          getPostFirebase();
         });
       }));
+      // Like
+      const likeBtn = document.querySelectorAll('.btn-likePost');
+
+      likeBtn.forEach((btn) => {
+        btn.addEventListener('click', async (e) => {
+          console.log(textPost);
+        });
+      });
     });
   });
 }
