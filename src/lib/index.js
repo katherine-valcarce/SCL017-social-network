@@ -230,10 +230,14 @@ export function getPostFirebase() {
       const textPost = doc.data();
       textPost.id = doc.id;
       postGridContainer.innerHTML += `<div class="newPost"> 
-                <p> ${textPost.description} </p>
-                <button class='btn-primary  btn-deletePost' data-id=${textPost.id}>Eliminar</button>
-                <button class='btn-secondary btn-editPost'  data-id=${textPost.id} >Editar</button>
-              </div>`;
+      <p> ${textPost.description} </p>
+      <div id = "postLikesEditAndDeleteBtn" class = "postLikesEditAndDeleteBtn">
+      <i class = "fa fa-heart"></i>
+      <div id = "likes" class = "likesNumber"> 1 </div>
+      <button class='btn-primary  btn-deletePost' data-id=${textPost.id}>Eliminar</button>
+      <button class='btn-secondary btn-editPost' data-id=${textPost.id}>Editar</button>
+    </div>
+    </div>`;
       // Eliminar post
       const deletePost = (id) => db.collection('Post').doc(id).delete();
       const btnDelete = document.querySelectorAll('.btn-deletePost');
