@@ -7,7 +7,6 @@ export const EditPost = () => {
                     </div>
                         <input type="text" id= "textPostInputEdit" class="textPostInputEdit" />
                         <button id="btnPostEdit" type="submit" > Editar Post</button>
-                        <button id="close" class="close">CERRAR</button>  
                 </form> 
             </div> 
         </div> `;

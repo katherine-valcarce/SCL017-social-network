@@ -208,8 +208,13 @@ box-sizing: border-box;
     }
     .btn-primary{
         margin: 5%;
-
     }
+.divLikesEditDelete{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: flex-start;
+     }
 @media screen and (min-width: 1024px){
 .html{
     margin: 0px;
