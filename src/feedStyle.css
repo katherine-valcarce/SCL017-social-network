@@ -1,9 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Noticia+Text&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Niramit:wght@200&display=swap");
+
 .html{
     margin: 0px;
     }
 .body{
     margin: 0px;
 }
+.welcomeMenuMobile{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
 .containerFeedTemplate{
     display: flex;
     flex-direction: column;
@@ -11,12 +21,9 @@
 }
 .headerFeedTemplate{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-direction: row;
     width: 100%;
-    /* Esto no es necesario despues*/
-    border-color: black;
-    border: solid;
     padding: 2%;
     font-size: 25px;
 }
@@ -44,13 +51,17 @@
     text-decoration: none;
 }
     .categoriesMenu{
-        width: 20%;
-        height: 100%;
-        margin-left: 2%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 50%;
+        margin: 2%;
+        font-family: "Niramit", sans-serif;
+        font-size: x-large;
     }
     .searchProjectsInput{
         width: 80%;
-        font-size: 18px;
+        font-size: 50%;
         padding: 8px;
         margin-right: 2%;
     }
@@ -69,6 +80,8 @@
         width: 100%;
         padding: 2%;
         margin: 2%;
+        font-size: 70%;
+        height: 30%;
     
     }
     .inputSubmitPost{
@@ -76,37 +89,46 @@
     }
     .postContainer{
         display: flex;
-        height: 20%;
-        width: 100%;
-        /* Esto no es necesario despues*/
-        border-color: black;
-        border: solid;
+        border-radius: 5px;
         padding: 2%;
         margin: 2%;
+        background: white;
+        box-shadow: 0px 1px 8px 0px #697473;
     
     }
     .postInputContainer{
         width: 75%;
     }
     .postAreaContainer{
-        width: 60%;
+        width: 100%;
+        background-image: url(img/backgroundDoItMobile.png);
+        background-size: 100%;
+  background-repeat: no-repeat;
     }
     .profilePic{
-        /* Esto no es necesario despues*/
-        border-color: black;
-        border: solid;
-        padding: 1%;
-        margin: 1%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     .profilePicture{
-        border-color: black;
-        border: solid;
-        padding: 1%;
-        margin: 1%;
-        border-radius: 250px;
+    padding: 1%;
+    margin: 1%;
+    border-radius: 250px;
+    height: 75px;
+    width: 75px;
+    }
+    .profileName{
+       font-size: small;
+    font-family: "Niramit", sans-serif;
     }
     .uploadYourPicOrVid{
         margin: 0px;
+    }
+    .btn-post{
+        margin: 2%;
+        height: 40%;
+        background-color: #8FBFF8;
+        border-radius: 5px;
     }
     .formPost{ 
         margin-left: 2%;
@@ -117,15 +139,8 @@
         margin: 2%;
     }
     .postGrid{
-        display: grid;
-        grid-template-columns: auto auto;
-        grid-template-rows: auto auto ;
-        height: 90%;
-        width: auto;
-        border-color: black;
-        border: solid;
-        padding: 2%;
-        margin: 2%;
+        display: flex;
+        flex-direction: column;
     }
     .suggestionsAndFriendsContainer{
         display:none;
@@ -138,10 +153,27 @@
         margin: 1%;
     }
     .newPost{
-        padding: 1%;
+        padding: 5%;
         margin: 2%;
+        display: flex;
+        flex-direction: column;
+    font-family: "Niramit", sans-serif;
+    box-shadow: 0px 1px 8px 0px #697473;
+    background: white;
+    border-radius: 5px;
     }
 
+    .postLikesEditAndDeleteBtn{
+        display: flex;
+        align-items: center;
+    }
+    .likesNumber{
+        margin: 2%;
+    }
+    .btn-primary{
+        margin: 5%;
+
+    }
 @media screen and (min-width: 1024px){
 .html{
     margin: 0px;
@@ -202,7 +234,6 @@
     .containerWallFeedTemplate{
         display: flex;
         flex-direction: row;
-        width: 100%;
     }
     .sidebar{
         display: flex;
@@ -285,4 +316,7 @@
         padding: 1%;
         margin: 2%;
     }
+.postLikesEditAndDeleteBtn{
+    display: flex;
+}
  }

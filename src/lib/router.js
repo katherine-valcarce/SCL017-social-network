@@ -4,7 +4,11 @@
 // eslint-disable-next-line import/no-cycle
 import {
   // eslint-disable-next-line import/named
-  googleRegister, register, authObserver, menuMobile, logIn, googleLogIn, createPost, showPost,
+  // eslint-disable-next-line max-len
+  // eslint-disable-next-line no-unused-vars
+  // eslint-disable-next-line max-len
+  googleRegister, register, authObserver, menuMobile, logIn, googleLogIn, getPostFirebase, post,
+// eslint-disable-next-line import/named
 } from './index.js';
 import { welcomeTemplate } from './views/welcomeTemplate.js';
 import { aboutUsTemplate } from './views/aboutUsTemplate.js';
@@ -39,13 +43,13 @@ export const displayRespectiveTemplate = (hash) => {
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
           containerRoot.innerHTML = feedTemplate();
+          authObserver();
+          getPostFirebase();
+          post();
         } else {
           containerRoot.innerHTML = welcomeTemplate();
         }
       });
-      createPost();
-      authObserver();
-      showPost();
       break;
     default:
       containerRoot.innerHTML = `

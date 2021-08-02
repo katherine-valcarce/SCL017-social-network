@@ -1,7 +1,8 @@
 export const feedTemplate = () => {
   const feedHTML = `¨<div id= "containerFeedTemplate" class= "containerFeedTemplate">
   <div id= "headerFeedTemplate" class= "headerFeedTemplate"> 
-      <nav class = "categoriesMenu">Categorías</nav>
+      <nav class = "categoriesMenu">
+      <i class= "fa fa-bars"></i> Categorías</nav>
       <input type="text" id="searchProjects" class= "searchProjectsInput" onkeyup="searchFunction()" placeholder="¿Qué proyecto quieres hacer hoy?">
   </div>
   <div id= "containerWallFeedTemplate" class= "containerWallFeedTemplate" >
@@ -20,15 +21,14 @@ export const feedTemplate = () => {
       <div id= "postAreaContainer" class= "postAreaContainer">
           <div id= "postContainer" class = "postContainer">
               <div id = "profilePic" class= "profilePic">
-                  <img src="" alt="" class= "profilePicture">
+                  <img src="img/woman-at-home-knitting.jpg" alt="" class= "profilePicture">
                   <div id = "profileName" class = "profileName"> Susana Horia</div>
               </div>
               <div id = "postInputContainer" class= "postInputContainer" >
                   <div id ="uploadPicAndPostButtonContainer" class= "uploadPicAndPostButtonContainer">
-                      <i class= "fa fa-camera"></i>
                       <form id="formPost" class= "formPost">
                             <input type="text" id= "textPostInput" class="textPostInput"  placeholder="¿Cómo va tu proyecto? ¡Cuéntanos!" />
-                            <button id="btnPost" type="submit" > ENVIAR POST </button>
+                            <button id="btnPost" type="submit" class = "btn-post"> Publicar </button>
                       </form>
                   </div>
               </div>

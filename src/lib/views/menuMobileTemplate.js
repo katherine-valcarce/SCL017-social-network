@@ -6,8 +6,7 @@ export const headerTemplateMobile = () => {
     <div>
      <div class="menuMobile">
        <nav class="topNavBarMobile" id="topNavBarMobile">
-            <img src="img/imgLogin.png" class="imgMenuMobile" ></a>
-            <a href="#/login" id="show-modal" class="mobileMenuOption">Inicia Sesión</a> <br>
+            <a href="#/login" id="show-modal" class="mobileMenuOption"> <i class= "fa fa-user"></i>    Inicia Sesión</a> <br>
             <a href="#/register" class="mobileMenuOption" >Regístrate</a> <br>
             <a href="#/aboutUs" class="mobileMenuOption" class = "activeByDefault">Comunidad Doit</a>
        </nav>

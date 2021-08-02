@@ -48,8 +48,8 @@ main {
   font-family: "Noticia Text", serif;
   text-shadow: black 0.02em 0.02em 0.08em;
   position: absolute;
-  left: 10%;
-  top: 27%;
+  left: 0%;
+  top: 21%;
   font-size: 200%;
   color: black;
   font-weight: bold;
@@ -65,8 +65,8 @@ main {
   position: absolute;
   width: auto;
   margin: auto;
-  top: 42%;
-  left: 9%;
+  top: 38%;
+  left: 5%;
 }
 
 .welcomeImg:hover {
@@ -93,7 +93,7 @@ main {
   height: 70%;
   position: fixed;
   top: 20%;
-  left: 6%;
+  left: 3%;
   text-align: center;
   display: flex;
   flex-direction: column;

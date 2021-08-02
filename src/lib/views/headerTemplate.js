@@ -11,7 +11,8 @@ export const headerTemplate = () => {
      </div>
      <div class="welcomeMenuMobile">
         <a  href=""><img src="img/logoDoIt.png" alt="logo"></a>
-        <img src="img/btnMenuMobile.png" id="menuMobileBtn" ></a>
+        <i id="menuMobileBtn" style = "font-size: 50px; display: flex;
+        justify-content: flex-end;" class= " menuBars fa fa-bars"></i>
      </div>
     </header>
 
