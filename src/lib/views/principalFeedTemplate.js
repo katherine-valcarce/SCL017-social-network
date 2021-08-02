@@ -14,7 +14,7 @@ export const feedTemplate = () => {
               <a href="#subscription" class= "wallMenuCategories"><i class="fa fa-address-card-o"></i> Suscripciones</a>
               <a href="#profile" class= "wallMenuCategories"><i class="fa fa-user-circle"></i> Mi Perfil</a>
               <a href="#settings"class= "wallMenuCategories"><i class="fa fa-cog"></i> Configuración</a>
-              <a href="#closeSession" class= "wallMenuCategories"><i class="fa fa-times-circle"></i> Cerrar Sesión</a>
+              <a href="" class= "wallMenuCategories" id="signOut"><i class="fa fa-times-circle"></i> Cerrar Sesión</a>
         </div> 
       </div>
       <div id= "postAreaContainer" class= "postAreaContainer">

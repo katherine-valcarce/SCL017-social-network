@@ -1,5 +1,6 @@
 import {
   googleRegister, register, authObserver, menuMobile, logIn, googleLogIn, post, getPostFirebase,
+  signOutLogin,
 } from './index.js';
 import { welcomeTemplate } from './views/welcomeTemplate.js';
 import { aboutUsTemplate } from './views/aboutUsTemplate.js';
@@ -37,6 +38,7 @@ export const displayRespectiveTemplate = (hash) => {
           getPostFirebase();
           authObserver();
           post();
+          signOutLogin();
         } else {
           containerRoot.innerHTML = welcomeTemplate();
         }

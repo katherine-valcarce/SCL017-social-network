@@ -1,10 +1,7 @@
-/* eslint-disable vars-on-top */
 /* eslint-disable no-unused-vars */
-/* eslint-disable no-var */
 import { headerTemplateMobile } from './views/menuMobileTemplate.js';
-// eslint-disable-next-line import/no-cycle
 import { verificationTemplate } from './views/registerTemplate.js';
-import { feedTemplate } from './views/principalFeedTemplate.js';
+import { EditPost } from './views/EditPost.js';
 
 export const googleRegister = () => {
   const googleRegisterButton = document.querySelector('#googleRegisterButton');
@@ -16,23 +13,23 @@ export const googleRegister = () => {
       .signInWithPopup(provider)
       .then((result) => {
         /** @type {firebase.auth.OAuthCredential} */
-        var credential = result.credential;
+        const credential = result.credential;
 
         // This gives you a Google Access Token. You can use it to access the Google API.
-        var token = credential.accessToken;
+        const token = credential.accessToken;
         // The signed-in user info.
-        var user = result.user;
+        const user = result.user;
         window.location.assign('#/feed');
         console.log('user', user); // BORRAR CONSOLELOG DESPUÉS DE PROBAR!
         // ...
       }).catch((error) => {
         // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
+        const errorCode = error.code;
+        const errorMessage = error.message;
         // The email of the user's account used.
-        var email = error.email;
+        const email = error.email;
         // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
+        const credential = error.credential;
         console.log('error', errorMessage); // BORRAR CONSOLELOG DESPUÉS DE PROBAR
         // ...
       });
@@ -51,7 +48,7 @@ export const register = () => {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
         // Signed in
-        var user = userCredential.user;
+        const user = userCredential.user;
         // ...
         console.log('user', user);
       })
@@ -61,8 +58,8 @@ export const register = () => {
         document.getElementById('root').innerHTML = verificationTemplate();
       })
       .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
+        const errorCode = error.code;
+        const errorMessage = error.message;
         // eslint-disable-next-line eqeqeq
         if (errorCode == 'auth/email-already-in-use') {
           // eslint-disable-next-line no-alert
@@ -94,13 +91,13 @@ export const authObserver = () => {
   // eslint-disable-next-line no-use-before-define
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      var displayName = user.displayName;
+      const displayName = user.displayName;
       const email = user.email;
-      var emailVerified = user.emailVerified;
-      var photoURL = user.photoURL;
-      var isAnonymous = user.isAnonymous;
-      var uid = user.uid;
-      var providerData = user.providerData;
+      const emailVerified = user.emailVerified;
+      const photoURL = user.photoURL;
+      const isAnonymous = user.isAnonymous;
+      const uid = user.uid;
+      const providerData = user.providerData;
       let messageVerifiedAccount = '';
       if (emailVerified === false) {
         messageVerifiedAccount = 'Email no verificado';
@@ -168,23 +165,23 @@ export const googleLogIn = () => {
       .signInWithPopup(provider)
       .then((result) => {
         /** @type {firebase.auth.OAuthCredential} */
-        var credential = result.credential;
+        const credential = result.credential;
         // This gives you a Google Access Token. You can use it to access the Google API.
-        var token = credential.accessToken;
+        const token = credential.accessToken;
         // The signed-in user info.
-        var user = result.user;
+        const user = result.user;
         // eslint-disable-next-line no-alert
         window.location.assign('#/feed');
         console.log('user', user); // BORRAR CONSOLELOG DESPUÉS DE PROBAR!
         // ...
       }).catch((error) => {
         // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
+        const errorCode = error.code;
+        const errorMessage = error.message;
         // The email of the user's account used.
-        var email = error.email;
+        const email = error.email;
         // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
+        const credential = error.credential;
         console.log('error', errorMessage); // BORRAR CONSOLELOG DESPUÉS DE PROBAR
         // ...
       });
@@ -199,7 +196,9 @@ export const menuMobile = () => {
     document.getElementById('root').innerHTML = headerTemplateMobile();
   });
 };
+// ----- POST ---------
 const db = firebase.firestore();
+let editStatus = false;
 // Funcion para guardar Post en BBDD de Firebase
 export function savePostFirebase() {
   const descriptionPost = document.querySelector('#textPostInput');
@@ -211,6 +210,15 @@ export function savePostFirebase() {
 export const feedupdate = (callback) => {
   db.collection('Post').onSnapshot(callback);
 };
+// Funcion que contiene los eventos que suceden al hacer click en Enviar post
+export function post() {
+  const formPost = document.querySelector('#formPost');
+  formPost.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    savePostFirebase();
+    formPost.reset();
+  });
+}
 // Funcion para recuperar los Post guardados en BBDD Firebase e insertarlos en el feed
 export function getPostFirebase() {
   const postGridContainer = document.getElementById('postGrid');
@@ -222,7 +230,7 @@ export function getPostFirebase() {
       postGridContainer.innerHTML += `<div class="newPost"> 
                 <p> ${textPost.description} </p>
                 <button class='btn-primary  btn-deletePost' data-id=${textPost.id}>Eliminar</button>
-                <button class='btn-secondary'>Editar</button>
+                <button class='btn-secondary btn-editPost'  data-id=${textPost.id} >Editar</button>
               </div>`;
       // Eliminar post
       const deletePost = (id) => db.collection('Post').doc(id).delete();
@@ -232,21 +240,57 @@ export function getPostFirebase() {
           deletePost(e.target.dataset.id);
         });
       });
+      // Editar post
+      const btnEdit = document.querySelectorAll('.btn-editPost');
+      btnEdit.forEach((btn) => btn.addEventListener('click', async (e) => {
+        document.getElementById('root').innerHTML += EditPost();
+
+        const editPost = (id) => db.collection('Post').doc(id).get();
+        const getEditPost = await editPost(e.target.dataset.id);
+        const editPostData = getEditPost.data();
+        const idPostedit = (getEditPost.id);
+
+        editStatus = true;
+
+        const formPost = document.querySelector('#textPostInputEdit');
+        formPost.value = editPostData.description;
+
+        console.log(idPostedit);
+        // --------------
+        const EditPostBtn = document.querySelector('#formPostEdit');
+        // eslint-disable-next-line no-shadow
+        EditPostBtn.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const edit = db.collection('Post').doc(idPostedit);
+          return edit.update({
+            description: document.getElementById('textPostInputEdit').value,
+
+          });
+        });
+        const closeEdit = document.getElementById('close').addEventListener('click', () => {
+          const containerEdit = document.getElementById('containerEdit');
+          containerEdit.remove();
+          getPostFirebase();
+          authObserver();
+          post();
+        });
+      }));
     });
   });
 }
 
-// Funcion que contiene los eventos que suceden al hacer click en Enviar post
-export function post() {
-  const formPost = document.querySelector('#formPost');
-
-  formPost.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    savePostFirebase();
-    formPost.reset();
+export const signOutLogin = () => {
+  const signOutBtn = document.getElementById('signOut');
+  signOutBtn.addEventListener('click', async () => {
+    await firebase.auth().signOut()
+      .then(() => {
+        console.log('Sesion finalizada');
+        // Sign-out successful.
+      }).catch((error) => {
+        // An error happened.
+      });
   });
-}
-
+};
 /* export const showPost = () => {
   const db = firebase.firestore();
   db.collection('Post').get().then((querySnapshot) => {
