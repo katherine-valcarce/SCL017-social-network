@@ -201,18 +201,54 @@ export const menuMobile = () => {
 // ----- POST ---------
 const db = firebase.firestore();
 let editStatus = false;
+export function userNameImg() {
+  const userName = document.getElementById('profileName');
+  const userImg = document.getElementById('userPhoto');
+
+  firebase.auth().onAuthStateChanged((user) => {
+    const displayName = user.displayName;
+    const userPhoto = user.photoURL;
+    userName.textContent = displayName;
+    userImg.style.backgroundImage = `url(${userPhoto})`;
+  });
+}
+function hoyFecha() {
+  function addZero(i) {
+    if (i < 10) {
+      // eslint-disable-next-line no-param-reassign
+      i = `0${i}`;
+    }
+    return i;
+  }
+  const hoy = new Date();
+  let hour = hoy.getHours();
+  let minute = hoy.getMinutes();
+  let dd = hoy.getDate();
+  let mm = hoy.getMonth() + 1;
+  const yyyy = hoy.getFullYear();
+
+  hour = addZero(hour);
+  minute = addZero(minute);
+  dd = addZero(dd);
+  mm = addZero(mm);
+  // `${hour}:${minute} hrs. ${dd}/${mm}/${yyyy}`;
+  return `${dd}/${mm}/${yyyy}   ${hour}:${minute} hrs.`;
+}
+
 // Funcion para guardar Post en BBDD de Firebase
 export function savePostFirebase() {
   const descriptionPost = document.querySelector('#textPostInput');
   const user = firebase.auth().currentUser;
   db.collection('Post').add({
-    user: user.email,
+    user: user.displayName,
     description: descriptionPost.value,
+    fecha: hoyFecha(),
+    // like: user.like,
   });
 }
 // Funcion para actualizar el Feed
 export const feedupdate = (callback) => {
-  db.collection('Post').onSnapshot(callback);
+  db.collection('Post').orderBy('fecha', 'desc').onSnapshot(callback);
 };
 // Funcion que contiene los eventos que suceden al hacer click en Enviar post
 export function post() {
@@ -223,8 +259,17 @@ export function post() {
     formPost.reset();
   });
 }
+function likes() {
+  const likesRef = db.collection('Post').doc();
+  console.log(likesRef);
+  // Atomically increment the population of the city by 50.
+  likesRef.update({
+    like: firebase.firestore.FieldValue.increment(1),
+  });
+}
 // Funcion para recuperar los Post guardados en BBDD Firebase e insertarlos en el feed
 export function getPostFirebase() {
+  const postRef = db.collection('Post');
   const postGridContainer = document.getElementById('postGrid');
   feedupdate((querySnapshot) => {
     postGridContainer.innerHTML = '';
@@ -234,11 +279,11 @@ export function getPostFirebase() {
       postGridContainer.innerHTML += `<div class="newPost"> 
                 <p> ${textPost.user} dice : </p> 
                 <p> ${textPost.description} </p>
-                <div class = "divLikesEditDelete">
-                <i class='fa fa-heart btn-likePost'  data-id=${textPost.id} ></i>
-                <div id = "numLikes" class = "numLikes" >2</div>
+                <div class="divLikesEditDelete">
+                <i class='fa fa-heart btn-likePost' id="btnLike" data-id=${textPost.id} ></i>
+                <div id = "numLikes" class = "numLikes" data-id=${textPost.id}>${textPost.like} </div>
                 <button class='btn-primary  btn-deletePost' data-id=${textPost.id}>Eliminar</button>
-                <button class='btn-secondary btn-editPost'  data-id=${textPost.id} >Editar</button>
+                <button class='btn-secondary btn-editPost'  data-id=${textPost.id}>Editar</button>
                 </div>
               </div>`;
       // Eliminar post
@@ -249,48 +294,44 @@ export function getPostFirebase() {
           deletePost(e.target.dataset.id);
         });
       });
-      // Editar post
-      const btnEdit = document.querySelectorAll('.btn-editPost');
-      btnEdit.forEach((btn) => btn.addEventListener('click', async (e) => {
-        document.getElementById('root').innerHTML += EditPost();
-
-        const editPost = (id) => db.collection('Post').doc(id).get();
-        const getEditPost = await editPost(e.target.dataset.id);
-        const editPostData = getEditPost.data();
-        const idPostedit = (getEditPost.id);
-
-        editStatus = true;
-
-        const formPost = document.querySelector('#textPostInputEdit');
-        formPost.value = editPostData.description;
-
-        console.log(idPostedit);
-        // --------------
-        const EditPostBtn = document.querySelector('#formPostEdit');
-
-        EditPostBtn.addEventListener('submit', async () => {
-          e.preventDefault();
-          const edit = db.collection('Post').doc(idPostedit);
-          edit.update({
-            description: document.getElementById('textPostInputEdit').value,
-          });
-          const containerEdit = document.getElementById('containerEdit');
-          containerEdit.remove();
-          getPostFirebase();
-        });
-        document.getElementById('close').addEventListener('click', () => {
-          const containerEdit = document.getElementById('containerEdit');
-          containerEdit.remove();
-          getPostFirebase();
-        });
-      }));
       // Like
       const likeBtn = document.querySelectorAll('.btn-likePost');
 
       likeBtn.forEach((btn) => {
         btn.addEventListener('click', async (e) => {
-          console.log(textPost);
+          // likes();
         });
+        // Editar post
+        const btnEdit = document.querySelectorAll('.btn-editPost');
+        // eslint-disable-next-line no-shadow
+        btnEdit.forEach((btn) => btn.addEventListener('click', async (e) => {
+          document.getElementById('root').innerHTML += EditPost();
+
+          const editPost = (id) => db.collection('Post').doc(id).get();
+          const getEditPost = await editPost(e.target.dataset.id);
+          const editPostData = getEditPost.data();
+          const idPostedit = (getEditPost.id);
+
+          editStatus = true;
+
+          const formPost = document.querySelector('#textPostInputEdit');
+          formPost.value = editPostData.description;
+
+          console.log(idPostedit);
+          // --------------
+          const EditPostBtn = document.querySelector('#btnPostEdit');
+
+          EditPostBtn.addEventListener('click', async () => {
+            e.preventDefault();
+            const edit = db.collection('Post').doc(idPostedit);
+            edit.update({
+              description: document.getElementById('textPostInputEdit').value,
+            });
+            const containerEdit = await document.getElementById('containerEdit');
+            containerEdit.remove();
+            getPostFirebase();
+          });
+        }));
       });
     });
   });
@@ -308,113 +349,3 @@ export const signOutLogin = () => {
       });
   });
 };
-/* export const showPost = () => {
-  const db = firebase.firestore();
-  db.collection('Post').get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-      const idText = doc.id;
-      const text = doc.data().textPost;
-      const postGrid = document.querySelector('#postGrid');
-      const newPost1 = document.createElement('div');
-      newPost1.textContent = text;
-      newPost1.className = 'newPost1';
-      postGrid.appendChild(newPost1);
-      document.querySelector('#postGrid').appendChild(newPost1);
-    });
-  });
-}
-// Funcion para actualizar el Feed
-export const feedupdate = (callback) => {
-  db.collection('Post').onSnapshot(callback);
-};
-// Funcion para recuperar los Post guardados en BBDD Firebase e insertarlos en el feed
-export function getPostFirebase() {
-  const postGridContainer = document.getElementById('postGrid');
-  feedupdate((querySnapshot) => {
-    postGridContainer.innerHTML = '';
-    querySnapshot.forEach((doc) => {
-      const textPost = doc.data();
-      textPost.id = doc.id;
-      postGridContainer.innerHTML += `<div class="newPost">
-                <p> ${textPost.description} </p>
-                <div id = "postLikesEditAndDeleteBtn" class = "postLikesEditAndDeleteBtn">
-                <i class = "fa fa-heart"></i>
-                <div id = "likes" class = "likesNumber"> 1 </div>
-                <button class='btn-primary  btn-deletePost' data-id=${textPost.id}>Eliminar</button>
-                <button class='btn-secondary btn-edit' data-id = ${textPost.id}>Editar</button>
-              </div>
-              </div>`;
-      // Eliminar post
-      // eslint-disable-next-line no-shadow
-      const getPostToEdit = (id) => db.collection('Post').doc(id).get();
-
-      // eslint-disable-next-line no-shadow
-      function deletePost(id) {
-        return db.collection('Post').doc(id).delete();
-      }
-      const btnDelete = document.querySelectorAll('.btn-deletePost');
-      btnDelete.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-          deletePost(e.target.dataset.id);
-        });
-      });
-      const btnsEdit = document.querySelectorAll('.btn-edit');
-      btnsEdit.forEach((btn) => {
-        btn.addEventListener('click', async (e) => {
-          const postToEdit = await getPostToEdit(e.target.dataset.id);
-          const editPostData = postToEdit.data();
-          editStatus = true;
-          id = textPost.id;
-          const editPostBtn = document.querySelector('#btnPost');
-          editPostBtn.innerHTML = 'Editar';
-
-          const formPost = document.querySelector('#textPostInput');
-          formPost.value = editPostData.description;
-        });
-      });
-    });
-  });
-}
-// eslint-disable-next-line no-shadow
-export function editPost(id, updatedPost) {
-  db.collecion('Post').doc(id).update(updatedPost);
-}
-
-// Funcion que contiene los eventos que suceden al hacer click en Enviar post
-export function post() {
-  const formPost = document.querySelector('#formPost');
-
-  formPost.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!editStatus) {
-      await savePostFirebase();
-    } else {
-      await updatePost(id, {
-        // eslint-disable-next-line no-undef
-        textPost: textPost.value,
-      })
-        .then((docRef) => {
-          console.log('Document written with ID: ', docRef.id);
-          db.collection('Post').get().then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-              const text = docRef.data().textPost;
-              if (doc) {
-                const newPost = document.createElement('div');
-                newPost.className = 'divNuevo';
-                const textNewPost = document.createTextNode(text);
-                newPost.appendChild(textNewPost);
-                document.getElementById('postGrid').appendChild(newPost);
-
-                // console.log(`${doc.id} => ${doc.data()}`);
-                console.log(text);
-              }
-            });
-          });
-        })
-        .catch((error) => {
-          console.error('Error adding document: ', error);
-        });
-    }
-    formPost.reset();
-  });
-}; */

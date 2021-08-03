@@ -1,5 +1,5 @@
 export const feedTemplate = () => {
-  const feedHTML = `¨<div id= "containerFeedTemplate" class= "containerFeedTemplate">
+  const feedHTML = `<div id= "containerFeedTemplate" class= "containerFeedTemplate">
   <div id= "headerFeedTemplate" class= "headerFeedTemplate"> 
       <nav class = "categoriesMenu">
       <i class= "fa fa-bars"></i> Categorías</nav>
@@ -21,7 +21,7 @@ export const feedTemplate = () => {
       <div id= "postAreaContainer" class= "postAreaContainer">
           <div id= "postContainer" class = "postContainer">
               <div id = "profilePic" class= "profilePic">
-                  <img src="img/woman-at-home-knitting.jpg" alt="" class= "profilePicture">
+                  <img alt="" id="userPhoto" class= "profilePicture"/>
                   <div id = "profileName" class = "profileName"> Susana Horia</div>
               </div>
               <div id = "postInputContainer" class= "postInputContainer" >
@@ -29,6 +29,11 @@ export const feedTemplate = () => {
                       <form id="formPost" class= "formPost">
                             <input type="text" id= "textPostInput" class="textPostInput"  placeholder="¿Cómo va tu proyecto? ¡Cuéntanos!" />
                             <button id="btnPost" type="submit" class = "btn-post"> Publicar </button>
+                            <label class"btn-img">
+                            <input type="file" id="myFile" name="filename" class="hidden">
+                            <i class= "fa fa-camera">  </i> 
+                            </label>
+                            <br>
                       </form>
                   </div>
               </div>
