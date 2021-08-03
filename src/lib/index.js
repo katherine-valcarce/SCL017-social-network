@@ -192,15 +192,15 @@ export const googleLogIn = () => {
 
 // Botón para desplegar menu desde mobile //
 export const menuMobile = () => {
-  // eslint-disable-next-line no-shadow
-  const menuMobile = document.querySelector('#menuMobileBtn');
-  menuMobile.addEventListener('click', () => {
+  const menuMobileBtn = document.querySelector('#menuMobileBtn');
+  menuMobileBtn.addEventListener('click', () => {
     document.getElementById('root').innerHTML = headerTemplateMobile();
   });
 };
 // ----- POST ---------
 const db = firebase.firestore();
-let editStatus = false;
+
+// Función para tomar el nombre e imagen del usuario
 export function userNameImg() {
   const userName = document.getElementById('profileName');
   const userImg = document.getElementById('userPhoto');
@@ -212,7 +212,8 @@ export function userNameImg() {
     userImg.style.backgroundImage = `url(${userPhoto})`;
   });
 }
-function hoyFecha() {
+// Funcion para agregar la fecha del post
+function date() {
   function addZero(i) {
     if (i < 10) {
       // eslint-disable-next-line no-param-reassign
@@ -221,18 +222,19 @@ function hoyFecha() {
     return i;
   }
   const hoy = new Date();
+  let second = hoy.getSeconds();
   let hour = hoy.getHours();
   let minute = hoy.getMinutes();
   let dd = hoy.getDate();
   let mm = hoy.getMonth() + 1;
   const yyyy = hoy.getFullYear();
 
+  second = addZero(second);
   hour = addZero(hour);
   minute = addZero(minute);
   dd = addZero(dd);
   mm = addZero(mm);
-  // `${hour}:${minute} hrs. ${dd}/${mm}/${yyyy}`;
-  return `${dd}/${mm}/${yyyy}   ${hour}:${minute} hrs.`;
+  return `${dd}/${mm}/${yyyy}   ${hour}:${minute}:${second} hrs`;
 }
 
 // Funcion para guardar Post en BBDD de Firebase
@@ -242,11 +244,11 @@ export function savePostFirebase() {
   db.collection('Post').add({
     user: user.displayName,
     description: descriptionPost.value,
-    fecha: hoyFecha(),
-    // like: user.like,
+    fecha: date(),
+    like: 0,
   });
 }
-// Funcion para actualizar el Feed
+// Funcion para actualizar el Feed y ordenar post
 export const feedupdate = (callback) => {
   db.collection('Post').orderBy('fecha', 'desc').onSnapshot(callback);
 };
@@ -259,13 +261,18 @@ export function post() {
     formPost.reset();
   });
 }
-function likes() {
-  const likesRef = db.collection('Post').doc();
+function likes(e) {
+  /* const getPost = (id) => db.collection('post').doc(id).get();
+  const doc = getPost(e.target.dataset.id);
+  const postDoc = doc.data();
+  console.log(postDoc);
+
+   const likesRef = db.collection('Post').doc();
+  database.collection('post').doc(id).get();
   console.log(likesRef);
-  // Atomically increment the population of the city by 50.
   likesRef.update({
     like: firebase.firestore.FieldValue.increment(1),
-  });
+  }); */
 }
 // Funcion para recuperar los Post guardados en BBDD Firebase e insertarlos en el feed
 export function getPostFirebase() {
@@ -294,25 +301,29 @@ export function getPostFirebase() {
           deletePost(e.target.dataset.id);
         });
       });
-      // Like
+      // Dar Like (corazón)
       const likeBtn = document.querySelectorAll('.btn-likePost');
-
       likeBtn.forEach((btn) => {
         btn.addEventListener('click', async (e) => {
-          // likes();
+          const getPost = (id) => db.collection('Post').doc(id).get();
+          const docPost = await getPost(e.target.dataset.id);
+          const idDocData = (docPost.id);
+          console.log(idDocData);
+          const likesRef = db.collection('Post').doc(idDocData);
+          likesRef.update({
+            like: firebase.firestore.FieldValue.increment(1),
+          });
         });
+
         // Editar post
         const btnEdit = document.querySelectorAll('.btn-editPost');
-        // eslint-disable-next-line no-shadow
-        btnEdit.forEach((btn) => btn.addEventListener('click', async (e) => {
+        btnEdit.forEach((btnE) => btnE.addEventListener('click', async (e) => {
           document.getElementById('root').innerHTML += EditPost();
 
           const editPost = (id) => db.collection('Post').doc(id).get();
           const getEditPost = await editPost(e.target.dataset.id);
           const editPostData = getEditPost.data();
           const idPostedit = (getEditPost.id);
-
-          editStatus = true;
 
           const formPost = document.querySelector('#textPostInputEdit');
           formPost.value = editPostData.description;
@@ -336,7 +347,7 @@ export function getPostFirebase() {
     });
   });
 }
-
+// Función paara cerrar sesión
 export const signOutLogin = () => {
   const signOutBtn = document.getElementById('signOut');
   signOutBtn.addEventListener('click', async () => {
