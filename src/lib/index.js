@@ -261,19 +261,6 @@ export function post() {
     formPost.reset();
   });
 }
-function likes(e) {
-  /* const getPost = (id) => db.collection('post').doc(id).get();
-  const doc = getPost(e.target.dataset.id);
-  const postDoc = doc.data();
-  console.log(postDoc);
-
-   const likesRef = db.collection('Post').doc();
-  database.collection('post').doc(id).get();
-  console.log(likesRef);
-  likesRef.update({
-    like: firebase.firestore.FieldValue.increment(1),
-  }); */
-}
 // Funcion para recuperar los Post guardados en BBDD Firebase e insertarlos en el feed
 export function getPostFirebase() {
   const postRef = db.collection('Post');
