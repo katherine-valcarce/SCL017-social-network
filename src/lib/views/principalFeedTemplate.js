@@ -2,8 +2,14 @@ export const feedTemplate = () => {
   const feedHTML = `¨<div id= "containerFeedTemplate" class= "containerFeedTemplate">
   <div id= "headerFeedTemplate" class= "headerFeedTemplate"> 
       <nav class = "categoriesMenu">
-      <i class= "fa fa-bars"></i> Categorías</nav>
+      <i class= "fa fa-bars"></i></nav>
+      <div class = "searchInputBar">
+      <i class= "fa fa-search" ></i>
       <input type="text" id="searchProjects" class= "searchProjectsInput" onkeyup="searchFunction()" placeholder="¿Qué proyecto quieres hacer hoy?">
+      </div>
+      <div class = "friendsIcon">
+      <i class= "fa fa-users" ></i>
+      </div>
   </div>
   <div id= "containerWallFeedTemplate" class= "containerWallFeedTemplate" >
       <div id= "wallMenu" class = "wallMenu">
@@ -28,8 +34,14 @@ export const feedTemplate = () => {
                   <div id ="uploadPicAndPostButtonContainer" class= "uploadPicAndPostButtonContainer">
                       <form id="formPost" class= "formPost">
                             <input type="text" id= "textPostInput" class="textPostInput"  placeholder="¿Cómo va tu proyecto? ¡Cuéntanos!" />
-                            <button id="btnPost" type="submit" class = "btn-post"> Publicar </button>
-                      </form>
+                            <div id = "btnpostAndUploadPic" class = "btnpostAndUploadPic">
+                            <div class = "uploadPicDiv">
+                            <i class= "fa fa-camera" > </i> 
+                            <div class = "uploadYourPicBtn"> Sube tu foto</div> 
+                            </div>
+                            <button id="btnPost" type="submit" class = "btn-post"> Compartir </button>
+                            </div>
+                            </form>
                   </div>
               </div>
           </div>

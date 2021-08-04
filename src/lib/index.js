@@ -229,10 +229,11 @@ export function getPostFirebase() {
   feedupdate((querySnapshot) => {
     postGridContainer.innerHTML = '';
     querySnapshot.forEach((doc) => {
+      const user = document.getElementById('profileName').innerHTML;
       const textPost = doc.data();
       textPost.id = doc.id;
       postGridContainer.innerHTML += `<div class="newPost"> 
-                <p> ${textPost.user} dice : </p> 
+                <p class "userTextPost"> ${user} dice : </p> 
                 <p> ${textPost.description} </p>
                 <div class = "divLikesEditDelete">
                 <i class='fa fa-heart btn-likePost'  data-id=${textPost.id} ></i>

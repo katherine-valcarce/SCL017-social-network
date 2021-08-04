@@ -6,7 +6,7 @@ export const loginTemplate = () => {
     <div id="login" class="loginModal">
         <div class= "loginForm">
             <h1> ¡HOLA! </h1>
-            <h2> Estábamos esperándote </h2>
+            <div class = "textLoginForm"> Estábamos esperándote </div>
             <form id="logInForm">
                 <input type= 'text' id= "user" class="inputForm" placeholder= "Usuario" required> <br>
                 <input type= 'password' id= "pass" class="inputForm" placeholder="Contraseña" required> <br>
