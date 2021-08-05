@@ -3,23 +3,15 @@ import { headerTemplateMobile } from './views/menuMobileTemplate.js';
 import { verificationTemplate } from './views/registerTemplate.js';
 import { EditPost } from './views/EditPost.js';
 
-export const myFunction = () => {
-  // aqui tu codigo
-  console.log('Hola mundo!');
-};
-
-export const googleRegister = () => {
-  const googleRegisterButton = document.querySelector('#googleRegisterButton');
-  googleRegisterButton.addEventListener('click', () => {
-    // eslint-disable-next-line no-use-before-define
+export const googleLogIn = () => {
+  const googleLoginButton = document.querySelector('#googleLoginButton');
+  googleLoginButton.addEventListener('click', () => {
     const provider = new firebase.auth.GoogleAuthProvider();
-    // eslint-disable-next-line no-use-before-define
     firebase.auth()
       .signInWithPopup(provider)
       .then((result) => {
         /** @type {firebase.auth.OAuthCredential} */
         const credential = result.credential;
-
         // This gives you a Google Access Token. You can use it to access the Google API.
         const token = credential.accessToken;
         // The signed-in user info.
@@ -154,38 +146,6 @@ export const logIn = () => {
           // eslint-disable-next-line no-alert
           alert(errorMessage);
         }
-      });
-  });
-};
-export const googleLogIn = () => {
-  const googleLogInButton = document.querySelector('#googleLoginButton');
-  googleLogInButton.addEventListener('click', () => {
-    // eslint-disable-next-line no-use-before-define
-    const provider = new firebase.auth.GoogleAuthProvider();
-    // eslint-disable-next-line no-use-before-define
-    firebase.auth()
-      .signInWithPopup(provider)
-      .then((result) => {
-        /** @type {firebase.auth.OAuthCredential} */
-        const credential = result.credential;
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        // eslint-disable-next-line no-alert
-        window.location.assign('#/feed');
-        console.log('user', user); // BORRAR CONSOLELOG DESPUÉS DE PROBAR!
-        // ...
-      }).catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        const credential = error.credential;
-        console.log('error', errorMessage); // BORRAR CONSOLELOG DESPUÉS DE PROBAR
-        // ...
       });
   });
 };

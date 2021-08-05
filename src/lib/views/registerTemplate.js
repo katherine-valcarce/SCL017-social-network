@@ -13,10 +13,10 @@ export const registerTemplate = () => {
                 <form id="registerForm" class= "inputRegisterForm">
                     <input type="text" id="registerEmail" class="inputForm" placeholder="Correo electrónico" required/>
                     <input type="password" id="registerPassword" class="inputForm" placeholder="Ingresa una contraseña" required/>
-                    <button type="submit" class="createAccountButton" >Crear cuenta</button> 
+                    <button type="submit" class="createAccountButton">Crear cuenta</button> 
                 </form>
                 <p class="option"> o <p>  
-                <button id="googleRegisterButton" class="googleRegisterButton">Crear cuenta con Google</button>
+                <button id="googleLoginButton" class="googleRegisterButton">Inicia sesión con Google</button>
                 <a href='' class='closeRegisterModal'>Cerrar</a>
            </div>
       </div>

@@ -1,5 +1,5 @@
 import {
-  googleRegister, register, authObserver, menuMobile, logIn, googleLogIn, post, getPostFirebase,
+  register, authObserver, menuMobile, logIn, googleLogIn, post, getPostFirebase,
   signOutLogin, userNameImg,
 } from './index.js';
 import { welcomeTemplate } from './views/welcomeTemplate.js';
@@ -23,7 +23,7 @@ export const displayRespectiveTemplate = (hash) => {
     case '#/register':
       containerRoot.innerHTML = registerTemplate();
       register();
-      googleRegister();
+      googleLogIn();
       break;
     case '#/login':
       containerRoot.innerHTML = loginTemplate();
