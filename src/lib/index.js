@@ -266,18 +266,17 @@ export function getPostFirebase() {
   feedupdate((querySnapshot) => {
     postGridContainer.innerHTML = '';
     querySnapshot.forEach((doc) => {
+      const user = document.getElementById('profileName').innerHTML;
       const textPost = doc.data();
       textPost.id = doc.id;
-      const getArrayLikes = textPost.like;
-      const NumberLikes = getArrayLikes.length;
       postGridContainer.innerHTML += `<div class="newPost"> 
-                <p> ${textPost.user} dice : </p> 
+                <p class "userTextPost"> ${user} dice : </p> 
                 <p> ${textPost.description} </p>
                 <div class="divLikesEditDelete">
                 <i class='fa fa-heart btn-likePost' id="btnLike" data-id=${textPost.id} ></i>
-                <div id = "numLikes" class = "numLikes" data-id=${textPost.id}><p> ${NumberLikes} Me gusta</p></div>
-                <button class='btn-primary  btn-deletePost' data-id=${textPost.id}>Eliminar</button>
-                <button class='btn-secondary btn-editPost'  data-id=${textPost.id}>Editar</button>
+                <div id = "numLikes" class = "numLikes" data-id=${textPost.id}>${textPost.like.length} </div>
+                <i class='fa fa-trash  btn-deletePost' data-id=${textPost.id}></i>
+                <i class='fa fa-edit  btn-editPost'  data-id=${textPost.id}></i>
                 </div>
               </div>`;
       // Eliminar post
@@ -294,30 +293,30 @@ export function getPostFirebase() {
         btn.addEventListener('click', async (e) => {
           // obteniendo ID del post clikeado
           const getPost = (id) => db.collection('Post').doc(id).get();
-          const data = await getPost(e.target.dataset.id);
-          const idData = (data.id);
-          const getData = data.data();
-          const getArrayLike = getData.like;
-          console.log(getArrayLike);
-          // obteniendo nombre de usuario que hace like
-          firebase.auth().onAuthStateChanged((user) => {
-            const userName = user.displayName;
-            const likesRef = db.collection('Post').doc(idData);
-            console.log(userName);
-            const findLike = getArrayLike.includes(userName);
-            const btnLikes = document.getElementById('.btn-likePost');
-            // eslint-disable-next-line eqeqeq
-            if (findLike == true) {
-              console.log('dislike');
+          const docPost = await getPost(e.target.dataset.id);
+          const idDocData = (docPost.id);
+          // console.log(idDocData);
+          const likesRef = db.collection('Post').doc(idDocData);
+          const usuario = firebase.auth().currentUser;
+          // console.log(usuario.uid);
+          // console.log(textPost.user);
+
+          likesRef.get('like').then((postData) => {
+            const likesArray = postData.data().like;
+            // este es el array con los usuarios que le dieron like al post
+
+            if (likesArray.includes(usuario.uid)) { // chequear si el id del usuario ya le dio like
+              //   sacar el id del array
               likesRef.update({
-                like: firebase.firestore.FieldValue.arrayRemove(userName),
+                like: firebase.firestore.FieldValue.arrayRemove(usuario.uid),
               });
-              document.getElementById('btnLike').className = 'fa fa-heart btn-likePost';
+              // cambiar de color a negro (o normal)
             } else {
-              console.log('agregado tu like a la BBDD');
+              // agregar el id al array
               likesRef.update({
-                like: firebase.firestore.FieldValue.arrayUnion(userName),
+                like: firebase.firestore.FieldValue.arrayUnion(usuario.uid),
               });
+              // cambiar de color a rojo
             }
           });
         });

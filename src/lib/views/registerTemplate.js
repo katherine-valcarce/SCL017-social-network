@@ -5,11 +5,11 @@ export const registerTemplate = () => {
   registerHTML += `
     <div id="register" class="loginModalRegister">
       <div class= "registerForm">
-          <h1 class="h1Register"> Nos alegra que quieras <br> crear junto a nosotros</h1>
-            <text class= "registerTitle">
-              Regístrate
-            </text>
-          <h2 class="h2Register"> Tenemos muchos proyectos <br> que te pueden gustar</h2>
+          <div class="h1Register"> Nos alegra que quieras crear <br> junto a nosotros</div>
+            <h1 class= "registerTitle">
+              ¡Regístrate!
+            </h1>
+          <div class="h2Register"> Tenemos muchos proyectos  que te <br> pueden gustar</div>
                 <form id="registerForm" class= "inputRegisterForm">
                     <input type="text" id="registerEmail" class="inputForm" placeholder="Correo electrónico" required/>
                     <input type="password" id="registerPassword" class="inputForm" placeholder="Ingresa una contraseña" required/>
@@ -17,7 +17,9 @@ export const registerTemplate = () => {
                 </form>
                 <p class="option"> o <p>  
                 <button id="googleRegisterButton" class="googleRegisterButton">Crear cuenta con Google</button>
+                <div class = "closeRegister">
                 <a href='' class='closeRegisterModal'>Cerrar</a>
+                </div>
            </div>
       </div>
     </div>
