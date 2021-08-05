@@ -199,7 +199,6 @@ export const menuMobile = () => {
 };
 // ----- POST ---------
 const db = firebase.firestore();
-
 // Función para tomar el nombre e imagen del usuario
 export function userNameImg() {
   const userName = document.getElementById('profileName');
@@ -245,7 +244,7 @@ export function savePostFirebase() {
     user: user.displayName,
     description: descriptionPost.value,
     fecha: date(),
-    like: 0,
+    like: [],
   });
 }
 // Funcion para actualizar el Feed y ordenar post
@@ -263,19 +262,20 @@ export function post() {
 }
 // Funcion para recuperar los Post guardados en BBDD Firebase e insertarlos en el feed
 export function getPostFirebase() {
-  const postRef = db.collection('Post');
   const postGridContainer = document.getElementById('postGrid');
   feedupdate((querySnapshot) => {
     postGridContainer.innerHTML = '';
     querySnapshot.forEach((doc) => {
       const textPost = doc.data();
       textPost.id = doc.id;
+      const getArrayLikes = textPost.like;
+      const NumberLikes = getArrayLikes.length;
       postGridContainer.innerHTML += `<div class="newPost"> 
                 <p> ${textPost.user} dice : </p> 
                 <p> ${textPost.description} </p>
                 <div class="divLikesEditDelete">
                 <i class='fa fa-heart btn-likePost' id="btnLike" data-id=${textPost.id} ></i>
-                <div id = "numLikes" class = "numLikes" data-id=${textPost.id}>${textPost.like} </div>
+                <div id = "numLikes" class = "numLikes" data-id=${textPost.id}><p> ${NumberLikes} Me gusta</p></div>
                 <button class='btn-primary  btn-deletePost' data-id=${textPost.id}>Eliminar</button>
                 <button class='btn-secondary btn-editPost'  data-id=${textPost.id}>Editar</button>
                 </div>
@@ -292,48 +292,69 @@ export function getPostFirebase() {
       const likeBtn = document.querySelectorAll('.btn-likePost');
       likeBtn.forEach((btn) => {
         btn.addEventListener('click', async (e) => {
+          // obteniendo ID del post clikeado
           const getPost = (id) => db.collection('Post').doc(id).get();
-          const docPost = await getPost(e.target.dataset.id);
-          const idDocData = (docPost.id);
-          console.log(idDocData);
-          const likesRef = db.collection('Post').doc(idDocData);
-          likesRef.update({
-            like: firebase.firestore.FieldValue.increment(1),
+          const data = await getPost(e.target.dataset.id);
+          const idData = (data.id);
+          const getData = data.data();
+          const getArrayLike = getData.like;
+          console.log(getArrayLike);
+          // obteniendo nombre de usuario que hace like
+          firebase.auth().onAuthStateChanged((user) => {
+            const userName = user.displayName;
+            const likesRef = db.collection('Post').doc(idData);
+            console.log(userName);
+            const findLike = getArrayLike.includes(userName);
+            const btnLikes = document.getElementById('.btn-likePost');
+            // eslint-disable-next-line eqeqeq
+            if (findLike == true) {
+              console.log('dislike');
+              likesRef.update({
+                like: firebase.firestore.FieldValue.arrayRemove(userName),
+              });
+              document.getElementById('btnLike').className = 'fa fa-heart btn-likePost';
+            } else {
+              console.log('agregado tu like a la BBDD');
+              likesRef.update({
+                like: firebase.firestore.FieldValue.arrayUnion(userName),
+              });
+            }
           });
         });
-
-        // Editar post
-        const btnEdit = document.querySelectorAll('.btn-editPost');
-        btnEdit.forEach((btnE) => btnE.addEventListener('click', async (e) => {
-          document.getElementById('root').innerHTML += EditPost();
-
-          const editPost = (id) => db.collection('Post').doc(id).get();
-          const getEditPost = await editPost(e.target.dataset.id);
-          const editPostData = getEditPost.data();
-          const idPostedit = (getEditPost.id);
-
-          const formPost = document.querySelector('#textPostInputEdit');
-          formPost.value = editPostData.description;
-
-          console.log(idPostedit);
-          // --------------
-          const EditPostBtn = document.querySelector('#btnPostEdit');
-
-          EditPostBtn.addEventListener('click', async () => {
-            e.preventDefault();
-            const edit = db.collection('Post').doc(idPostedit);
-            edit.update({
-              description: document.getElementById('textPostInputEdit').value,
-            });
-            const containerEdit = await document.getElementById('containerEdit');
-            containerEdit.remove();
-            getPostFirebase();
-          });
-        }));
       });
+
+      // Editar post
+      const btnEdit = document.querySelectorAll('.btn-editPost');
+      btnEdit.forEach((btnE) => btnE.addEventListener('click', async (e) => {
+        document.getElementById('root').innerHTML += EditPost();
+
+        const editPost = (id) => db.collection('Post').doc(id).get();
+        const getEditPost = await editPost(e.target.dataset.id);
+        const editPostData = getEditPost.data();
+        const idPostedit = (getEditPost.id);
+
+        const formPost = document.querySelector('#textPostInputEdit');
+        formPost.value = editPostData.description;
+
+        console.log(idPostedit);
+        // --------------
+        const EditPostBtn = document.querySelector('#btnPostEdit');
+
+        EditPostBtn.addEventListener('click', async () => {
+          e.preventDefault();
+          const edit = db.collection('Post').doc(idPostedit);
+          edit.update({
+            description: document.getElementById('textPostInputEdit').value,
+          });
+          const containerEdit = await document.getElementById('containerEdit');
+          containerEdit.remove();
+          getPostFirebase();
+        });
+      }));
     });
   });
 }
+
 // Función paara cerrar sesión
 export const signOutLogin = () => {
   const signOutBtn = document.getElementById('signOut');

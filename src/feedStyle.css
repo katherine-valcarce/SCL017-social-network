@@ -219,6 +219,9 @@ box-sizing: border-box;
 .hidden{
     display: none;
 }
+.red-color {
+    color:red;
+    }
 @media screen and (min-width: 1024px){
 .html{
     margin: 0px;
