@@ -192,27 +192,65 @@ export const googleLogIn = () => {
 
 // Botón para desplegar menu desde mobile //
 export const menuMobile = () => {
-  // eslint-disable-next-line no-shadow
-  const menuMobile = document.querySelector('#menuMobileBtn');
-  menuMobile.addEventListener('click', () => {
+  const menuMobileBtn = document.querySelector('#menuMobileBtn');
+  menuMobileBtn.addEventListener('click', () => {
     document.getElementById('root').innerHTML = headerTemplateMobile();
   });
 };
 // ----- POST ---------
 const db = firebase.firestore();
-let editStatus = false;
+
+// Función para tomar el nombre e imagen del usuario
+export function userNameImg() {
+  const userName = document.getElementById('profileName');
+  const userImg = document.getElementById('userPhoto');
+
+  firebase.auth().onAuthStateChanged((user) => {
+    const displayName = user.displayName;
+    const userPhoto = user.photoURL;
+    userName.textContent = displayName;
+    userImg.style.backgroundImage = `url(${userPhoto})`;
+  });
+}
+// Funcion para agregar la fecha del post
+function date() {
+  function addZero(i) {
+    if (i < 10) {
+      // eslint-disable-next-line no-param-reassign
+      i = `0${i}`;
+    }
+    return i;
+  }
+  const hoy = new Date();
+  let second = hoy.getSeconds();
+  let hour = hoy.getHours();
+  let minute = hoy.getMinutes();
+  let dd = hoy.getDate();
+  let mm = hoy.getMonth() + 1;
+  const yyyy = hoy.getFullYear();
+
+  second = addZero(second);
+  hour = addZero(hour);
+  minute = addZero(minute);
+  dd = addZero(dd);
+  mm = addZero(mm);
+  return `${dd}/${mm}/${yyyy}   ${hour}:${minute}:${second} hrs`;
+}
+
 // Funcion para guardar Post en BBDD de Firebase
 export function savePostFirebase() {
   const descriptionPost = document.querySelector('#textPostInput');
   const user = firebase.auth().currentUser;
   db.collection('Post').add({
-    user: user.email,
+    user: user.displayName,
     description: descriptionPost.value,
+    fecha: date(),
+    like: [],
   });
 }
-// Funcion para actualizar el Feed
+// Funcion para actualizar el Feed y ordenar post
 export const feedupdate = (callback) => {
-  db.collection('Post').onSnapshot(callback);
+  db.collection('Post').orderBy('fecha', 'desc').onSnapshot(callback);
 };
 // Funcion que contiene los eventos que suceden al hacer click en Enviar post
 export function post() {
@@ -225,6 +263,7 @@ export function post() {
 }
 // Funcion para recuperar los Post guardados en BBDD Firebase e insertarlos en el feed
 export function getPostFirebase() {
+  const postRef = db.collection('Post');
   const postGridContainer = document.getElementById('postGrid');
   feedupdate((querySnapshot) => {
     postGridContainer.innerHTML = '';
@@ -235,11 +274,11 @@ export function getPostFirebase() {
       postGridContainer.innerHTML += `<div class="newPost"> 
                 <p class "userTextPost"> ${user} dice : </p> 
                 <p> ${textPost.description} </p>
-                <div class = "divLikesEditDelete">
-                <i class='fa fa-heart btn-likePost'  data-id=${textPost.id} ></i>
-                <div id = "numLikes" class = "numLikes" >2</div>
-                <button class='btn-primary  btn-deletePost' data-id=${textPost.id}>Eliminar</button>
-                <button class='btn-secondary btn-editPost'  data-id=${textPost.id} >Editar</button>
+                <div class="divLikesEditDelete">
+                <i class='fa fa-heart btn-likePost' id="btnLike" data-id=${textPost.id} ></i>
+                <div id = "numLikes" class = "numLikes" data-id=${textPost.id}>${textPost.like.length} </div>
+                <i class='fa fa-trash  btn-deletePost' data-id=${textPost.id}></i>
+                <i class='fa fa-edit  btn-editPost'  data-id=${textPost.id}></i>
                 </div>
               </div>`;
       // Eliminar post
@@ -250,53 +289,72 @@ export function getPostFirebase() {
           deletePost(e.target.dataset.id);
         });
       });
-      // Editar post
-      const btnEdit = document.querySelectorAll('.btn-editPost');
-      btnEdit.forEach((btn) => btn.addEventListener('click', async (e) => {
-        document.getElementById('root').innerHTML += EditPost();
-
-        const editPost = (id) => db.collection('Post').doc(id).get();
-        const getEditPost = await editPost(e.target.dataset.id);
-        const editPostData = getEditPost.data();
-        const idPostedit = (getEditPost.id);
-
-        editStatus = true;
-
-        const formPost = document.querySelector('#textPostInputEdit');
-        formPost.value = editPostData.description;
-
-        console.log(idPostedit);
-        // --------------
-        const EditPostBtn = document.querySelector('#formPostEdit');
-
-        EditPostBtn.addEventListener('submit', async () => {
-          e.preventDefault();
-          const edit = db.collection('Post').doc(idPostedit);
-          edit.update({
-            description: document.getElementById('textPostInputEdit').value,
-          });
-          const containerEdit = document.getElementById('containerEdit');
-          containerEdit.remove();
-          getPostFirebase();
-        });
-        document.getElementById('close').addEventListener('click', () => {
-          const containerEdit = document.getElementById('containerEdit');
-          containerEdit.remove();
-          getPostFirebase();
-        });
-      }));
-      // Like
+      // Dar Like (corazón)
       const likeBtn = document.querySelectorAll('.btn-likePost');
-
       likeBtn.forEach((btn) => {
         btn.addEventListener('click', async (e) => {
-          console.log(textPost);
+          const getPost = (id) => db.collection('Post').doc(id).get();
+          const docPost = await getPost(e.target.dataset.id);
+          const idDocData = (docPost.id);
+          // console.log(idDocData);
+          const likesRef = db.collection('Post').doc(idDocData);
+          const usuario = firebase.auth().currentUser;
+          // console.log(usuario.uid);
+          // console.log(textPost.user);
+
+          likesRef.get('like').then((postData) => {
+            const likesArray = postData.data().like;
+            // este es el array con los usuarios que le dieron like al post
+
+            if (likesArray.includes(usuario.uid)) { // chequear si el id del usuario ya le dio like
+              //   sacar el id del array
+              likesRef.update({
+                like: firebase.firestore.FieldValue.arrayRemove(usuario.uid),
+              });
+              // cambiar de color a negro (o normal)
+            } else {
+              // agregar el id al array
+              likesRef.update({
+                like: firebase.firestore.FieldValue.arrayUnion(usuario.uid),
+              });
+              // cambiar de color a rojo
+            }
+          });
         });
+
+        // Editar post
+        const btnEdit = document.querySelectorAll('.btn-editPost');
+        btnEdit.forEach((btnE) => btnE.addEventListener('click', async (e) => {
+          document.getElementById('root').innerHTML += EditPost();
+
+          const editPost = (id) => db.collection('Post').doc(id).get();
+          const getEditPost = await editPost(e.target.dataset.id);
+          const editPostData = getEditPost.data();
+          const idPostedit = (getEditPost.id);
+
+          const formPost = document.querySelector('#textPostInputEdit');
+          formPost.value = editPostData.description;
+
+          console.log(idPostedit);
+          // --------------
+          const EditPostBtn = document.querySelector('#btnPostEdit');
+
+          EditPostBtn.addEventListener('click', async () => {
+            e.preventDefault();
+            const edit = db.collection('Post').doc(idPostedit);
+            edit.update({
+              description: document.getElementById('textPostInputEdit').value,
+            });
+            const containerEdit = await document.getElementById('containerEdit');
+            containerEdit.remove();
+            getPostFirebase();
+          });
+        }));
       });
     });
   });
 }
-
+// Función paara cerrar sesión
 export const signOutLogin = () => {
   const signOutBtn = document.getElementById('signOut');
   signOutBtn.addEventListener('click', async () => {
@@ -309,113 +367,3 @@ export const signOutLogin = () => {
       });
   });
 };
-/* export const showPost = () => {
-  const db = firebase.firestore();
-  db.collection('Post').get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-      const idText = doc.id;
-      const text = doc.data().textPost;
-      const postGrid = document.querySelector('#postGrid');
-      const newPost1 = document.createElement('div');
-      newPost1.textContent = text;
-      newPost1.className = 'newPost1';
-      postGrid.appendChild(newPost1);
-      document.querySelector('#postGrid').appendChild(newPost1);
-    });
-  });
-}
-// Funcion para actualizar el Feed
-export const feedupdate = (callback) => {
-  db.collection('Post').onSnapshot(callback);
-};
-// Funcion para recuperar los Post guardados en BBDD Firebase e insertarlos en el feed
-export function getPostFirebase() {
-  const postGridContainer = document.getElementById('postGrid');
-  feedupdate((querySnapshot) => {
-    postGridContainer.innerHTML = '';
-    querySnapshot.forEach((doc) => {
-      const textPost = doc.data();
-      textPost.id = doc.id;
-      postGridContainer.innerHTML += `<div class="newPost">
-                <p> ${textPost.description} </p>
-                <div id = "postLikesEditAndDeleteBtn" class = "postLikesEditAndDeleteBtn">
-                <i class = "fa fa-heart"></i>
-                <div id = "likes" class = "likesNumber"> 1 </div>
-                <button class='btn-primary  btn-deletePost' data-id=${textPost.id}>Eliminar</button>
-                <button class='btn-secondary btn-edit' data-id = ${textPost.id}>Editar</button>
-              </div>
-              </div>`;
-      // Eliminar post
-      // eslint-disable-next-line no-shadow
-      const getPostToEdit = (id) => db.collection('Post').doc(id).get();
-
-      // eslint-disable-next-line no-shadow
-      function deletePost(id) {
-        return db.collection('Post').doc(id).delete();
-      }
-      const btnDelete = document.querySelectorAll('.btn-deletePost');
-      btnDelete.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-          deletePost(e.target.dataset.id);
-        });
-      });
-      const btnsEdit = document.querySelectorAll('.btn-edit');
-      btnsEdit.forEach((btn) => {
-        btn.addEventListener('click', async (e) => {
-          const postToEdit = await getPostToEdit(e.target.dataset.id);
-          const editPostData = postToEdit.data();
-          editStatus = true;
-          id = textPost.id;
-          const editPostBtn = document.querySelector('#btnPost');
-          editPostBtn.innerHTML = 'Editar';
-
-          const formPost = document.querySelector('#textPostInput');
-          formPost.value = editPostData.description;
-        });
-      });
-    });
-  });
-}
-// eslint-disable-next-line no-shadow
-export function editPost(id, updatedPost) {
-  db.collecion('Post').doc(id).update(updatedPost);
-}
-
-// Funcion que contiene los eventos que suceden al hacer click en Enviar post
-export function post() {
-  const formPost = document.querySelector('#formPost');
-
-  formPost.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!editStatus) {
-      await savePostFirebase();
-    } else {
-      await updatePost(id, {
-        // eslint-disable-next-line no-undef
-        textPost: textPost.value,
-      })
-        .then((docRef) => {
-          console.log('Document written with ID: ', docRef.id);
-          db.collection('Post').get().then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-              const text = docRef.data().textPost;
-              if (doc) {
-                const newPost = document.createElement('div');
-                newPost.className = 'divNuevo';
-                const textNewPost = document.createTextNode(text);
-                newPost.appendChild(textNewPost);
-                document.getElementById('postGrid').appendChild(newPost);
-
-                // console.log(`${doc.id} => ${doc.data()}`);
-                console.log(text);
-              }
-            });
-          });
-        })
-        .catch((error) => {
-          console.error('Error adding document: ', error);
-        });
-    }
-    formPost.reset();
-  });
-}; */

@@ -1,5 +1,5 @@
 export const feedTemplate = () => {
-  const feedHTML = `¨<div id= "containerFeedTemplate" class= "containerFeedTemplate">
+  const feedHTML = `<div id= "containerFeedTemplate" class= "containerFeedTemplate">
   <div id= "headerFeedTemplate" class= "headerFeedTemplate"> 
       <nav class = "categoriesMenu">
       <i class= "fa fa-bars"></i></nav>
@@ -27,7 +27,7 @@ export const feedTemplate = () => {
       <div id= "postAreaContainer" class= "postAreaContainer">
           <div id= "postContainer" class = "postContainer">
               <div id = "profilePic" class= "profilePic">
-                  <img src="img/woman-at-home-knitting.jpg" alt="" class= "profilePicture">
+                  <img alt="" id="userPhoto" class= "profilePicture"/>
                   <div id = "profileName" class = "profileName"> Susana Horia</div>
               </div>
               <div id = "postInputContainer" class= "postInputContainer" >
