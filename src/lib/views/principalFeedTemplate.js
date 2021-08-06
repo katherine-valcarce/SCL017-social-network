@@ -1,6 +1,7 @@
 export const feedTemplate = () => {
   const feedHTML = `<div id= "containerFeedTemplate" class= "containerFeedTemplate">
   <div id= "headerFeedTemplate" class= "headerFeedTemplate"> 
+    <nav class ="categoriesDesktopFeed">CATEGORIAS </nav>
       <nav class = "categoriesMenu">
       <i class= "fa fa-bars"></i></nav>
       <div class = "searchInputBar">
@@ -16,8 +17,8 @@ export const feedTemplate = () => {
           <div class="sidebar">
               <a href="#home" class= "wallMenuCategories"><i class="fa fa-fw fa-home" ></i> Inicio</a>
               <a href="#notifications" class= "wallMenuCategories"><i class="fa fa-bell"></i> Notificaciones</a>
-              <a href="#messages" class= "wallMenuCategories"><i class="fa fa-fw fa-envelope"></i> Mensajes</a>
-              <a href="#saved" class= "wallMenuCategories"><i class="fa fa-bookmark"></i> Guardados</a>
+              <a href="#messages" class= "wallMenuCategories"><i class="fa fa-fw fa-envelope"></i>  Mensajes</a>
+              <a href="#saved" class= "wallMenuCategories"><i class="fa fa-bookmark"></i>  Guardados</a>
               <a href="#subscription" class= "wallMenuCategories"><i class="fa fa-address-card-o"></i> Suscripciones</a>
               <a href="#profile" class= "wallMenuCategories"><i class="fa fa-user-circle"></i> Mi Perfil</a>
               <a href="#settings"class= "wallMenuCategories"><i class="fa fa-cog"></i> Configuración</a>

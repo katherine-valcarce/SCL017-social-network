@@ -270,7 +270,7 @@ export function getPostFirebase() {
       const textPost = doc.data();
       textPost.id = doc.id;
       postGridContainer.innerHTML += `<div class="newPost"> 
-                <p class "userTextPost"> ${user} dice : </p> 
+                <p class "userTextPost" text-shadow: black 0.02em 0.02em 0.08em;> ${textPost.user} dice : </p> 
                 <p> ${textPost.description} </p>
                 <div class="divLikesEditDelete">
                 <i class='fa fa-heart btn-likePost' id="btnLike" data-id=${textPost.id} ></i>

@@ -17,9 +17,15 @@ main {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 100vh;
+  height: 90vh;
   align-content: center;
   align-items: center;
+}
+.menuBars fa fa-bars{
+  font-size: 50px;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 2%;
 }
 .welcomeMenuMobile{
   display: flex;
@@ -38,7 +44,7 @@ main {
   width: auto;
   margin: auto;
   top: 38%;
-  left: 5%;
+  left: 8%;
 }
 
 .welcomeImg:hover {
@@ -175,6 +181,9 @@ a.closeLoginModal {
   text-decoration: none;
   color: rgba(211, 210, 210, 1);
 }
+.closeLoginModalDiv{
+  margin-top: 10%;
+}
 .loginModalRegister{
   background-color: rgba(0, 0, 0, 0.8);
   position: fixed;
@@ -186,6 +195,7 @@ a.closeLoginModal {
   }
 .registerForm{
   font-family: "Niramit", sans-serif;
+  text-shadow: black 0.02em 0.02em 0.04em;
   border: 5px solid rgba(245, 194, 95, 1);
   border-radius: 15px;
   background-color: white;

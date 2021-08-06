@@ -14,7 +14,7 @@ export const loginTemplate = () => {
             </form>
             <p class="option"> o <p>
             <button id="googleLoginButton" class="googleLoginButton" >Ingresa con Google</button>
-            <div> 
+            <div class ="closeLoginModalDiv"> 
               <a href='' class='closeLoginModal'>Cerrar</a>
             </div>
         </div>
