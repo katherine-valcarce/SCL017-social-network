@@ -18,6 +18,9 @@ Los principales usuarios de nuestra comunidad son aquellas personas que quieran 
 
 Nuestra comunidad permite crear redes entre personas que compartan este amor por la creación, impulsando el autoaprendizaje, compartiendo entre ellos y aprendiendo también de otros.
 
+Revisa nuestra red social aqui:
+https://katherine-valcarce.github.io/SCL017-social-network/src/
+
 ***
 ### Historias de usuario
 
