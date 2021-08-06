@@ -15,14 +15,14 @@ export const feedTemplate = () => {
   <div id= "containerWallFeedTemplate" class= "containerWallFeedTemplate" >
       <div id= "wallMenu" class = "wallMenu">
           <div class="sidebar">
-              <a href="#home" class= "wallMenuCategories"><i class="fa fa-fw fa-home" ></i> Inicio</a>
-              <a href="#notifications" class= "wallMenuCategories"><i class="fa fa-bell"></i> Notificaciones</a>
-              <a href="#messages" class= "wallMenuCategories"><i class="fa fa-fw fa-envelope"></i>  Mensajes</a>
-              <a href="#saved" class= "wallMenuCategories"><i class="fa fa-bookmark"></i>  Guardados</a>
-              <a href="#subscription" class= "wallMenuCategories"><i class="fa fa-address-card-o"></i> Suscripciones</a>
-              <a href="#profile" class= "wallMenuCategories"><i class="fa fa-user-circle"></i> Mi Perfil</a>
-              <a href="#settings"class= "wallMenuCategories"><i class="fa fa-cog"></i> Configuración</a>
-              <a href="" class= "wallMenuCategories" id="signOut"><i class="fa fa-times-circle"></i> Cerrar Sesión</a>
+              <a href="#home" class= "wallMenuCategories"> Inicio</a>
+              <a href="#notifications" class= "wallMenuCategories"> Notificaciones</a>
+              <a href="#messages" class= "wallMenuCategories">  Mensajes</a>
+              <a href="#saved" class= "wallMenuCategories"> Guardados</a>
+              <a href="#subscription" class= "wallMenuCategories">Suscripciones</a>
+              <a href="#profile" class= "wallMenuCategories"> Mi Perfil</a>
+              <a href="#settings"class= "wallMenuCategories">Configuración</a>
+              <a href="" class= "wallMenuCategories" id="signOut"> Cerrar Sesión</a>
         </div> 
       </div>
       <div id= "postAreaContainer" class= "postAreaContainer">
