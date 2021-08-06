@@ -172,18 +172,6 @@ box-sizing: border-box;
    p.userTextPost{
         text-shadow: black 0.02em 0.02em 0.08em;
     }
-.containerEdit{
-    background-color: white;
-    border: 2px solid hsl(0deg 0% 13%);
-    border-radius: 15px;
-    width: 80%;
-    height: auto;
-    position: fixed;
-    top: 20%;
-    left: 10%;
-    flex-direction: column;
-    justify-content: center;
-}
 .formPostEdit{ 
     display: flex;
     flex-direction: column;
