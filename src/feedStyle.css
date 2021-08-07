@@ -23,10 +23,11 @@
 }
 .headerFeedTemplate{
     display: flex;
-    justify-content: space-between;
+    justify-content:space-around;
     flex-direction: row;
     width: 90%;
-    padding: 2%;
+    margin: 1.8%;
+    padding: 0% 1%;
     font-size: 25px;
     align-content: center;
     align-items: center;
@@ -55,7 +56,7 @@
         width: 70%;
         justify-content: space-evenly;
         background-color: #8FBFF8;
-        padding: 2%;
+        padding: 0.9%;
         border-radius: 5px;
         box-shadow: 0px 1px 3px 0px #697473;
     }
@@ -73,8 +74,9 @@
     .sidebar{
         display: flex;
         flex-direction: column;
+        flex-wrap:wrap;
         align-items: flex-start;
-        width: 30%;
+        width: 55%;
     }
     .textPostInput{
         width: 90%;
@@ -250,7 +252,7 @@ box-sizing: border-box;
     font-family: 'Noticia Text';
 }
 .modal-header{ 
-    background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   position: fixed;
   top: 0;
   right: 0;
@@ -269,6 +271,7 @@ box-sizing: border-box;
     padding: 1%;
     margin: 1%;
     width: 30%;
+    height: 90%;
     font-size: small;
     flex-direction: column;
     justify-content: flex-start;
@@ -288,12 +291,12 @@ box-sizing: border-box;
     display: none;
 }
 .wallMenuCategories{
-    display: flex;
     font-size: large;
     text-decoration: none;
     color: black;
     flex-direction: row;
-    padding: 30%;
+    padding: 15% 15%;
+    width: 100%;
     justify-content: flex-start;
     align-items: flex-end;
 } 
@@ -301,8 +304,7 @@ box-sizing: border-box;
     display: flex;
     font-family: "Niramit", sans-serif;
     text-shadow: black 0.02em 0.02em 0.08em;
-    margin-left: 4%;
-    width: 17%;
+    margin: 2%;
 }
 .headerFeedTemplate{
     width: 99%;
@@ -310,6 +312,7 @@ box-sizing: border-box;
 }
 .searchInputBar{
     width: 75%;
+    height: 5%;
 }
 .searchProjectsInput{
     width: 80%;
@@ -325,7 +328,7 @@ box-sizing: border-box;
     background-image: url(img/backgroundDoIt.png);
     display: flex;
     background-size: cover;
-    height: 88vh;
+    height: auto;
 }
 .suggestionsAndFriendsContainer{
     display: flex;
@@ -403,11 +406,7 @@ box-sizing: border-box;
     position: fixed;
     width: 40%;
     margin-left: 20%;
-}
-a.wallMenuCategories{
-    width:100%;
-}
-    
+}    
 .postLikesEditAndDeleteBtn{
     display: flex;
 } 

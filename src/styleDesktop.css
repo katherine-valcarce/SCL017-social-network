@@ -49,14 +49,46 @@
     height: 90vh;
   }
   .loginForm{
-    left: 33%;
-    width: 25%;
+    top: 8%;
+    left: 36%;
+    width: 30%;
+    height: 86%;
   }
-  
+  .closeLoginModalDiv{
+    margin: 2%;
+  }
+  .aboutUsTextTwoDiv{
+    width: 90%;
+    position:absolute;
+    top: 68%;
+    left: -3%;
+  }
+  .aboutUsTextOneDiv{
+    position:absolute;
+    width: 90%;
+    top: 35%;
+    left: 6%;
+  }
   .registerForm{
-    width: 25%;
-    height: 48%;
-    margin-left: 33%;
+    width: 28%;
+    height: 89%;
+    margin-left: 31%;
+    top: 5%;
+    padding: 1% 2% 0%;
+    justify-content: flex-start;
+  }
+  .registerTitle{
+    margin: 0%;
+  }
+  .closeRegister{
+    margin: 0%;
+  }
+  .createAccountButton{
+    width: 50%;
+    margin: 4% 0% 0%;
+  }
+  .option{
+    margin: 0%;
   }
   .aboutUsTextOne{
     font-size: 150%;
@@ -69,15 +101,19 @@
     font-size: 180%;
     top: 60%;
 
-  }
-   }
-  
+  }  
   .footerText {
     font-family: "Niramit", sans-serif;
     font-weight: bold;
+    text-align: center;
+  }
+  footer{
+    position:relative;
+    left: 25%;;
   }
   .doitHash {
     font-family: "Noticia Text", serif;
     color: blue;
     font-weight: bold;
   }
+}

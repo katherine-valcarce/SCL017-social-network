@@ -5,7 +5,7 @@ export const feedTemplate = () => {
       <nav class = "categoriesMenu">
       <i class= "fa fa-bars"></i></nav>
       <div class = "searchInputBar">
-      <i class= "fa fa-search" ></i>
+      <i class= "fa fa-search"></i>
       <input type="text" id="searchProjects" class= "searchProjectsInput" onkeyup="searchFunction()" placeholder="¿Qué proyecto quieres hacer hoy?">
       </div>
       <div class = "friendsIcon">
@@ -23,7 +23,7 @@ export const feedTemplate = () => {
               <a href="#profile" class= "wallMenuCategories"> Mi Perfil</a>
               <a href="#settings"class= "wallMenuCategories">Configuración</a>
               <a href="" class= "wallMenuCategories" id="signOut"> Cerrar Sesión</a>
-        </div> 
+           </div>
       </div>
       <div id= "postAreaContainer" class= "postAreaContainer">
           <div id= "postContainer" class = "postContainer">
@@ -50,7 +50,33 @@ export const feedTemplate = () => {
           </div>
       </div>
       <div id = "suggestionsAndFriendsContainer" class= "suggestionsAndFriendsContainer">
-      </div>
+        <div class='suggestionsDiv'>
+             <h1>Sugerencias</h1>
+              <div class='suggestions1'>
+                <img src='' alt="Sugerencia de amistad" class= "suggestionsPicture" />
+                <p>elba.lazo</p>
+              </div>
+              <p>.Macramé</p>
+              <div class='suggestions2'>
+                <img src='' alt="Sugerencia de amistad" class= "suggestionsPicture" />
+                <p>elmer.figueroa.lazo</p>
+              </div>
+              <p>.Origami</p>
+              <div class='suggestions3'>
+                <img src='' alt="Sugerencia de amistad" class= "suggestionsPicture" />
+                <p>maría.mercedes</p>
+              </div>
+              <p>.Carpintería</p>
+        </div>
+        <div class='FriendsDiv'>
+            <h1>Amigos</h1>
+              <div class='friend1'>
+              </div>
+              <div class='friend2'>
+              </div>
+              <div class='friend3'>
+              </div>
+       </div>
   </div>
 </div>`;
   return feedHTML;

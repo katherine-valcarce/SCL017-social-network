@@ -5,20 +5,26 @@ export const aboutUsTemplate = () => {
   aboutUsHTML += `
     <main class="aboutUsMain">
         <section class = "aboutUs">
-            <text class= "aboutUsTitle">
-                DoIt
-            </text>
-            <text class="aboutUsTextOne">
-            Somos una red social enfocada a compartir tutoriales en todo tipo de formatos
-                bajo el concepto do it yourself, que consiste en la creación, modificación 
-                o reparación de objetos sin ayuda de un especialista ni a través de la producción industrial.
-                DoIt hace que sea fácil y divertido cualquier proyecto que te propongas.
-            </text>
-            <text class="aboutUsTextTwo"> 
-                ¿Te gustaría compartir tu idea? <br>
-                ¿Saber como comenzar tu proyecto?<br>
-                <a href="#/register" class="joinButton" >¡Únete! </a>
-            </text>
+            <div>
+                <text class= "aboutUsTitle">
+                    DoIt
+                </text>
+            </div>
+            <div class = 'aboutUsTextOneDiv'>
+                <text class="aboutUsTextOne">
+                Somos una red social enfocada a compartir tutoriales en todo tipo de formatos
+                    bajo el concepto do it yourself, que consiste en la creación, modificación 
+                    o reparación de objetos sin ayuda de un especialista ni a través de la producción industrial.
+                    DoIt hace que sea fácil y divertido cualquier proyecto que te propongas.
+                </text>
+            </div>
+            <div class='aboutUsTextTwoDiv'>
+                <text class="aboutUsTextTwo"> 
+                    ¿Te gustaría compartir tu idea? <br>
+                    ¿Saber como comenzar tu proyecto?<br>
+                    <a href="#/register" class="joinButton" >¡Únete! </a>
+                </text>
+            </div>
         </section>
     </main>
     `;

@@ -129,6 +129,7 @@ a.mobileMenuOption {
   text-align: center;
   display: flex;
   flex-direction: column;
+  float: inline-start;
   align-content: space-around;
   justify-content: center;
   align-items: stretch;
@@ -170,7 +171,6 @@ h1{
   font-weight: bold;
   text-shadow: black 0.02em 0.02em 0.06em;
   text-align: center;
-  float: inline-start;
   margin-bottom: 3%;
   padding: 2%;
   cursor: pointer;
@@ -179,10 +179,10 @@ h1{
 }
 a.closeLoginModal {
   text-decoration: none;
-  color: rgba(211, 210, 210, 1);
+  color: rgb(143, 143, 143);
 }
 .closeLoginModalDiv{
-  margin-top: 10%;
+  margin: 2%; 
 }
 .loginModalRegister{
   background-color: rgba(0, 0, 0, 0.8);
@@ -192,7 +192,10 @@ a.closeLoginModal {
   bottom: 0;
   left: 0;
   transition: all 1s;
-  }
+}
+.option{
+margin:0%;
+}
 .registerForm{
   font-family: "Niramit", sans-serif;
   text-shadow: black 0.02em 0.02em 0.04em;
@@ -248,9 +251,6 @@ a.closeLoginModal {
   padding: 2%;
   cursor: pointer;
   font-size: 100%;
-}
-p{
-  height: 1%;
 }
 a.closeRegisterModal {
   text-decoration: none;
