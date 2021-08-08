@@ -2,6 +2,10 @@
 import { headerTemplateMobile } from './views/menuMobileTemplate.js';
 import { verificationTemplate } from './views/registerTemplate.js';
 import { EditPost } from './views/EditPost.js';
+// eslint-disable-next-line import/no-cycle
+import { displayRespectiveTemplate } from './router.js';
+import { menuFeedTemplateMobile } from './views/MenuMobileFeed.js';
+import { friendsFeedTemplateMobile } from './views/menuFriendsMobileFeed.js';
 
 export const myFunction = () => {
   // aqui tu codigo
@@ -260,23 +264,54 @@ export function post() {
     formPost.reset();
   });
 }
+export function menuFeedMobile() {
+  // Abrir menu en feed desde version mobile
+  const btnmenuFeedMobile = document.getElementById('btnMenuFeedMobile');
+  btnmenuFeedMobile.addEventListener('click', () => {
+    const feed = document.getElementById('containerFeedTemplate');
+    feed.innerHTML += menuFeedTemplateMobile();
+    // Cerrar menu en feed desde version mobile
+    const closeMenuMobile = document.getElementById('closeMenuMobile');
+    closeMenuMobile.addEventListener('click', () => {
+      document.getElementById('wallMenuMobile').remove();
+      menuFeedMobile();
+      displayRespectiveTemplate('#/feed');
+    });
+  });
+}
+export function friendsFeedMobile() {
+  // Abrir pestaña amigos en feed desde version mobile
+  const btnFriendsFeedMobile = document.getElementById('btnFriendsFeedMobile');
+  btnFriendsFeedMobile.addEventListener('click', () => {
+    console.log('Se abrio el menu friends');
+    const feed = document.getElementById('containerFeedTemplate');
+    feed.innerHTML += friendsFeedTemplateMobile();
+    // Cerrar menu en feed desde version mobile
+    const closeMenuMobile = document.getElementById('closeMenuMobile');
+    closeMenuMobile.addEventListener('click', () => {
+      document.getElementById('suggestionsAndFriendsMobile').remove();
+      menuFeedMobile();
+      friendsFeedMobile();
+      displayRespectiveTemplate('#/feed');
+    });
+  });
+}
 // Funcion para recuperar los Post guardados en BBDD Firebase e insertarlos en el feed
 export function getPostFirebase() {
   const postGridContainer = document.getElementById('postGrid');
   feedupdate((querySnapshot) => {
     postGridContainer.innerHTML = '';
     querySnapshot.forEach((doc) => {
-      const user = document.getElementById('profileName').innerHTML;
       const textPost = doc.data();
       textPost.id = doc.id;
       postGridContainer.innerHTML += `<div class="newPost"> 
-                <p class "userTextPost" text-shadow: black 0.02em 0.02em 0.08em;> ${textPost.user} dice : </p> 
+                <p class "userTextPost"> <b> ${textPost.user} </b> dice : </p> 
                 <p> ${textPost.description} </p>
                 <div class="divLikesEditDelete">
-                <i class='fa fa-heart btn-likePost' id="btnLike" data-id=${textPost.id} ></i>
+                <i class='fa fa-heart btn-likePost' id="btnLike" style='font-size:25px;' data-id=${textPost.id} ></i>
                 <div id = "numLikes" class = "numLikes" data-id=${textPost.id}>${textPost.like.length} </div>
-                <i class='fa fa-trash  btn-deletePost' data-id=${textPost.id}></i>
-                <i class='fa fa-edit  btn-editPost'  data-id=${textPost.id}></i>
+                <i class='fa fa-trash  btn-deletePost' style='font-size:27px;' data-id=${textPost.id}></i>
+                <i class='fa fa-edit  btn-editPost' style='font-size:25px;' data-id=${textPost.id}></i>
                 </div>
               </div>`;
       // Eliminar post
@@ -348,6 +383,14 @@ export function getPostFirebase() {
           const containerEdit = await document.getElementById('containerEdit');
           containerEdit.remove();
           getPostFirebase();
+          menuFeedMobile();
+        });
+        const btnCancelEdit = document.getElementById('btnPostCancelEdit');
+        btnCancelEdit.addEventListener('click', () => {
+          const containerEdit = document.getElementById('containerEdit');
+          containerEdit.remove();
+          getPostFirebase();
+          menuFeedMobile();
         });
       }));
     });

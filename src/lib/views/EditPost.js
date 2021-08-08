@@ -4,10 +4,9 @@ export const EditPost = () => {
             
   <div class="postEdit">     
                 <form id="formPostEdit" class= "formPostEdit">
-                                             
-                    
+                        <div id="btnPostCancelEdit" class = "btnPostCancelEdit" > Cancelar </div>
                         <input type="text"  id= "textPostInputEdit" class="textPostInputEdit" />
-                        <button id="btnPostEdit" class = "btnPostEdit" type="submit" > Editar Post</button>
+                        <button id="btnPostEdit" class = "btnPostEdit" type="submit" > Editar</button>
                 </form> 
             </div> 
             </div>

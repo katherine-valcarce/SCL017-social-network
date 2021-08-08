@@ -15,7 +15,88 @@
 .body{
     margin: 0px;
 }
-
+.wallMenuMobile{
+    background-color: white;
+    top: 5%;
+    left: 1%;
+    width: 50%;
+    height: 85%;
+    position: absolute;
+    padding: 3%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: space-between;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 2px solid rgba(245, 194, 95, 1);
+    border-radius: 15px;
+    transition: all 1s;
+    opacity:1;
+    overflow: hidden;
+}
+.wallMenuMobileModal{
+  background-color: rgba(0,0,0,.8);
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  opacity:0;
+  pointer-events:none;
+  transition: all 5s;
+}
+#login:target{
+    opacity:1;
+    pointer-events:auto;
+}
+a.wallMenuCategories {
+    font-size: large;
+    text-decoration: none;
+    color: black;
+    flex-direction: row;
+    padding: 10% 10%;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.wallMenuCategoriesMobile{
+    font-family: "Niramit", sans-serif;
+    font-weight: bold;
+    font-size: large;
+    text-decoration: none;
+    color: black;
+    flex-direction: row;
+    padding: 15% 15%;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.wallMenuCategoriesMobileClose{
+    font-family: "Niramit", sans-serif;
+    font-weight: bold;
+    font-size: large;
+    text-decoration: none;
+    color: black;
+    flex-direction: row;
+    padding: 15% 15%;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-end;
+    position: absolute;
+    top: 85%;
+    left: 0%;
+}
+.returnMenuMobile{
+    width: 10%;
+    position: fixed;
+    float: right;
+    left: 40%;
+}
+.sidebarMobile{
+    display: flex;
+    flex-direction: column;
+}
 .containerFeedTemplate{
     display: flex;
     flex-direction: column;
@@ -42,7 +123,6 @@
 .wallMenu{
     display: none;
 }
-
     .categoriesMenu{
         display: flex;
         justify-content: space-between;
@@ -155,15 +235,11 @@ box-sizing: border-box;
         display: flex;
         margin: 2%;
     }
-    .postGrid{
-        display: flex;
-        flex-direction: column;
-    }
     .newPost{
-        padding: 5%;
-        margin: 2%;
-        display: flex;
-        flex-direction: column;
+    padding: 5%;
+    margin: 2%;
+    display: flex;
+    flex-direction: column;
     font-family: "Niramit", sans-serif;
     box-shadow: 0px 1px 8px 0px #697473;
     background: rgba(255, 255, 255, 0.95);
@@ -180,7 +256,7 @@ box-sizing: border-box;
     align-content: stretch;
     justify-content: space-between;
     align-items: center;
-    padding: 5%;
+    padding: 2% 8%;
     background-color: white;
     border: 2px solid rgba(245, 194, 95, 1);
     border-radius: 15px;
@@ -191,30 +267,47 @@ box-sizing: border-box;
 .textPostInputEdit{
     width: 90%;
     padding: 2% 7%;
-    margin: 10%;
+    margin: 6%;
     height: 100px;
     border-radius: 5px;
     word-wrap: break-word;
-    cursor: crosshair;
+    overflow-wrap: break-word;
+    cursor: text;
     background-color: white;
     border-color: #8FBFF8;
     border-width: 3px;
 }
 .btnPostEdit{
+    font-family: "Niramit", sans-serif;
+    font-weight: bold;
+    font-size: 100%;
     margin: 2%;
     height: 40%;
     background-color: #8FBFF8;
     border-radius: 5px;
     box-shadow: 0px 1px 1px 0px #ccc;
     border: #8FBFF8;
-    padding: 2%;
+    padding: 2% 5%;
     padding-left: 5%;
     padding-right: 5%;
+    cursor: pointer;
 }
 
     .postLikesEditAndDeleteBtn{
         display: flex;
         align-items: center;
+    }
+    .btn-likePost{
+        cursor: pointer;
+        font-size:50px;
+    }
+    .btn-deletePost{
+        margin-right: 2%;
+        cursor: pointer;
+    }
+    .btn-editPost{
+        margin-right: 1%;
+        cursor: pointer;
     }
     .likesNumber{
         margin: 2%;
@@ -239,12 +332,30 @@ box-sizing: border-box;
     justify-content: space-between;
     flex-direction: row;
 }
-
+.fa-camera{
+    margin: 0% 0% 2%;
+}
+.btnPostCancelEdit{
+    font-family: "Niramit", sans-serif;
+    font-weight: bold;
+    font-size: 100%;
+    margin: 2%;
+    height: 40%;
+    background-color: rgba(245, 194, 95, 0.69);
+    border-radius: 5px;
+    box-shadow: 0px 1px 1px 0px #ccc;
+    border: rgba(245, 195, 95, 0.863);
+    padding: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+    cursor: pointer;
+}
 .uploadYourPicBtn{
     font-size: small;
     font-family: "Niramit", sans-serif;
     text-shadow: black 0.02em 0.02em 0.08em;
     width: 80%;
+    margin: 6% 0% 0%;
 }
 .numLikes{
     margin-right: 70%;
@@ -260,6 +371,62 @@ box-sizing: border-box;
   left: 0;
   transition: all 1s;
  }
+ .suggestionsAndFriendsContainer{
+    display: none;
+ }
+ .suggestionsAndFriendsMobile {
+    display: flex;
+    padding: 1%;
+    margin: 7% 1%;
+    width: 60%;
+    left: 60%;
+    float: right;
+    font-size: small;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-shadow: 0px 1px 8px 0px #697473;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid rgba(245, 194, 95, 0.69);
+    box-sizing: border-box;
+    font-family: "Niramit", sans-serif;
+    text-shadow: black 0.02em 0.02em 0.08em;
+    border-radius: 15px;
+ }
+ .titleSuggestionsAndFriends{
+    text-align: center;
+    margin: 0% 0% 3%;
+    cursor: pointer;
+}
+.suggestionsPicture{
+    width: 30%;
+    cursor: pointer;
+}
+.nameSuggestions{
+    margin-left: 4%;
+    cursor: pointer;
+}
+.suggestions, .friend {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+.categorySuggestions{
+    margin: 0% 2% 2%;
+    cursor: pointer;
+}
+.categoryFriend{
+    margin: 0% 8% 2%;
+}
+.closeMenuMobileFriends{
+    position: relative;
+}
+.suggestionsDiv{
+     margin-left: 10%;
+}
+.FriendsDiv{
+    margin-left: 10%;
+}
   @media screen and (min-width: 1024px){
 
 .welcomeMenuMobile{
@@ -271,7 +438,7 @@ box-sizing: border-box;
     padding: 1%;
     margin: 1%;
     width: 30%;
-    height: 90%;
+    height: 120%;
     font-size: small;
     flex-direction: column;
     justify-content: flex-start;
@@ -286,6 +453,44 @@ box-sizing: border-box;
 }
 .friendsIcon{
     display: none;
+}
+.suggestionsPicture{
+    width: 30%;
+    cursor: pointer;
+}
+.categorySuggestions{
+    margin: 0% 2.5% 8%;
+    cursor: pointer;
+}
+.titleSuggestionsAndFriends{
+    text-align: center;
+    margin: 0% 0% 3%;
+    cursor: pointer;
+}
+.wallMenuCategoriesCloseDesktop{
+    font-family: "Niramit", sans-serif;
+    font-weight: bold;
+    font-size: large;
+    text-decoration: none;
+    color: black;
+    flex-direction: row;
+    padding: 15% 15%;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-top: 230%;
+}
+.nameSuggestions{
+    margin-left: 4%;
+    cursor: pointer;
+}
+.suggestions, .friend {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+.categoryFriend{
+    margin: 0% 6% 8%;
 }
 .categoriesMenu{
     display: none;
@@ -305,6 +510,7 @@ box-sizing: border-box;
     font-family: "Niramit", sans-serif;
     text-shadow: black 0.02em 0.02em 0.08em;
     margin: 2%;
+    cursor: pointer;
 }
 .headerFeedTemplate{
     width: 99%;
@@ -376,6 +582,8 @@ box-sizing: border-box;
 }
 .postGrid{
     padding: 1%;
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 .newPost{
     padding: 4%;
@@ -394,11 +602,11 @@ box-sizing: border-box;
 }
 .btn-post{
     font-size: medium;
+    cursor: pointer;
 }
 .postGrid{
     display: grid;
     grid-template-columns: auto auto;
-    grid-template-rows: auto auto ;
     
 }
 .formPostEdit{
