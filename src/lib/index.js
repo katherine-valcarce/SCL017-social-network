@@ -7,17 +7,10 @@ import { displayRespectiveTemplate } from './router.js';
 import { menuFeedTemplateMobile } from './views/MenuMobileFeed.js';
 import { friendsFeedTemplateMobile } from './views/menuFriendsMobileFeed.js';
 
-export const myFunction = () => {
-  // aqui tu codigo
-  console.log('Hola mundo!');
-};
-
-export const googleRegister = () => {
-  const googleRegisterButton = document.querySelector('#googleRegisterButton');
-  googleRegisterButton.addEventListener('click', () => {
-    // eslint-disable-next-line no-use-before-define
+export const googleLogIn = () => {
+  const googleLoginButton = document.querySelector('#googleLoginButton');
+  googleLoginButton.addEventListener('click', () => {
     const provider = new firebase.auth.GoogleAuthProvider();
-    // eslint-disable-next-line no-use-before-define
     firebase.auth()
       .signInWithPopup(provider)
       .then((result) => {
@@ -29,7 +22,6 @@ export const googleRegister = () => {
         // The signed-in user info.
         const user = result.user;
         window.location.assign('#/feed');
-        console.log('user', user); // BORRAR CONSOLELOG DESPUÉS DE PROBAR!
         // ...
       }).catch((error) => {
         // Handle Errors here.
@@ -39,7 +31,6 @@ export const googleRegister = () => {
         const email = error.email;
         // The firebase.auth.AuthCredential type that was used.
         const credential = error.credential;
-        console.log('error', errorMessage); // BORRAR CONSOLELOG DESPUÉS DE PROBAR
         // ...
       });
   });
@@ -53,13 +44,11 @@ export const register = () => {
     const email = document.querySelector('#registerEmail').value;
     const password = document.querySelector('#registerPassword').value;
 
-    // eslint-disable-next-line no-use-before-define
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
         // ...
-        console.log('user', user);
       })
       .then(() => {
         // eslint-disable-next-line no-use-before-define
@@ -95,26 +84,15 @@ export const emailVerification = () => {
   });
 };
 export const authObserver = () => {
-  // eslint-disable-next-line no-use-before-define
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      const displayName = user.displayName;
-      const email = user.email;
       const emailVerified = user.emailVerified;
-      const photoURL = user.photoURL;
-      const isAnonymous = user.isAnonymous;
-      const uid = user.uid;
-      const providerData = user.providerData;
       let messageVerifiedAccount = '';
       if (emailVerified === false) {
         messageVerifiedAccount = 'Email no verificado';
       } else {
         messageVerifiedAccount = 'Email verificado';
       }
-      console.log('Logueado');
-      console.log(email, messageVerifiedAccount, uid);
-    } else {
-      console.log('No Logueado');
     }
   });
 };
@@ -128,18 +106,14 @@ export const logIn = () => {
     const email = document.querySelector('#user').value;
     const password = document.querySelector('#pass').value;
 
-    // eslint-disable-next-line no-use-before-define
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user);
         if (user.emailVerified) {
-          // eslint-disable-next-line no-alert
           window.location.assign('#/feed');
         } else {
           // eslint-disable-next-line no-alert
           alert('debes verificar tu cuenta antes de continuar');
-          // eslint-disable-next-line no-use-before-define
           firebase.auth().signOut();
         }
       })
@@ -158,38 +132,6 @@ export const logIn = () => {
           // eslint-disable-next-line no-alert
           alert(errorMessage);
         }
-      });
-  });
-};
-export const googleLogIn = () => {
-  const googleLogInButton = document.querySelector('#googleLoginButton');
-  googleLogInButton.addEventListener('click', () => {
-    // eslint-disable-next-line no-use-before-define
-    const provider = new firebase.auth.GoogleAuthProvider();
-    // eslint-disable-next-line no-use-before-define
-    firebase.auth()
-      .signInWithPopup(provider)
-      .then((result) => {
-        /** @type {firebase.auth.OAuthCredential} */
-        const credential = result.credential;
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        // eslint-disable-next-line no-alert
-        window.location.assign('#/feed');
-        console.log('user', user); // BORRAR CONSOLELOG DESPUÉS DE PROBAR!
-        // ...
-      }).catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        const credential = error.credential;
-        console.log('error', errorMessage); // BORRAR CONSOLELOG DESPUÉS DE PROBAR
-        // ...
       });
   });
 };
@@ -283,7 +225,6 @@ export function friendsFeedMobile() {
   // Abrir pestaña amigos en feed desde version mobile
   const btnFriendsFeedMobile = document.getElementById('btnFriendsFeedMobile');
   btnFriendsFeedMobile.addEventListener('click', () => {
-    console.log('Se abrio el menu friends');
     const feed = document.getElementById('containerFeedTemplate');
     feed.innerHTML += friendsFeedTemplateMobile();
     // Cerrar menu en feed desde version mobile
@@ -330,11 +271,8 @@ export function getPostFirebase() {
           const getPost = (id) => db.collection('Post').doc(id).get();
           const docPost = await getPost(e.target.dataset.id);
           const idDocData = (docPost.id);
-          // console.log(idDocData);
           const likesRef = db.collection('Post').doc(idDocData);
           const usuario = firebase.auth().currentUser;
-          // console.log(usuario.uid);
-          // console.log(textPost.user);
 
           likesRef.get('like').then((postData) => {
             const likesArray = postData.data().like;
@@ -369,8 +307,6 @@ export function getPostFirebase() {
 
         const formPost = document.querySelector('#textPostInputEdit');
         formPost.value = editPostData.description;
-
-        console.log(idPostedit);
         // --------------
         const EditPostBtn = document.querySelector('#btnPostEdit');
 
@@ -403,7 +339,6 @@ export const signOutLogin = () => {
   signOutBtn.addEventListener('click', async () => {
     await firebase.auth().signOut()
       .then(() => {
-        console.log('Sesion finalizada');
         // Sign-out successful.
       }).catch((error) => {
         // An error happened.
