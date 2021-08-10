@@ -116,10 +116,6 @@ a.wallMenuCategories {
 .categoriesDesktopFeed{
     display: none;
 }
-
-.categoriesDesktopFeed{
-    display: none;
-}
 .wallMenu{
     display: none;
 }
@@ -603,11 +599,6 @@ box-sizing: border-box;
 .btn-post{
     font-size: medium;
     cursor: pointer;
-}
-.postGrid{
-    display: grid;
-    grid-template-columns: auto auto;
-    
 }
 .formPostEdit{
     margin-top: 10%;

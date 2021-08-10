@@ -7,6 +7,7 @@ import { displayRespectiveTemplate } from './router.js';
 import { menuFeedTemplateMobile } from './views/MenuMobileFeed.js';
 import { friendsFeedTemplateMobile } from './views/menuFriendsMobileFeed.js';
 
+// Iniciar sesión con Google
 export const googleLogIn = () => {
   const googleLoginButton = document.querySelector('#googleLoginButton');
   googleLoginButton.addEventListener('click', () => {
@@ -16,7 +17,6 @@ export const googleLogIn = () => {
       .then((result) => {
         /** @type {firebase.auth.OAuthCredential} */
         const credential = result.credential;
-
         // This gives you a Google Access Token. You can use it to access the Google API.
         const token = credential.accessToken;
         // The signed-in user info.
@@ -35,7 +35,7 @@ export const googleLogIn = () => {
       });
   });
 };
-
+// Registrarse con correo y contraseña
 export const register = () => {
   const registerForm = document.querySelector('#registerForm');
 

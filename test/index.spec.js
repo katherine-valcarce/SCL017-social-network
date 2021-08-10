@@ -1,6 +1,6 @@
 // importamos la funcion que vamos a testear
 import { displayRespectiveTemplate } from '../src/lib/router.js';
-import { googleRegister, register } from '../src/lib/index.js';
+import { googleLogIn, register } from '../src/lib/index.js';
 import { registerTemplate } from '../src/lib/views/registerTemplate.js';
 
 describe('displayRespectiveTemplate', () => {
@@ -9,9 +9,9 @@ describe('displayRespectiveTemplate', () => {
   });
 });
 
-describe('googleRegister', () => {
+describe('googleLogIn', () => {
   it('should be a function', () => {
-    expect(typeof googleRegister).toBe('function');
+    expect(typeof googleLogIn).toBe('function');
   });
 });
 

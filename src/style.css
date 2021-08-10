@@ -21,7 +21,7 @@ main {
   align-content: center;
   align-items: center;
 }
-.menuBars fa fa-bars{
+.menuBars fa-bars{
   font-size: 50px;
   display: flex;
   justify-content: flex-end;
